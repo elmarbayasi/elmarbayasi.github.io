@@ -73,6 +73,7 @@
       transition:0.4s;
       backdrop-filter: blur(5px);
       border: 1px solid rgba(255,255,255,0.2);
+      position: relative;
     }
     .card:hover {
       transform:scale(1.03);
@@ -93,32 +94,19 @@
       margin-bottom:10px;
     }
 
-    /* Musiqi düyməsi */
-    #musicButton {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: linear-gradient(135deg, #b085f5, #d9b3ff);
-      border:none;
-      border-radius:50%;
-      width:50px;
-      height:50px;
+    .play-music {
+      position:absolute;
+      top:15px;
+      right:20px;
       cursor:pointer;
-      font-size:24px;
-      color:#0a0a0a;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      box-shadow:0 4px 10px rgba(0,0,0,0.5);
+      font-size:1.5rem;
       transition:0.3s;
-      z-index:999;
     }
-    #musicButton:hover { transform:scale(1.1); }
+    .play-music:hover { transform: scale(1.2); }
 
     @media(max-width:600px){
       header { font-size:2.5rem; padding:40px 10px; }
       nav button { padding:10px 18px; font-size:0.9rem; }
-      #musicButton { width:40px; height:40px; font-size:20px; }
     }
   </style>
 </head>
@@ -141,13 +129,6 @@
 </nav>
 
 <div class="container" id="poemsContainer"></div>
-
-<!-- Musiqi düyməsi və audio -->
-<button id="musicButton">🎵</button>
-<audio id="bgMusic">
-  <source src="https://cdn.pixabay.com/audio/2021/12/13/audio_2b90c6069e.mp3" type="audio/mpeg">
-  Sizin brauzer audio elementini dəstəkləmir.
-</audio>
 
 <script>
 const poems = [
@@ -207,34 +188,34 @@ const poems = [
       "Sobanın önündə dinməz qızı haqqında düşündü,",  
       "Bilmədi həqiqətən mi qızı..., onu səsləyirdi...?",  
       "Bu vədə qız yenə dindi 'Ata...', 'Ata...' deyirdi.",  
-      "Görəsən nə istəyirdi, Qocanı sardı həyacan...",  
-      "Qışqırdı 'Can Qızım can' titrəyən dizləri ilə",  
-      "Yürüdü, otağa sarı, qızı yatan yatağa sarı....",  
-      "Əyilib üzündən öpdü, yaş axan gözündən öpdü,",  
-      "Qoca çarəsiz baxışla yatağın küncünə çökdü,",  
-      "Hönkürüb göz yaşı tökdü, dünya son ümüd evindən,",  
-      "Sonuncu kərpici sökdü, qoca gah bağrına vurdu,",  
-      "Gah əlilə dizinə vurdu, bu zaman sərt bir şəkildə,",  
-      "Qapı pəncərələr açıldı, şiddətlə soyuq bir külək,",  
-      "Qırışan cöhrünə vurdu, yan otaq dan isə digər,",  
-      "Körpənin naləsi san ki, qocanı yanına çağırdı.",  
-      "O, səsdə həm qızı vardı, həmdə ki yoldaşı vardı,",  
-      "O, səsdə həm həyat vardı, həmdə ki, ölümün öz adı",  
-      "Qoca titrək addım attdı, beşiyin yanına sarı...",  
-      "Körpənin üzündə san ki, mələk təbəssümü vardı.",  
-      "Qoca baxdı, gözləri doldu, dedi: 'Allah bu nə sirdir?'",  
-      "Görəsən bu körpə kimdir? Mənə ən son sınağındı !?",  
-      "Körpəni bağrına basıb, söylədi: 'Qızım getdi, sənmi gəldin?'",  
-      "Demək ömür qapanmırmış, ölən ümüdlər doğurmuş",  
-      "Körpə sakitləşdi, susdu, qoca dinməz, sobanın yanında otur.",  
-      "Azan sədası duyuldu, qoca da namzını qıldı alnını səcdəyə qoydu,",  
-      "Dedi: 'Razıyam İlahi məndən aldın, mənə verdin, gözümü mənaya çevirdin.'",  
-      "Ay ötüb zaman keçirdi, körpə isə iməkləyirdi, öz dilində deyinirdi.",  
+      "Görəsən nə istəyirdi, Qocanı sardı həyacan...",
+      "Qışqırdı 'Can Qızım can' titrəyən dizləri ilə",
+      "Yürüdü, otağa sarı, qızı yatan yatağa sarı....",
+      "Əyilib üzündən öpdü, yaş axan gözündən öpdü,",
+      "Qoca çarəsiz baxışla yatağın küncünə çökdü,",
+      "Hönkürüb göz yaşı tökdü, dünya son ümüd evindən,",
+      "Sonuncu kərpici sökdü, qoca gah bağrına vurdu,",
+      "Gah əlilə dizinə vurdu, bu zaman sərt bir şəkildə,",
+      "Qapı pəncərələr açıldı, şiddətlə soyuq bir külək,",
+      "Qırışan cöhrünə vurdu, yan otaq dan isə digər,",
+      "Körpənin naləsi san ki, qocanı yanına çağırdı.",
+      "O, səsdə həm qızı vardı, həmdə ki yoldaşı vardı,",
+      "O, səsdə həm həyat vardı, həmdə ki, ölümün öz adı",
+      "Qoca titrək addım attdı, beşiyin yanına sarı...",
+      "Körpənin üzündə san ki, mələk təbəssümü vardı.",
+      "Qoca baxdı, gözləri doldu, dedi: 'Allah bu nə sirdir?'",
+      "Görəsən bu körpə kimdir? Mənə ən son sınağındı !?",
+      "Körpəni bağrına basıb, söylədi: 'Qızım getdi, sənmi gəldin?'",
+      "Demək ömür qapanmırmış, ölən ümüdlər doğurmuş",
+      "Körpə sakitləşdi, susdu, qoca dinməz, sobanın yanında otur.",
+      "Azan sədası duyuldu, qoca da namzını qıldı alnını səcdəyə qoydu,",
+      "Dedi: 'Razıyam İlahi məndən aldın, mənə verdin, gözümü mənaya çevirdin.'",
+      "Ay ötüb zaman keçirdi, körpə isə iməkləyirdi, öz dilində deyinirdi.",
       "Bir yaşda körpə dil açdı, ilk kəlməsi 'Ata' oldu, qocanın gözləri doldu."
     ]
   },
-  { 
-    title:"AXTARACAQSAN", 
+  {
+    title:"AXTARACAQSAN",
     category:"Klassik", 
     text:[
       "İstərəm, bəyaz bir buluda dönüm,",
@@ -277,35 +258,37 @@ const poems = [
 ];
 
 const container = document.getElementById('poemsContainer');
+
 function displayPoems(list){
   container.innerHTML = "";
   list.forEach(poem => {
     const card = document.createElement('div');
     card.className = "card";
-    card.innerHTML = `<h3>${poem.title}</h3>` + poem.text.map(p => `<p>${p}</p>`).join("");
+    card.innerHTML = `<h3>${poem.title} <span class="play-music" onclick="playMusic('${poem.title}')">🎵</span></h3>` + poem.text.map(p => `<p>${p}</p>`).join("");
     container.appendChild(card);
   });
 }
+
 function filterCategory(cat){
   if (cat === "Hamısı") displayPoems(poems);
   else displayPoems(poems.filter(p => p.category === cat));
 }
+
 displayPoems(poems);
 
-/* Musiqi düyməsi */
-const musicBtn = document.getElementById('musicButton');
-const music = document.getElementById('bgMusic');
-let isPlaying = false;
+// Musiqi fayllarını şeir başlığı ilə əlaqələndir
+const musicFiles = {
+  "GÖZ QIRPIMINDA":"https://cdn.pixabay.com/audio/2021/12/13/audio_2b90c6069e.mp3",
+  "QOCA VƏ KÖRPƏ":"https://cdn.pixabay.com/audio/2021/12/13/audio_2b90c6069e.mp3",
+  "AXTARACAQSAN":"https://cdn.pixabay.com/audio/2021/12/13/audio_2b90c6069e.mp3"
+};
 
-musicBtn.addEventListener('click', () => {
-  if(isPlaying){
-    music.pause();
-    isPlaying = false;
-  } else {
-    music.play();
-    isPlaying = true;
-  }
-});
+let audio = new Audio();
+
+function playMusic(title){
+  audio.src = musicFiles[title];
+  audio.play();
+}
 </script>
 
 </body>
