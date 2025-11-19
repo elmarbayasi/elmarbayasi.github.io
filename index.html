@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Elmar Bayasi-nın şeirləri və yaradıcılığı">
   <title>Elmar Bayasi Şeirləri</title>
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -54,9 +55,10 @@
 
     /* Şeir kartları */
     .container { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:20px; padding:0 20px 50px 20px; }
-    .card { background-color: rgba(255,255,255,0.05); padding:20px; border-radius:12px; }
+    .card { background-color: rgba(255,255,255,0.05); padding:20px; border-radius:12px; max-height:400px; overflow-y:auto; transition:0.3s; }
+    .card:hover { transform:scale(1.02); box-shadow:0 4px 15px rgba(0,0,0,0.5); }
     .card h3 { margin-bottom:15px; color:white; font-weight: normal; }
-    .card p { line-height:1.6; font-size:1rem; white-space: pre-wrap; }
+    .card p { line-height:1.6; font-size:1rem; white-space: pre-wrap; word-wrap: break-word; }
 
     @media(max-width:600px){
       header { font-size:2.5rem; padding:40px 10px 20px 10px; } 
@@ -82,7 +84,7 @@
     <button onclick="filterCategory('Klassik')">Klassiklər</button>
     <button onclick="filterCategory('Duygusal')">Duygusal</button>
     <button onclick="filterCategory('Hekaye')">Hekayəvari</button>
-    <button onclick="filterCategory('Hepsi')">Hamısı</button>
+    <button onclick="filterCategory('Hamısı')">Hamısı</button>
   </nav>
 
   <!-- Şeir kartları -->
@@ -115,7 +117,7 @@ Hər səhərin axşamı var, hər axşamın səhəri var....`
       { 
         title: "Qoca və Körpə", 
         category: "Klassik", 
-        text: "Gecənin bir aləmində, məscidin ön qapısında,
+        text: `Gecənin bir aləmində, məscidin ön qapısında,
 Bir körpə naləsi insanları, haydan-küyə saldı.
 Biri baxdı köks ötürdü, biri göz yaşı tökürdü.
 Bu baxanlar arasından, bir qoca körpəni aldı...
@@ -164,7 +166,7 @@ Körpə sakitləşdi, susdu, qoca dinməz, sobanın yanında otur.
 Azan sədası duyuldu, qoca da namzını qıldı alnını səcdəyə qoydu,
 Dedi: "Razıyam İlahi məndən aldın, mənə verdin, gözümü mənaya çevirdin."
 Ay ötüb zaman keçirdi, körpə isə iməkləyirdi, öz dilində deyinirdi.
-Bir yaşda körpə dil açdı, ilk kəlməsi "Ata" oldu, qocanın gözləri doldu."
+Bir yaşda körpə dil açdı, ilk kəlməsi "Ata" oldu, qocanın gözləri doldu."`
       },
       { 
         title: "Hüzün", 
@@ -191,7 +193,7 @@ Bir yaşda körpə dil açdı, ilk kəlməsi "Ata" oldu, qocanın gözləri dold
     }
 
     function filterCategory(cat) {
-      if(cat === 'Hepsi'){
+      if(cat === 'Hamısı'){
         displayPoems(poems);
       } else {
         displayPoems(poems.filter(p => p.category === cat));
