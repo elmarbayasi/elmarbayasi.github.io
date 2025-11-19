@@ -120,7 +120,7 @@
 <div class="container" id="poemsContainer"></div>
 
 <!-- Musiqi: Serge Quadrado - Sadness -->
-<audio id="bgMusic" autoplay loop>
+<audio id="bgMusic" loop>
   <source src="https://cdn.pixabay.com/audio/2021/12/13/audio_2b90c6069e.mp3" type="audio/mpeg">
   Sizin brauzer audio elementini dəstəkləmir.
 </audio>
@@ -267,6 +267,26 @@ function filterCategory(cat){
   else displayPoems(poems.filter(p => p.category === cat));
 }
 displayPoems(poems);
+
+// Musiqini səhifə açıldığında çalmaq
+const bgMusic = document.getElementById('bgMusic');
+function tryPlayAudio() {
+  bgMusic.play().catch(() => {
+    const startBtn = document.createElement('button');
+    startBtn.innerText = "Musiqini başlat";
+    startBtn.style.position = "fixed";
+    startBtn.style.top = "20px";
+    startBtn.style.right = "20px";
+    startBtn.style.padding = "10px 20px";
+    startBtn.style.zIndex = 9999;
+    document.body.appendChild(startBtn);
+    startBtn.addEventListener('click', () => {
+      bgMusic.play();
+      startBtn.remove();
+    });
+  });
+}
+window.addEventListener('load', tryPlayAudio);
 </script>
 
 </body>
