@@ -93,12 +93,26 @@
       margin-bottom:10px;
     }
 
+    #playMusicBtn {
+      display:block;
+      margin:20px auto;
+      padding:12px 25px;
+      font-size:1rem;
+      font-weight:bold;
+      border:none;
+      border-radius:12px;
+      background: linear-gradient(135deg, #b085f5, #d9b3ff);
+      color:#0a0a0a;
+      cursor:pointer;
+      box-shadow:0 4px 15px rgba(0,0,0,0.5);
+      transition:0.4s;
+    }
+    #playMusicBtn:hover { transform:scale(1.1); background: linear-gradient(135deg, #d9b3ff, #b085f5); }
+
     @media(max-width:600px){
       header { font-size:2.5rem; padding:40px 10px; }
       nav button { padding:10px 18px; font-size:0.9rem; }
     }
-
-    audio { display:block; margin:20px auto; width:90%; border-radius:12px; }
   </style>
 </head>
 <body>
@@ -112,6 +126,11 @@
   <p class="slogan">“Duyğulara söz vermək, hər baxışa iz qoymaq.”</p>
 </section>
 
+<button id="playMusicBtn">Musiqini Başlat</button>
+<audio id="bgMusic" loop>
+  <source src="https://cdn.pixabay.com/audio/2021/12/13/audio_2b90c6069e.mp3" type="audio/mpeg">
+</audio>
+
 <nav>
   <button onclick="filterCategory('Yeni')">Yeni Şeir</button>
   <button onclick="filterCategory('Klassik')">Klassiklər</button>
@@ -120,12 +139,6 @@
 </nav>
 
 <div class="container" id="poemsContainer"></div>
-
-<!-- Musiqi: Serge Quadrado - Sadness -->
-<audio id="bgMusic" autoplay loop controls>
-  <source src="https://cdn.pixabay.com/audio/2021/12/13/audio_2b90c6069e.mp3" type="audio/mpeg">
-  Sizin brauzer audio elementini dəstəkləmir.
-</audio>
 
 <script>
 const poems = [
@@ -185,71 +198,30 @@ const poems = [
       "Sobanın önündə dinməz qızı haqqında düşündü,",  
       "Bilmədi həqiqətən mi qızı..., onu səsləyirdi...?",  
       "Bu vədə qız yenə dindi 'Ata...', 'Ata...' deyirdi.",  
-      "Görəsən nə istəyirdi, Qocanı sardı həyacan...",  
-      "Qışqırdı 'Can Qızım can' titrəyən dizləri ilə",  
-      "Yürüdü, otağa sarı, qızı yatan yatağa sarı....",  
-      "Əyilib üzündən öpdü, yaş axan gözündən öpdü,",  
-      "Qoca çarəsiz baxışla yatağın küncünə çökdü,",  
-      "Hönkürüb göz yaşı tökdü, dünya son ümüd evindən,",  
-      "Sonuncu kərpici sökdü, qoca gah bağrına vurdu,",  
-      "Gah əlilə dizinə vurdu, bu zaman sərt bir şəkildə,",  
-      "Qapı pəncərələr açıldı, şiddətlə soyuq bir külək,",  
-      "Qırışan cöhrünə vurdu, yan otaq dan isə digər,",  
-      "Körpənin naləsi san ki, qocanı yanına çağırdı.",  
-      "O, səsdə həm qızı vardı, həmdə ki yoldaşı vardı,",  
-      "O, səsdə həm həyat vardı, həmdə ki, ölümün öz adı",  
-      "Qoca titrək addım attdı, beşiyin yanına sarı...",  
-      "Körpənin üzündə san ki, mələk təbəssümü vardı.",  
-      "Qoca baxdı, gözləri doldu, dedi: 'Allah bu nə sirdir?'",  
-      "Görəsən bu körpə kimdir? Mənə ən son sınağındı !?",  
-      "Körpəni bağrına basıb, söylədi: 'Qızım getdi, sənmi gəldin?'",  
-      "Demək ömür qapanmırmış, ölən ümüdlər doğurmuş",  
-      "Körpə sakitləşdi, susdu, qoca dinməz, sobanın yanında otur.",  
-      "Azan sədası duyuldu, qoca da namzını qıldı alnını səcdəyə qoydu,",  
-      "Dedi: 'Razıyam İlahi məndən aldın, mənə verdin, gözümü mənaya çevirdin.'",  
-      "Ay ötüb zaman keçirdi, körpə isə iməkləyirdi, öz dilində deyinirdi.",  
+      "Görəsən nə istəyirdi, Qocanı sardı həyacan...",
+      "Qışqırdı 'Can Qızım can' titrəyən dizləri ilə",
+      "Yürüdü, otağa sarı, qızı yatan yatağa sarı....",
+      "Əyilib üzündən öpdü, yaş axan gözündən öpdü,",
+      "Qoca çarəsiz baxışla yatağın küncünə çökdü,",
+      "Hönkürüb göz yaşı tökdü, dünya son ümüd evindən,",
+      "Sonuncu kərpici sökdü, qoca gah bağrına vurdu,",
+      "Gah əlilə dizinə vurdu, bu zaman sərt bir şəkildə,",
+      "Qapı pəncərələr açıldı, şiddətlə soyuq bir külək,",
+      "Qırışan cöhrünə vurdu, yan otaq dan isə digər,",
+      "Körpənin naləsi san ki, qocanı yanına çağırdı.",
+      "O, səsdə həm qızı vardı, həmdə ki yoldaşı vardı,",
+      "O, səsdə həm həyat vardı, həmdə ki, ölümün öz adı",
+      "Qoca titrək addım attdı, beşiyin yanına sarı...",
+      "Körpənin üzündə san ki, mələk təbəssümü vardı.",
+      "Qoca baxdı, gözləri doldu, dedi: 'Allah bu nə sirdir?'",
+      "Görəsən bu körpə kimdir? Mənə ən son sınağındı !?",
+      "Körpəni bağrına basıb, söylədi: 'Qızım getdi, sənmi gəldin?'",
+      "Demək ömür qapanmırmış, ölən ümüdlər doğurmuş",
+      "Körpə sakitləşdi, susdu, qoca dinməz, sobanın yanında otur.",
+      "Azan sədası duyuldu, qoca da namzını qıldı alnını səcdəyə qoydu,",
+      "Dedi: 'Razıyam İlahi məndən aldın, mənə verdin, gözümü mənaya çevirdin.'",
+      "Ay ötüb zaman keçirdi, körpə isə iməkləyirdi, öz dilində deyinirdi.",
       "Bir yaşda körpə dil açdı, ilk kəlməsi 'Ata' oldu, qocanın gözləri doldu."
-    ]
-  },
-  {
-    title:"AXTARACAQSAN",
-    category:"Klassik",
-    text:[
-      "İstərəm, bəyaz bir buluda dönüm,",
-      "Bulud tək səmada başına dönüm.",
-      "Gəlib yetişəcək elə bir dönəm,",
-      "Sən məni göylərdə axtaracaqsan.",
-
-      "Ətəyindən yapışsa hər əli yetən,",
-      "Yanında olduğumu hiss edəcəksən.",
-      "Nəfəsimlə saçını dağıtdıqca mən,",
-      "İncə əllərinlə darayacaqsan.",
-      "Sən məni göylərdə axtaracaqsan.",
-
-      "Səmada ulduzlar sənə baxdıqca,",
-      "Qopub dan ulduzu yerə axdıqca,",
-      "Yağışlar yağdıqca, şimşək çaxdıqca",  
-      "Diksinib pəncərədən boylanacaqsan.",  
-      "Sən məni göylərdə axtaracaqsan.",
-
-      "Simsiyah dolmuş bir bulud olacağam,",
-      "Bəlkə də arzuma onda çatacağam.",
-      "Gözlərin parıldasa, mən də yağacağam,",
-      "Mənim göz yaşımla islanacaqsan.",
-      "Sən məni göylərdə axtaracaqsan.",
-
-      "Əsib saçlarına düzsəm gül-çiçək,",
-      "Dağlar utancından gül ləçək-ləçək.",
-      "De, qışa çevrilsəm, tutalım deyək,",
-      "Qara kipriklərində qar dənəsi tək,",
-      "Özümü məhv etsəm, sən sanacaqsan?!",
-      "Sən məni göylərdə axtaracaqsan?!",
-
-      "Tanrı yaxşı bilir hər şeyin sonun.",
-      "Bu ölüm pozmur ki eşqin qanun.",
-      "Silib göz yaşını soyuq ovcunun,",
-      "Əl açıb Tanrıya yalvaracaqsan.",
-      "Sən məni göylərdə axtaracaqsan."
     ]
   }
 ];
@@ -269,6 +241,12 @@ function filterCategory(cat){
   else displayPoems(poems.filter(p => p.category === cat));
 }
 displayPoems(poems);
+
+// Musiqi düyməsi
+const music = document.getElementById('bgMusic');
+document.getElementById('playMusicBtn').addEventListener('click', () => {
+  music.play();
+});
 </script>
 
 </body>
