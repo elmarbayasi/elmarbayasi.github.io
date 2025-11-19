@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Elmar Bayasi-nın şeirləri və yaradıcılığı">
-  <title>Elmar Bayasi Şeirləri</title>
+  <meta name="description" content="BAYASI-nın şeirləri və yaradıcılığı">
+  <title>BAYASI</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Lora&family=Poppins:wght@600&display=swap" rel="stylesheet">
 
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family: 'Lora', serif; background: linear-gradient(to bottom, #5b0e2d, #7a1f3d); color:#fff; min-height:100vh; }
+    body { font-family: 'Lora', serif; background-color:#0a0a0a; color:#fff; min-height:100vh; }
 
     /* Header */
     header {
@@ -20,12 +20,12 @@
       justify-content:center;
       text-align:center;
       padding:50px 20px;
-      font-family: 'Cinzel Decorative', serif;
+      font-family:'Cinzel Decorative', serif;
       font-size:3.5rem;
-      background: linear-gradient(45deg, gold, #ffd700, #ffec8b);
+      background: linear-gradient(45deg, #b085f5, #d9b3ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.5), 4px 4px 10px rgba(0,0,0,0.3);
+      text-shadow:2px 2px 5px rgba(0,0,0,0.7);
       transition:0.3s;
     }
     header:hover { transform: scale(1.05); }
@@ -34,75 +34,61 @@
     #about {
       padding:50px 20px;
       text-align:center;
-      background-color: rgba(0,0,0,0.35);
+      background-color: rgba(255,255,255,0.05);
       border-radius:15px;
       margin:20px;
       backdrop-filter: blur(5px);
     }
     #about h2 {
       font-size:2.5rem;
-      color: gold;
+      color: #b085f5;
       text-shadow:2px 2px 5px rgba(0,0,0,0.5);
       margin-bottom:20px;
-      font-family: 'Cinzel Decorative', serif;
+      font-family:'Cinzel Decorative', serif;
     }
-    #about p {
-      color:white;
-      font-size:1.1rem;
-      max-width:700px;
-      margin:10px auto;
-      line-height:1.7;
-    }
-    #about .slogan {
-      color:#ffd700;
-      font-size:1rem;
-      font-style:italic;
-    }
+    #about p { color:white; font-size:1.1rem; max-width:700px; margin:10px auto; line-height:1.7;}
+    #about .slogan { color:#d9b3ff; font-size:1rem; font-style:italic;}
 
-    /* Navigasiya düymələri */
-    nav { display:flex; justify-content:center; gap:20px; margin-bottom:40px; flex-wrap:wrap; }
+    /* Navigasiya */
+    nav {
+      display:flex; justify-content:center; gap:20px; margin-bottom:40px; flex-wrap:wrap;
+    }
     nav button {
-      padding:12px 25px;
-      border:none;
-      border-radius:12px;
-      background: linear-gradient(135deg, #ffd700, #ffcc33);
-      color:#5b0e2d;
-      font-weight:bold;
-      font-family: 'Poppins', sans-serif;
-      cursor:pointer;
-      transition:0.4s;
-      box-shadow:0 4px 15px rgba(0,0,0,0.4);
+      padding:12px 25px; border:none; border-radius:12px;
+      background: linear-gradient(135deg, #b085f5, #d9b3ff); color:#0a0a0a; font-weight:bold; font-family:'Poppins', sans-serif;
+      cursor:pointer; transition:0.4s; box-shadow:0 4px 15px rgba(0,0,0,0.5);
     }
     nav button:hover {
       transform:scale(1.1);
-      background: linear-gradient(135deg, #ffec8b, gold);
-      box-shadow:0 6px 20px rgba(0,0,0,0.5);
+      background: linear-gradient(135deg, #d9b3ff, #b085f5);
+      box-shadow:0 6px 20px rgba(0,0,0,0.6);
     }
 
     /* Şeir kartları */
     .container { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:25px; padding:0 20px 50px 20px; }
     .card {
-      background-color: rgba(255,255,255,0.08);
+      background: linear-gradient(145deg, #e6d6ff, #ffffff10);
+      color:#0a0a0a;
       padding:25px;
       border-radius:15px;
-      max-height:450px;
+      max-height:650px;
       overflow-y:auto;
       transition:0.4s;
-      backdrop-filter: blur(4px);
-      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255,255,255,0.2);
     }
     .card:hover {
       transform:scale(1.03);
-      box-shadow:0 6px 20px rgba(255,215,0,0.4);
-      border: 1px solid rgba(255,215,0,0.6);
+      box-shadow:0 6px 20px rgba(184,133,245,0.6);
+      border: 1px solid rgba(184,133,245,0.7);
     }
     .card h3 {
       margin-bottom:15px;
-      color:#ffd700;
-      font-weight: 600;
-      font-family: 'Cinzel Decorative', serif;
+      color:#b085f5;
+      font-weight:600;
+      font-family:'Cinzel Decorative', serif;
     }
-    .card p { line-height:1.7; font-size:1rem; white-space: pre-wrap; word-wrap: break-word; }
+    .card p { line-height:1.7; font-size:1rem; white-space: pre-wrap; word-wrap: break-word; margin-bottom:10px; }
 
     @media(max-width:600px){
       header { font-size:2.5rem; padding:40px 10px; }
@@ -112,128 +98,130 @@
 </head>
 <body>
 
-  <!-- Başlıq -->
-  <header>
-    ELMAR BAYASİ ✒️
-  </header>
+<header>BAYASI ✒️</header>
 
-  <!-- Haqqımda / Brend -->
-  <section id="about">
-    <h2>ELMAR BAYASİ ✒️</h2>
-    <p>Salam! Mən Elmar Bayasi. Şeir və musiqi ilə məşğulam. Bu saytda öz yaradıcılığımı paylaşır, oxucularımla birbaşa ünsiyyət qururam. Sözlər mənim alətim, şeirlərim isə mənim dünyamın bir aynasıdır.</p>
-    <p class="slogan">“Duyğulara söz vermək, hər baxışa iz qoymaq.”</p>
-  </section>
+<section id="about">
+  <h2>Elmar Bəy Asi ✒️</h2>
+  <p>Salam! Mən Elmar Bəy Asi. Şeir və musiqi ilə məşğulam. Bu saytda öz yaradıcılığımı paylaşır, oxucularımla birbaşa ünsiyyət qururam.</p>
+  <p>Sözlər mənim alətim, şeirlərim isə mənim dünyamın bir aynasıdır.</p>
+  <p class="slogan">“Duyğulara söz vermək, hər baxışa iz qoymaq.”</p>
+</section>
 
-  <!-- Navigasiya -->
-  <nav>
-    <button onclick="filterCategory('Yeni')">Yeni Şeir</button>
-    <button onclick="filterCategory('Klassik')">Klassiklər</button>
-    <button onclick="filterCategory('Duygusal')">Duygusal</button>
-    <button onclick="filterCategory('Hekaye')">Hekayəvari</button>
-    <button onclick="filterCategory('Hamısı')">Hamısı</button>
-  </nav>
+<nav>
+  <button onclick="filterCategory('Yeni')">Yeni Şeir</button>
+  <button onclick="filterCategory('Klassik')">Klassiklər</button>
+  <button onclick="filterCategory('Duygusal')">Duygusal</button>
+  <button onclick="filterCategory('Hekaye')">Hekayəvari</button>
+  <button onclick="filterCategory('Hamısı')">Hamısı</button>
+</nav>
 
-  <!-- Şeir kartları -->
-  <div class="container" id="poemsContainer"></div>
+<div class="container" id="poemsContainer"></div>
 
-  <script>
-    const poems = [
-      { title: "GÖZ QIRPIMINDA", category: "Yeni", text: `Göz açıram səhər olur, göz yumuram axşam olur,
-      Səhər kimsəni görmürəm, axşam iki üz görürəm,
-İkisidə mələk kimi ağ libasda, həzin-həzin, asta-asta,
-Mənə sarı gəlməkdədir, biri hüzün göz yaşında...
-Biri isə gülməkdədir,  biri bəlkə yüz yaşında,
-Biri on səkkiz yaşında, bu on səkkiz yaşı olan,
-Gözlərində yaşı olan, mənə necə tanış gəlir....
-San ki, iyirmi bir yaşımda, iz buraxıb yaddaşımda.
-Son iki gündür onları açıq, aydın görə bildim.
-Birin görüb çox sevindim, birin görüb kədərləndim.
-Biri ölüm mələyiyiş, biri ölmüş mələk imiş....
-İllər öncə məzarlıqda dəfn etdiyim, öz sevgilim.
-Dilim dinmədi söz deyim, ayağ istədi yeriyim,
-Axı...² nəyi necə edim, bir addım ata bilmirəm.
-Niyyətim tək, məqsədim tək, onlara çata bilmirəm.
-Yox... yox... yanlış özümdədir, bu kor qalmış gözümdədir,
-Mən onlara çatmaq üçün, yuxuma, haram qatardım.
-Gələn onlardır görsəydim, yəqin ömürlük yatardım.
-Bəlkə onda tez çatardım, əlbət bir gün o, da olar...
-Hər səhərin axşamı var, hər axşamın səhəri var, ...` },
-      { title: "Qoca və Körpə", category: "Klassik", text: `Gecənin bir aləmində, məscidin ön qapısında
-      Bir körpə naləsi insanları, haydan-küyə saldı.
-Biri baxdı köks ötürdü, biri göz yaşı tökürdü.
-Bu baxanlar arasından, bir qoca körpəni aldı...
-Daralan bağrına basdı, qırışan əlləri ilə
-Qırılan qaməti ilə titrəyən dizləri ilə
-Onu mənzilinə gətirdi, otağın zəif lanpası...
-Ölüm yatağina uzanmış, bir qadına nur verirdi,
-Bu qadın həmin yaşlının, mərhum yoldaşından qalan,
-Sonuncu mirası idi, o da xəstə döşşəyində,
-San ki, şam tək əriyirdi... qoca göz yaşını sildi.
-Qoynunda kı o, mələknən yatağın ayaq küncünə,
-Qısınıb güclə oturdu, qızının ovcunu sıxdı,
-Qırışan əlləri ilə... Qızı incə bir təbbəssüm,
-Edərək pıçıltı ilə "Can Ata" söyləyə bildi.
-Qoca təəccüb ilə baxdı, axı... qız son altı ildi
-Nə danışdı, nə də dindi, Qoca bir balaca sevindi,
-Bir balaca özünə deyindi, "Bəlkə sən yanlış eşitdin"
-Sual verməyədə utandı qızına "nə sölədin..? nə....?"
-Qızının əlindən öpüb, deyərək qalxdı "Ya Allah...."
-Artıq açılırdı sabah, körpə qoynunda yatırdı.
-Öpüb apardı özüylə, qızının otuz il öncə,
-Yatdığı taxta beşikdə, körpənin üsdünü örtdü...
-Sobanın önündə dinməz qızı hakkında düşündü,
-Bilmədi həqiqətən mi qızı..., onu səsləyirdi...?
-Bu vədə qız yenə dindi "Ata...", "Ata..." deyirdi.
-Görəsən nə istəyirdi, Qocanı sardı həyacan...
-Qışqırdı "Can Qızım can" titrəyən dizləri ilə
-Yürüdü, otağa sarı, qızı yatan yatağa sarı....
-Əyilib üzündən öpdü, yaş axan gözündən öpdü,
-Qoca çarəsiz baxışla yatağın küncünə çökdü,
-Hönkürüb göz yaşı tökdü, dünya son ümüd evindən,
-Sonuncu kərpici sökdü, qoca gah bağrına vurdu,
-Gah əlilə dizinə vurdu, bu zaman sərt bir şəkildə,
-Qapı pəncərələr açıldı, şiddətlə soyuq bir külək,
-Qırışan cöhrünə vurdu, yan otaq dan isə digər,
-Körpənin naləsi san ki, qocanı yanına çağırdı.
-O, səsdə həm qızı vardı, həmdə ki yoldaşı vardı,
-O, səsdə həm həyat vardı, həmdə ki, ölümün öz adı
-Qoca titrək addım attdı, beşiyin yanına çatdı,
-Körpənin üzündə san ki, mələk təbəssümü vardı.
-Qoca baxdı, gözləri doldu, dedi: "Allah bu nə sirdir?"
-"Görəsən bu körpə kimdir? Mənə ən son sınağındı !?"
-Körpəni bağrına basıb dedi: "Qızım getdi, sənmi gəldin?"
-"Demək ömür qapanmırmış, ölən ümüdlər doğurmuş"
-Körpə sakitləşdi, susdu, qoca dinməz, sobanın yanında otur.
-Azan sədası duyuldu, qoca da namzını qıldı alnını səcdəyə qoydu,
-Dedi: "Razıyam İlahi məndən aldın, mənə verdin, gözümü mənaya çevirdin."
-Ay ötüb zaman keçirdi, körpə isə iməkləyirdi, öz dilində deyinirdi.
-Bir yaşda körpə dil açdı, ilk kəlməsi "Ata" oldu, qocanın gözləri doldu. ...` },
-      { title: "Hüzün", category: "Duygusal", text: "Səhər açılarkən, içimdə sükutla göz yaşları axır..." },
-      { title: "Qısa Hekaye", category: "Hekaye", text: "Küçənin sonunda bir ev var idi, içində sirr dolu bir həyat..." }
-    ];
+<script>
+const poems = [
+  { 
+    title:"GÖZ QIRPIMINDA", 
+    category:"Yeni", 
+    text:[
+      "Göz açıram səhər olur, göz yumuram axşam olur,",
+      "Səhər kimsəni görmürəm, axşam iki üz görürəm,",
+      "İkisidə mələk kimi ağ libasda, həzin-həzin, asta-asta,",
+      "Mənə sarı gəlməkdədir, biri hüzün göz yaşında...",
+      "Biri isə gülməkdədir,  biri bəlkə yüz yaşında,",
+      "Biri on səkkiz yaşında, bu on səkkiz yaşı olan,",
+      "Gözlərində yaşı olan, mənə necə tanış gəlir....",
+      "San ki, iyirmi bir yaşımda, iz buraxıb yaddaşımda.",
+      "Son iki gündür onları açıq, aydın görə bildim.",
+      "Birin görüb çox sevindim, birin görüb kədərləndim.",
+      "Biri ölüm mələyiyiş, biri ölmüş mələk imiş....",
+      "İllər öncə məzarlıqda dəfn etdiyim, öz sevgilim.",
+      "Dilim dinmədi söz deyim, ayağ istədi yeriyim,",
+      "Axı...² nəyi necə edim, bir addım ata bilmirəm.",
+      "Niyyətim tək, məqsədim tək, onlara çata bilmirəm.",
+      "Yox... yox... yanlış özümdədir, bu kor qalmış gözümdədir,",
+      "Mən onlara çatmaq üçün, yuxuma, haram qatardım.",
+      "Gələn onlardır bilsəydim, yəqin ömürlük yatardım.",
+      "Bəlkə onda tez çatardım, əlbət bir gün o, da olar...",
+      "Hər səhərin axşamı var, hər axşamın səhəri var..."
+    ]
+  },
+  { 
+    title:"QOCA VƏ KÖRPƏ", 
+    category:"Klassik", 
+    text:[
+      "Gecənin bir aləmində, məscidin ön qapısında,",
+      "Bir körpə naləsi insanları, haydan-küyə saldı.",
+      "Biri baxdı köks ötürdü, biri göz yaşı tökürdü.",
+      "Bu baxanlar arasından, bir qoca körpəni aldı...",
+      "Daralan bağrına basdı, qırışan əlləri ilə",
+      "Qırılan qaməti ilə titrəyən dizləri ilə",
+      "Onu mənzilinə gətirdi, otağın zəif lanpası...",
+      "Ölüm yatağina uzanmış, bir qadına nur verirdi,",
+      "Bu qadın həmin yaşlının, mərhum yoldaşından qalan,",
+      "Sonuncu mirası idi, o da xəstə döşşəyində,",
+      "San ki, şam tək əriyirdi... qoca göz yaşını sildi.",
+      "Qoynunda kı o, mələknən yatağın ayaq küncünə,",
+      "Qısınıb güclə oturdu, qızının ovcunu sıxdı,",
+      "Qırışan əlləri ilə... Qızı incə bir təbbəssüm,",
+      "Edərək pıçıltı ilə 'Can Ata' söyləyə bildi.",
+      "Qoca təəccüb ilə baxdı, axı... qız son altı ildi",
+      "Nə danışdı, nə də dindi, Qoca bir balaca sevindi,",
+      "Bir balaca özünə deyindi, 'Bəlkə sən yanlış eşitdin'",
+      "Sual verməyədə utandı qızına 'nə sölədin..? nə....?'",
+      "Qızının əlindən öpüb, deyərək qalxdı 'Ya Allah....'",
+      "Artıq açılırdı sabah, körpə qoynunda yatırdı.",
+      "Öpüb apardı özüylə, qızının otuz il öncə,",
+      "Yatdığı taxta beşikdə, körpənin üsdünü örtdü...",
+      "Sobanın önündə dinməz qızı haqqında düşündü,",
+      "Bilmədi həqiqətən mi qızı..., onu səsləyirdi...?",
+      "Bu vədə qız yenə dindi 'Ata...', 'Ata...' deyirdi.",
+      "Görəsən nə istəyirdi, Qocanı sardı həyacan...",
+      "Qışqırdı 'Can Qızım can' titrəyən dizləri ilə",
+      "Yürüdü, otağa sarı, qızı yatan yatağa sarı....",
+      "Əyilib üzündən öpdü, yaş axan gözündən öpdü,",
+      "Qoca çarəsiz baxışla yatağın küncünə çökdü,",
+      "Hönkürüb göz yaşı tökdü, dünya son ümüd evindən,",
+      "Sonuncu kərpici sökdü, qoca gah bağrına vurdu,",
+      "Gah əlilə dizinə vurdu, bu zaman sərt bir şəkildə,",
+      "Qapı pəncərələr açıldı, şiddətlə soyuq bir külək,",
+      "Qırışan cöhrünə vurdu, yan otaq dan isə digər,",
+      "Körpənin naləsi san ki, qocanı yanına çağırdı.",
+      "O, səsdə həm qızı vardı, həmdə ki yoldaşı vardı,",
+      "O, səsdə həm həyat vardı, həmdə ki, ölümün öz adı",
+      "Qoca titrək addım attdı, beşiyin yanına sarı...",
+      "Körpənin üzündə san ki, mələk təbəssümü vardı.",
+      "Qoca baxdı, gözləri doldu, dedi: 'Allah bu nə sirdir?'",
+      "Görəsən bu körpə kimdir? Mənə ən son sınağındı !?",
+      "Körpəni bağrına basıb, söylədi: 'Qızım getdi, sənmi gəldin?'",
+      "Demək ömür qapanmırmış, ölən ümüdlər doğurmuş",
+      "Körpə sakitləşdi, susdu, qoca dinməz, sobanın yanında otur.",
+      "Azan sədası duyuldu, qoca da namzını qıldı alnını səcdəyə qoydu,",
+      "Dedi: 'Razıyam İlahi məndən aldın, mənə verdin, gözümü mənaya çevirdin.'",
+      "Ay ötüb zaman keçirdi, körpə isə iməkləyirdi, öz dilində deyinirdi.",
+      "Bir yaşda körpə dil açdı, ilk kəlməsi 'Ata' oldu, qocanın gözləri doldu."
+    ]
+  }
+];
 
-    const container = document.getElementById('poemsContainer');
+const container = document.getElementById('poemsContainer');
 
-    function displayPoems(list) {
-      container.innerHTML = '';
-      list.forEach(poem => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = `<h3>${poem.title}</h3><p>${poem.text}</p>`;
-        container.appendChild(card);
-      });
-    }
+function displayPoems(list){
+  container.innerHTML="";
+  list.forEach(poem=>{
+    const card = document.createElement('div');
+    card.className="card";
+    card.innerHTML=`<h3>${poem.title}</h3>` + poem.text.map(p=>`<p>${p}</p>`).join('');
+    container.appendChild(card);
+  });
+}
 
-    function filterCategory(cat) {
-      if(cat === 'Hamısı'){
-        displayPoems(poems);
-      } else {
-        displayPoems(poems.filter(p => p.category === cat));
-      }
-    }
+function filterCategory(cat){
+  if(cat==="Hamısı") displayPoems(poems);
+  else displayPoems(poems.filter(p=>p.category===cat));
+}
 
-    displayPoems(poems);
-  </script>
+displayPoems(poems);
+</script>
 
 </body>
 </html>
