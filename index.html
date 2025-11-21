@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elmar Bayasi Şeirləri</title>
+<title>BAYASI ✒️ — Şeirlər</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat&display=swap" rel="stylesheet">
 <style>
   body {
     margin: 0;
-    font-family: 'Georgia', serif;
-    background-color: #0a0a0a; /* qara fon */
-    color: #d6b3ff; /* ümumi bənövşəyi mətn */
+    font-family: 'Montserrat', sans-serif;
+    background-color: #0a0a0a;
+    color: #f0e6ff;
     line-height: 1.7;
   }
 
@@ -19,49 +20,138 @@
   }
 
   h1 {
-    font-size: 4em;
-    font-weight: bold;
-    color: #b65fb5; /* bənövşəyi başlıq */
-    text-shadow: 0 0 10px #b65fb5, 0 0 20px #d18fff, 0 0 30px #ff9aff;
+    font-family: 'Cinzel', serif;
+    font-size: 5em;
+    font-weight: 900;
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff99ff, 0 0 30px #ff66ff;
+  }
+
+  .search-container {
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+    text-align: center;
+  }
+
+  .search-container input {
+    width: 80%;
+    padding: 10px 15px;
+    font-size: 1.2em;
+    border-radius: 10px;
+    border: 2px solid #ff99ff;
+    outline: none;
+    background: #1a001a;
+    color: #fff;
   }
 
   .poem-container {
     max-width: 900px;
-    margin: 40px auto;
+    margin: 0 auto 50px auto;
     padding: 0 20px;
   }
 
   .poem-card {
     background: linear-gradient(145deg, #1a001a, #330033);
-    border-radius: 12px;
-    margin-bottom: 20px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 15px;
+    margin-bottom: 25px;
     padding: 20px;
-    border: 1px solid #b65fb5;
-    box-shadow: 0 0 15px #b65fb5;
+    border: 1px solid #ff66ff;
+    box-shadow: 0 0 15px #ff99ff;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
   }
 
   .poem-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 0 30px #ff9aff, 0 0 40px #d18fff;
+    box-shadow: 0 0 30px #ff66ff, 0 0 40px #ff33ff;
   }
 
   .poem-title {
-    font-size: 1.8em;
-    font-weight: bold;
-    color: #ffb3ff;
-    text-shadow: 0 0 5px #ffb3ff, 0 0 10px #b65fb5;
+    font-family: 'Cinzel', serif;
+    font-size: 2em;
+    font-weight: 700;
     margin: 0;
+    color: #ff99ff;
+    text-shadow: 0 0 5px #ff99ff, 0 0 10px #ff66ff;
   }
 
   .poem-content {
-    display: none;
     margin-top: 15px;
     white-space: pre-line;
-    color: #f0e6ff;
-    text-shadow: 0 0 5px #d18fff;
+    font-size: 1.1em;
+    display: block;
+  }
+
+  .bayasi-sticker {
+    font-family: 'Cinzel', serif;
+    font-size: 2em;
+    color: #ff00ff;
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    text-shadow: 0 0 5px #ff00ff, 0 0 15px #ff66ff;
+  }
+
+  .star-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 1.5em;
+    color: #ffcc00;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .star-btn:hover {
+    transform: scale(1.3);
+  }
+
+  .comment-section {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #ff66ff;
+  }
+
+  .comment-section input {
+    width: 70%;
+    padding: 7px;
+    border-radius: 8px;
+    border: 1px solid #ff99ff;
+    background: #1a001a;
+    color: #fff;
+    outline: none;
+  }
+
+  .comment-section button {
+    padding: 7px 12px;
+    margin-left: 5px;
+    border-radius: 8px;
+    border: none;
+    background: #ff66ff;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .comment-section button:hover {
+    background: #ff33ff;
+  }
+
+  .comments-list {
+    margin-top: 10px;
+    list-style: none;
+    padding: 0;
+  }
+
+  .comments-list li {
+    background: #330033;
+    padding: 8px 10px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    font-size: 0.95em;
   }
 </style>
 </head>
@@ -71,285 +161,74 @@
   <h1>BAYASI ✒️</h1>
 </header>
 
-<div class="poem-container">
-  <!-- Göz qırpımında -->
+<div class="search-container">
+  <input type="text" id="search" placeholder="Şeirlərdə axtar...">
+</div>
+
+<div class="poem-container" id="poemContainer">
+
+  <!-- Şeir Card -->
+  <div class="poem-card">
+    <button class="star-btn" onclick="toggleStar(this)">★</button>
+    <div class="poem-title">Göz qırpımında</div>
+    <div class="poem-content">
+Səhər kimsəni görmürəm, axşam iki üz görürəm,
+İkisidə mələk kimi ağ libasda, həzin-həzin, asta-asta,
+Mənə sarı gəlməkdədir, biri hüzün göz yaşında...
+...
+Hər səhərin axşamı var, hər axşamın səhəri var....
+    </div>
+    <div class="comment-section">
+      <input type="text" placeholder="Şərh yaz..." class="comment-input">
+      <button onclick="addComment(this)">Göndər</button>
+      <ul class="comments-list"></ul>
+    </div>
+    <div class="bayasi-sticker">BAYASI ✒️</div>
+  </div>
+
+  <!-- Digər şeir kartları eyni formatda əlavə olunacaq -->
   
-<section>
-  <h2>Göz qırpımında</h2>
-  <p>Səhər kimsəni görmürəm, axşam iki üz görürəm,</p>
-  <p>İkisidə mələk kimi ağ libasda, həzin-həzin, asta-asta,</p>
-  <p>Mənə sarı gəlməkdədir, biri hüzün göz yaşında...</p>
-  <p>Biri isə gülməkdədir, biri bəlkə yüz yaşında,</p>
-  <p>Biri on səkkiz yaşında, bu on səkkiz yaşı olan,</p>
-  <p>Gözlərində yaşı olan, mənə necə tanış gəlir....</p>
-  <p>San ki, iyirmi bir yaşımda, iz buraxıb yaddaşımda.</p>
-  <p>Son iki gündür onları açıq, aydın görə bildim.</p>
-  <p>Birin görüb çox sevindim, birin görüb kədərləndim.</p>
-  <p>Biri ölüm mələyiyiş, biri ölmüş mələk imiş....</p>
-  <p>İllər öncə məzarlıqda dəfn etdiyim, öz sevgilim.</p>
-  <p>Dilim dinmədi söz deyim, ayağ istədi yeriyim,</p>
-  <p>Axı...² nəyi necə edim, bir addım ata bilmirəm.</p>
-  <p>Niyyətim tək, məqsədim tək, onlara çata bilmirəm.</p>
-  <p>Yox... yox... yanlış özümdədir, bu kor qalmış gözümdədir,</p>
-  <p>Mən onlara çatmaq üçün, yuxuma, haram qatardım.</p>
-  <p>Gələn onlardır bilsəydim, yəqin ömürlük yatardım.</p>
-  <p>Bəlkə onda tez çatardım, əlbət bir gün o, da olar...</p>
-  <p>Hər səhərin axşamı var, hər axşamın səhəri var....</p>
-</section>
-
-<section>
-  <h2>Qoca və körpə</h2>
-  <p>Gecənin bir aləmində, məscidin ön qapısında,</p>
-  <p>Bir körpə naləsi insanları, haydan-küyə saldı.</p>
-  <p>Biri baxdı köks ötürdü, biri göz yaşı tökürdü.</p>
-  <p>Bu baxanlar arasından, bir qoca körpəni aldı...</p>
-  <p>Daralan bağrına basdı, qırışan əlləri ilə</p>
-  <p>Qırılan qaməti ilə titrəyən dizləri ilə</p>
-  <p>Onu mənzilinə gətirdi, otağın zəif lanpası...</p>
-  <p>Ölüm yatağina uzanmış, bir qadına nur verirdi,</p>
-  <p>Bu qadın həmin yaşlının, mərhum yoldaşından qalan,</p>
-  <p>Sonuncu mirası idi, o da xəstə döşşəyində,</p>
-  <p>San ki, şam tək əriyirdi... qoca göz yaşını sildi.</p>
-  <p>Qoynunda kı o, mələknən yatağın ayaq küncünə,</p>
-  <p>Qısınıb güclə oturdu, qızının ovcunu sıxdı,</p>
-  <p>Qırışan əlləri ilə... Qızı incə bir təbbəssüm,</p>
-  <p>Edərək pıçıltı ilə "Can Ata" söyləyə bildi.</p>
-  <p>Qoca təəccüb ilə baxdı, axı... qız son altı ildi</p>
-  <p>Nə danışdı, nə də dindi, Qoca bir balaca sevindi,</p>
-  <p>Bir balaca özünə deyindi, "Bəlkə sən yanlış eşitdin"</p>
-  <p>Sual verməyədə utandı qızına "nə sölədin..? nə....?"</p>
-  <p>Qızının əlindən öpüb, deyərək qalxdı "Ya Allah...."</p>
-  <p>Artıq açılırdı sabah, körpə qoynunda yatırdı.</p>
-  <p>Öpüb apardı özüylə, qızının otuz il öncə,</p>
-  <p>Yatdığı taxta beşikdə, körpənin üsdünü örtdü...</p>
-  <p>Sobanın önündə dinməz qızı haqqında düşündü,</p>
-  <p>Bilmədi həqiqətən mi qızı..., onu səsləyirdi...?</p>
-  <p>Bu vədə qız yenə dindi "Ata...", "Ata..." deyirdi.</p>
-  <p>Görəsən nə istəyirdi, Qocanı sardı həyacan...</p>
-  <p>Qışqırdı "Can Qızım can" titrəyən dizləri ilə</p>
-  <p>Yürüdü, otağa sarı, qızı yatan yatağa sarı....</p>
-  <p>Əyilib üzündən öpdü, yaş axan gözündən öpdü,</p>
-  <p>Qoca çarəsiz baxışla yatağın küncünə çökdü,</p>
-  <p>Hönkürüb göz yaşı tökdü, dünya son ümüd evindən,</p>
-  <p>Sonuncu kərpici sökdü, qoca gah bağrına vurdu,</p>
-  <p>Gah əlilə dizinə vurdu, bu zaman sərt bir şəkildə,</p>
-  <p>Qapı pəncərələr açıldı, şiddətlə soyuq bir külək,</p>
-  <p>Qırışan cöhrünə vurdu, yan otaqdan isə digər,</p>
-  <p>Körpənin naləsi san ki, qocanı yanına çağırdı.</p>
-  <p>O, səsdə həm qızı vardı, həm də ki yoldaşı vardı,</p>
-  <p>O, səsdə həm həyat vardı, həm də ki, ölümün öz adı</p>
-  <p>Qoca titrək addım attdı, beşiyin yanına çatdı,</p>
-  <p>Körpənin üzündə san ki, mələk təbəssümü vardı.</p>
-  <p>Qoca baxdı, gözləri doldu, dedi: "Allah bu nə sirdir?"</p>
-  <p>"Görəsən bu körpə kimdir? Mənə ən son sınağındı !?"</p>
-  <p>Körpəni bağrına basıb dedi: "Qızım getdi, sənmi gəldin?"</p>
-  <p>"Demək ömür qapanmırmış, ölən ümüdlər doğurmuş"</p>
-  <p>Körpə sakitləşdi, susdu, qoca dinməz, sobanın yanında otur.</p>
-  <p>Azan sədası duyuldu, qoca da namazını qıldı alnını səcdəyə qoydu,</p>
-  <p>Dedi: "Razıyam İlahi məndən aldın, mənə verdin, gözümü mənaya çevirdin."</p>
-  <p>Ay ötüb zaman keçirdi, körpə isə iməkləyirdi, öz dilində deyinirdi.</p>
-  <p>Bir yaşda körpə dil açdı, ilk kəlməsi "Ata" oldu, qocanın gözləri doldu.</p>
-</section>
-
-<section>
-  <h2>Olan oldu bağışla</h2>
-  <p>Tanrıdan tək istəyim, sən idin ki, sənidə,</p>
-  <p>Tanrı öz əlləri ilə məndən aldı bağışla.</p>
-  <p>Görüşmədən sən demə, var qocalmağımızda,</p>
-  <p>İlahinin izni var, bu ayrılmağımızda...,</p>
-  <p>Kimsəsiz körpələr tək, ayrı qalmağımızda,</p>
-  <p>Günahım yox sən yenə, olan oldu... bağışla.</p>
-  <p>İşdir ölüm küləyi, açsa mənə pəncərə...,</p>
-  <p>Vidasız getmərəm mən, bu dünyadan heç yerə.</p>
-  <p>Soyuq məzarım üstə, məndən sənə xatirə,</p>
-  <p>Son ayrılıq məktubum, şeir qaldı... bağışla.</p>
-  <p>Saçlarının ətrini, day gətirən külək yox...</p>
-  <p>Sən geri qayıdanda, deməz idim gərək "yox..."</p>
-  <p>Ürək deyir "geri dön..." dilim deyir "gərək yox..."</p>
-  <p>Nifrətim ilə ürək yox, gözüm doldu... bağışla.</p>
-</section>
-
-<section>
-  <h2>Bil ki, ey saqi</h2>
-  <p>Bil ki, ey saqi meyin düşkünləri sər-səmdilər,</p>
-  <p>Mey camında əks olan surət ilə həmdəmdilər.</p>
-  <p>Süz şərabın ətrini duysun bütün divanələr,</p>
-  <p>Lərzə salsın aləmi, cingildəyən peymanələr,</p>
-  <p>Sənətimiz meyxanalar, neylər bizə biganələr.</p>
-  <p>Meyli meyçün fe'l olanlar, biz ilə bahəmdilər.</p>
-  <p>Canıva qəsd etməyin, ünvana çatmaqdır kəsə,</p>
-  <p>Cananı, can bilməyin qoy ibrət olsun hər kəsə,</p>
-  <p>Vermə izni ol yarın, xətmi-dəhanın yel kəsə,</p>
-  <p>Var məsəl gül kasəsi, sübhi-səhər şəbnəm dilər.</p>
-</section>
-
-<section>
-  <h2>Debat</h2>
-  <p>Aqillər: Dünya rahi-imtahandır Tanrını sevmək gərək</p>
-  <p>Cahillər: Tanrı dünyanı bizə sev söylədi biz neyləyək.</p>
-  <p>Aqillər: Sevgidir, isdəydi Rəbbani məhəbbətdən keçir.</p>
-  <p>Cahillər: Nəfsini sevimiş adamlar tüm həqiqətdən keçir</p>
-  <p>Aqillər: Düzdü dünya, dünyanı sərdik yerə hak söylədi.</p>
-  <p>Cahillər: Kosmosa fırlat raket sən isbat eylə böylədir.</p>
-  <p>Aqillər: Göz verib Allah sənə, göz ilə gəz düz dünyanı.</p>
-  <p>Cahillər: Əyri dünyamı sanırsan, düz olan öz dünyanı?!</p>
-  <p>Aqillər: Mərhəmət etmək gərək, hər məzluma hər bizərə,</p>
-  <p>Cahillər: Əl açar əl tutmaram ismarlaram Peyğəmbərə.</p>
-  <p>Aqillər: Aləmə bir daş düşər, başdan-başa çaş-baş düşər.</p>
-  <p>Cahillər: Baş dəyər daşdan-daşa başdan daşa daş-qaş düşər.</p>
-  <p>Aqillər: Məkri-şeytani əməllərdən uzaq qalmaqdayam</p>
-  <p>Cahillər: Nəyşeyi dəmsaz ilə hər şamu zövq almaqdayam.</p>
-  <p>Aqillər: Bir düşün aləmləri xəlq eyləyən Allahıda</p>
-  <p>Cahillər: Allahın kendi bize bəxş eyləyib iştahıda.</p>
-  <p>Aqillər: Yırtıcı İştahımı mən mənliyimdə gizlədim</p>
-  <p>Cahillər: Addım-addım nəfsimi bir addım öndə izlədim.</p>
-  <p>Aqillər: Təkcə qar yağdırmasıyla xeyli üzlər güldürür.</p>
-  <p>Cahillər: Buz beton küncündə evsiz xeyli insan öldürür.</p>
-  <p>Aqillər: Tanrıdır nemətləri adəmlərə ehsan edən,</p>
-  <p>Cahillər: Kəm düşən Nemət deyil insanları peşman edən!?</p>
-</section>
-
-<section>
-  <h2>Axdaracaqsan</h2>
-  <p>İstərəm bəyaz bir buluda dönüm,</p>
-  <p>Bulud tək səmada başıva dönüm.</p>
-  <p>Gəlib yətişəcək elə bir dönüm.</p>
-  <p>Sen meni göylərdə axtaracaqsan</p>
-  <p>Ətəyindən yapışsa, hər əli yetən,</p>
-  <p>Yanında olduğumu hiss edəcəksən</p>
-  <p>Nəfəsimlə saçını dağıtdıqca mən</p>
-  <p>İncə əllərinlə darayacaqsan,</p>
-  <p>Sən məni göylərdə axdaracaqsan,</p>
-  <p>Səmada ulduzlar sənə baxdıqca,</p>
-  <p>Qopub dan ulduzu yerə axdıqca</p>
-  <p>Yağışlar yağdıqca, şimşək çaxdıqca.</p>
-  <p>Diksinib pəncərədən boylanacaqsan,</p>
-  <p>Sən məni göylərdə axtaracaqsan.</p>
-  <p>Simsiyah dolmuş bir bulud olacam,</p>
-  <p>Bəlkə də arzuma onda çatacam,</p>
-  <p>Gözlərin parıldasa, məndə yağacam</p>
-  <p>Mənim göz yaşımla islanacaqsan!</p>
-  <p>Sən məni göylərdə axtaracaqsan.</p>
-  <p>Əsib, saçlarıva düzsəm gül, çiçək,</p>
-  <p>Dağlar utancından gül ləçək-ləçək</p>
-  <p>De.. qışa çevrilsəm tutalım deyək,</p>
-  <p>Qara kipriklərində qar dənəsi tək</p>
-  <p>Özümü məhf etsəm, mən sanacaqsan !?</p>
-  <p>Sən məni göylərdə axdaracaqsan !?</p>
-  <p>Tanrı yaxşı bilir hər şeyin sonun,</p>
-  <p>Bu ölüm pozmur ki, eşqin qanun,</p>
-  <p>Silib göz yaşını, soyuq ovcunun,</p>
-  <p>Əl açıb Tanrıya yalvaracaqsan.</p>
-  <p>Sən məni göylərdə axtaracaqsan.</p>
-</section><section>
-  <h2>Tül çəkib iştahıma</h2>
-  <p>Var mənim heysiyyətim, vardır təmiz şəxsiyyətm,</p>
-  <p>Vermərəm bıca yerə bir canımı, bir anımı.</p>
-  <p>Uymaram dünyadəki neymətlərə, ziynətlərə.</p>
-  <p>Pak təmiz göz yaşı tək, pak saxlaram vicdanımı,</p>
-  <p>Olmaram qəddim düta, bir zalimə bir bizata</p>
-  <p>Parça-parça min yerə, dur etsələr bir canımı.</p>
-  <p>Tül çəkib iştahıma, əhd eyləsəm Allahıma,</p>
-  <p>(Hz)İbrahim tək eylərəm, öz övladım qurbanımı,</p>
-  <p>Ey Xudayi əhvi qıl, ya birdəfəlik məhvi qıl.</p>
-  <p>Azmışam az bilmişəm imanımımı, azanımı.</p>
-  <p>Bu halımnan ey Həbibim ölməyimdən qorxuram</p>
-  <p>Tozlu rəfdə toz basıb, səccadəmi, quránımı</p>
-</section>
-
-<section>
-  <h2>Ana təbiət....4 (Qış fəsli)</h2>
-  <p>Səninlə sevinir ancaq uşaqlar,</p>
-  <p>Qırılır budaqlar, donur bulaqlar,</p>
-  <p>Kasıb mənzilində yanır ocaqlar,</p>
-  <p>Bu yanan ocaq yox, ürəyimizdir,</p>
-  <p>Bir aylıq tədarük, çörəyimizdir,</p>
-  <p>Arsız qonaqlar tək üç ay qalırsan,</p>
-  <p>Səfil küçələrində canlar alırsan,</p>
-  <p>Körpə beşiklerin, titrətmə yetər,</p>
-  <p>İsti ana qucağı ona bəs edər.</p>
-  <p>Hiddətim sənədir, nifrətim sənə,</p>
-  <p>Çevrildin bizimçün zalım düsmənə,</p>
-  <p>Soyuğun, qırovun, boranın, qarın,</p>
-  <p>Vadinin bürüyür hər bir diyarın.</p>
-  <p>Tar vurub doldurursan səngərləridə</p>
-  <p>Xidmətdə üşüdürsən əsgərləridə,</p>
-  <p>Nifrətim bu üzdən sənədir sənə,</p>
-  <p>Fitnəni iblislərmi öyrədir sənə!?</p>
-  <p>Şahların vicdanın sən dondurur san,</p>
-  <p>Vəzirin cibini sən doldurur san,</p>
-  <p>Şər atıb yalanlar sən uydurursan</p>
-  <p>Bi'zərin daxmasın sən soydurursan,</p>
-  <p>Sevən insanları ayırırsan... Hə!?</p>
-  <p>Vəhdət ürəkləri sən qırırsan... Hə!?</p>
-  <p>Fəsillər içində ən nankorusan,</p>
-  <p>Sən, ana təbiətin ögey oğlusan.</p>
-  <p>Qüdrətim yettsəydi tutub əlimlə,</p>
-  <p>Dar ağacından asardım səni dilimlə.</p>
-  <p>- Elmar...</p>
-  <p>Səbəb var, saçların çox tez ağarmış!</p>
-  <p>Allah dağına görə qar yağdırarmış...!</p>
-</section>
-
-<section>
-  <h2>Silə bilməzdim</h2>
-  <p>Səni sevməkdən qeyri neylədim ?</p>
-  <p>Səndən ayrı qalsam ,,ölərəm" dedim?</p>
-  <p>Məni sevənlərə xatir, ölə bilmədim...,</p>
-  <p>Cəsarətsizəm mi? ölə bilməzdim?!</p>
-  <p>Sən axı sevməyi hardan bilərsən?</p>
-  <p>Ögey bir mənzildə yad əllərdəsən.</p>
-  <p>Əlimdə çatmazdı..., ele yerdəsən,</p>
-  <p>Gəlmək istəsəm də gələ bilməzdim.</p>
-  <p>Mənim də təqsirim bunda çoxdur-çox,</p>
-  <p>Bağrım qəm lövhesi, kirpiklərin ox.</p>
-  <p>Axan göz yaşımı silim eybi yox,</p>
-  <p>Adını qəlbimdən silə bilməzdim.</p>
-  <p>Cəsarət eyləyib ölə bilsəm də,</p>
-  <p>Gəlmək isdesəmdə, gələ bilsəm də,</p>
-  <p>Özüm-öz sonumu belə bilsəm də,</p>
-  <p>Bu işin sonunu bilə bilməzdim.</p>
-</section>
-
-<section>
-  <h2>Yağış damlaları</h2>
-  <p>Qəm yükünə, yüksək dağlar alçalar,</p>
-  <p>Qəm suya çevrilsə buludlar alar.</p>
-  <p>Qəmimizi bölsək belə sir qalar,</p>
-  <p>Sirdaşımız, yağış damlalarıyla.</p>
-  <p>Qara-qara günlərimiz ağlandı,</p>
-  <p>Gülünecek günümüzə ağlandı,</p>
-  <p>Sakkalımız göz yaşıyla islandı,</p>
-  <p>Üst-başımız, yağış damlalarıyla.</p>
-  <p>Xəyli xətalar oldu, duyğumuzda,</p>
-  <p>Reallaşmadı bircə arzumuzda,</p>
-  <p>Bu səbəbdən qarışdı ovcumuzda,</p>
-  <p>Göz yaşımız, yağış damlalırıyla.</p>
-  <p>Ölümümüzə doğma ürəklər yanar,</p>
-  <p>İlk iki gün üstumuzdə ağlanar</p>
-  <p>Gün nəqədər qurtsada islanar.</p>
-  <p>Baş daşımız, yağış damlalarıyla.</p>
-</section>
-
-<section>
-  <h2>İlim-ilim itib ilim</h2>
-  <p>İlim-ilim itib gedir ayım, ilim.</p>
-  <p>Kaş ki, zaman çərçivəsin sıxa bilim.</p>
-  <p>Tanrı xoşbəxtlik adlanan guşəndə var</p>
-  <p>Möhnət ver o pəncərədən baxa bilim.</p>
-  <p>Göz yaşımız ovcumuzda çöküb gedir,</p>
-  <p>Nəzər salan göz yaşını töküb gedir,</p>
-  <p>Bu qara gün qamətimi büküb gedir.</p>
-  <p>Mərhəmət et bir ağ günə çıxa bilim.</p>
-</section>
-  <!-- Digər şeirlər eyni formatda əlavə olunacaq -->
-
 </div>
 
 <script>
-  function togglePoem(card) {
-    const content = card.querySelector('.poem-content');
-    content.style.display = content.style.display === "block" ? "none" : "block";
+  // Axtarış funksiyası
+  const searchInput = document.getElementById('search');
+  const poemContainer = document.getElementById('poemContainer');
+
+  searchInput.addEventListener('input', function() {
+    const filter = this.value.toLowerCase();
+    const cards = poemContainer.querySelectorAll('.poem-card');
+    cards.forEach(card => {
+      const title = card.querySelector('.poem-title').innerText.toLowerCase();
+      const content = card.querySelector('.poem-content').innerText.toLowerCase();
+      if(title.includes(filter) || content.includes(filter)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+
+  // Ulduz bəyənmə funksiyası
+  function toggleStar(button) {
+    button.classList.toggle('active');
+    if(button.classList.contains('active')) {
+      button.innerText = '★';
+    } else {
+      button.innerText = '☆';
+    }
+  }
+
+  // Şərh əlavə etmə funksiyası
+  function addComment(button) {
+    const commentInput = button.previousElementSibling;
+    const commentText = commentInput.value.trim();
+    if(commentText === '') return;
+    const commentList = button.nextElementSibling;
+    const li = document.createElement('li');
+    li.textContent = commentText;
+    commentList.appendChild(li);
+    commentInput.value = '';
   }
 </script>
 
