@@ -18,7 +18,7 @@ body {
 /* --- PARTICLE FON --- */
 canvas#particles {
   position:fixed;
-  top:0;left:0;
+  top:0; left:0;
   width:100%;
   height:100%;
   z-index:-1;
@@ -119,7 +119,7 @@ header h1:hover{
 }
 
 /* --- BUTTONS --- */
-.comment-btn,.add-comment,.subscribe-btn{
+.comment-btn,.add-comment,.admin-add,.subscribe-btn,.delete-poem{
   background:#aa00ff;
   border:none;
   padding:8px 14px;
@@ -129,7 +129,7 @@ header h1:hover{
   margin-top:10px;
   transition:0.3s;
 }
-.comment-btn:hover,.add-comment:hover,.subscribe-btn:hover{
+.comment-btn:hover,.add-comment:hover,.admin-add:hover,.subscribe-btn:hover,.delete-poem:hover{
   background:#ff00ff;
 }
 
@@ -155,6 +155,26 @@ header h1:hover{
 .stars{font-size:26px;cursor:pointer;letter-spacing:5px;}
 .stars span{transition:0.3s;color:#888;}
 .stars span.active{color:gold;}
+
+/* --- ADMIN PANEL --- */
+#adminPanel{
+  width:90%;
+  margin:30px auto;
+  background:#220033;
+  padding:20px;
+  border-radius:20px;
+  display:none; /* yalnız admin görünür */
+}
+#adminPanel textarea,#adminPanel input{
+  width:100%;
+  margin-bottom:10px;
+  padding:12px;
+  border-radius:12px;
+  border:none;
+  font-size:16px;
+  background:#330044;
+  color:#fff;
+}
 
 /* --- SUBSCRIBE MODAL --- */
 #subscribeModal{
@@ -224,27 +244,22 @@ header h1:hover{
 <div id="subscriberCount">Abunə sayı: 347</div>
 </header>
 
-<div class="about-me">
-<h2>Haqqımda</h2>
-<pre>
-Mən Elmar Bəy Asi — sözlərin, qəlbin və düşüncənin səssiz melodiyasını araşdıran bir şair və düşünürəm.
-Hər şeirim yalnız emosiyalar deyil, həm də insan təfəkkürünün dərin qatlarına işıq salır.
-İntellektual və estetik duyğu ilə yoğrulmuş yaradıcılığım oxucunun ruhuna və zehninə toxunur.
-</pre>
-</div>
-
 <input type="text" id="searchBox" placeholder="Şeir axtar...">
 <div id="poemsContainer"></div>
 
-<!-- Admin panel gizli, yalnız sən redaktə edə bilirsən -->
-<!--
+<!-- Admin Login -->
+<div id="adminLogin" style="text-align:center;margin:20px;">
+<input type="password" id="adminPassword" placeholder="Admin parolunu daxil et">
+<button id="loginBtn">Daxil ol</button>
+</div>
+
+<!-- Admin panel -->
 <div id="adminPanel">
 <h3>Admin: Şeir əlavə et</h3>
 <input type="text" id="poemTitle" placeholder="Başlıq">
 <textarea id="poemText" placeholder="Şeir mətnini daxil et"></textarea>
 <button class="admin-add">Əlavə et</button>
 </div>
--->
 
 <!-- Subscribe Modal -->
 <div id="subscribeModal">
@@ -289,16 +304,20 @@ function animateParticles(){ctx.clearRect(0,0,W,H);particlesArray.forEach(p=>{p.
 window.addEventListener('resize',()=>{W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;});
 initParticles();animateParticles();
 
-/* --- POEMS --- */
-// Admin yalnız sən olduğun üçün burada şeirlər JS array-də əlavə olunur
+/* --- POEMS & ADMIN --- */
 const poemsContainer=document.getElementById("poemsContainer");
-let poems=[
-  { title: "Göz qırpımında", text: "Səhər kimsəni görmürəm, axşam iki üz görürəm...\nİkisidə mələk kimi ağ libasda..." },
-  { title: "İkinci Şeir", text: "Bu ikinci şeirin nümunəsidir..." }
-];
+const poemTitle=document.getElementById("poemTitle");
+const poemText=document.getElementById("poemText");
+const adminAdd=document.querySelector(".admin-add");
+const adminPanel=document.getElementById("adminPanel");
+const adminLogin=document.getElementById("adminLogin");
+const loginBtn=document.getElementById("loginBtn");
+const adminPasswordField=document.getElementById("adminPassword");
+const ADMIN_PASSWORD="12345"; // öz parolunu buraya yaz
 
 function renderPoems(){
   poemsContainer.innerHTML="";
+  let poems=JSON.parse(localStorage.getItem("poems")||"[]");
   poems.forEach((p,index)=>{
     const div=document.createElement("div");
     div.className="poem";
@@ -320,6 +339,30 @@ function renderPoems(){
     poemsContainer.appendChild(div);
   });
   attachCommentEvents();
+}
+
+/* --- ADMIN LOGIN --- */
+loginBtn.onclick=()=>{
+  const pass=adminPasswordField.value.trim();
+  if(pass===ADMIN_PASSWORD){
+    adminPanel.style.display="block";
+    adminLogin.style.display="none";
+    alert("Admin olaraq daxil oldunuz!");
+  }else{
+    alert("Parol yanlışdır!");
+  }
+}
+
+/* --- ADD POEM --- */
+adminAdd.onclick=()=>{
+  const title=poemTitle.value.trim();
+  const text=poemText.value.trim();
+  if(!title||!text)return;
+  let poems=JSON.parse(localStorage.getItem("poems")||"[]");
+  poems.push({title,text});
+  localStorage.setItem("poems",JSON.stringify(poems));
+  poemTitle.value="";poemText.value="";
+  renderPoems();
 }
 
 /* --- COMMENTS & STARS --- */
