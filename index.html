@@ -4,166 +4,205 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BAYASI ✒️ — Şeirlər</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display&display=swap" rel="stylesheet">
 <style>
-  body {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    background-color: #0a0a0a;
-    color: #e0d6ff;
-    line-height: 1.7;
-  }
+body {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  background-color: #0a0a0a;
+  color: #e0d6ff;
+  line-height: 1.7;
+}
 
-  header {
-    text-align: center;
-    padding: 50px 20px 30px 20px;
-  }
+header {
+  text-align: center;
+  padding: 40px 20px 20px 20px;
+}
 
-  h1 {
-    font-family: 'Cinzel', serif;
-    font-size: 5em;
-    font-weight: 900;
-    color: #6a0dad;
-    text-shadow: 0 0 5px #fff, 0 0 15px #fff, 0 0 30px #b19cd9;
-  }
+h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 5em;
+  font-weight: 900;
+  color: #6a0dad;
+  text-shadow: 0 0 2px #fff, 0 0 5px #b19cd9; /* ağ parıltı çox cüzi */
+}
 
-  .search-container {
-    max-width: 900px;
-    margin: 0 auto 30px auto;
-    text-align: center;
-  }
+.search-container {
+  max-width: 900px;
+  margin: 0 auto 20px auto;
+  text-align: center;
+}
 
-  .search-container input {
-    width: 80%;
-    padding: 10px 15px;
-    font-size: 1.2em;
-    border-radius: 10px;
-    border: 2px solid #b19cd9;
-    outline: none;
-    background: #1a001a;
-    color: #fff;
-    box-shadow: 0 0 10px #fff;
-  }
+.search-container input {
+  width: 80%;
+  padding: 10px 15px;
+  font-size: 1.2em;
+  border-radius: 10px;
+  border: 2px solid #b19cd9;
+  outline: none;
+  background: #1a001a;
+  color: #fff;
+  box-shadow: 0 0 5px #fff;
+}
 
-  .poem-container {
-    max-width: 900px;
-    margin: 0 auto 50px auto;
-    padding: 0 20px;
-  }
+.add-buttons {
+  max-width: 900px;
+  margin: 10px auto 30px auto;
+  text-align: center;
+}
 
-  .poem-card {
-    background: linear-gradient(145deg, #2a002a, #4b004b);
-    border-radius: 15px;
-    margin-bottom: 25px;
-    padding: 20px;
-    border: 1px solid #b19cd9;
-    box-shadow: 0 0 15px #fff;
-    position: relative;
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-  }
+.add-buttons button {
+  margin: 5px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  background: #b19cd9;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s;
+}
 
-  .poem-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 25px #fff, 0 0 35px #b19cd9;
-  }
+.add-buttons button:hover {
+  background: #fff;
+  color: #6a0dad;
+}
 
-  .poem-title {
-    font-family: 'Cinzel', serif;
-    font-size: 2em;
-    font-weight: 700;
-    margin: 0;
-    color: #b19cd9;
-    text-shadow: 0 0 3px #fff, 0 0 8px #fff;
-  }
+.poem-container {
+  max-width: 900px;
+  margin: 0 auto 50px auto;
+  padding: 0 20px;
+}
 
-  .poem-content {
-    margin-top: 15px;
-    white-space: pre-line;
-    font-size: 1.1em;
-    color: #f0e6ff;
-    text-shadow: 0 0 3px #fff;
-    display: block;
-  }
+.poem-card {
+  background: linear-gradient(145deg, #2a002a, #4b004b);
+  border-radius: 15px;
+  margin-bottom: 25px;
+  padding: 20px;
+  border: 2px dashed #b19cd9;
+  box-shadow: 0 0 5px #fff, 0 0 10px #b19cd9 inset;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
 
-  .star-container {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    display: flex;
-    gap: 5px;
-    align-items: center;
-    font-family: 'Cinzel', serif;
-    color: #ffcc00;
-  }
+.poem-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px #fff, 0 0 25px #b19cd9 inset;
+}
 
-  .star-btn {
-    background: transparent;
-    border: none;
-    font-size: 1.5em;
-    cursor: pointer;
-    transition: transform 0.2s;
-    color: #ffcc00;
-  }
+.poem-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2em;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  color: #b19cd9;
+  text-shadow: 0 0 2px #fff, 0 0 5px #fff;
+}
 
-  .star-btn:hover {
-    transform: scale(1.3);
-  }
+.poem-content {
+  margin-top: 10px;
+  white-space: pre-line;
+  font-size: 1.1em;
+  color: #f0e6ff;
+  text-shadow: 0 0 2px #fff;
+}
 
-  .bayasi-label {
-    font-size: 1.1em;
-    margin-left: 5px;
-    color: #fff;
-    text-shadow: 0 0 3px #fff, 0 0 6px #b19cd9;
-  }
+.star-container {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  font-family: 'Cinzel', serif;
+  color: #ffcc00;
+  margin-top: 10px;
+}
 
-  .comment-section {
-    margin-top: 15px;
-    padding-top: 10px;
-    border-top: 1px solid #b19cd9;
-  }
+.star-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: transform 0.2s;
+  color: #ffcc00;
+}
 
-  .comment-section input {
-    width: 70%;
-    padding: 7px;
-    border-radius: 8px;
-    border: 1px solid #b19cd9;
-    background: #1a001a;
-    color: #fff;
-    outline: none;
-  }
+.star-btn:hover {
+  transform: scale(1.3);
+}
 
-  .comment-section button {
-    padding: 7px 12px;
-    margin-left: 5px;
-    border-radius: 8px;
-    border: none;
-    background: #b19cd9;
-    color: #fff;
-    cursor: pointer;
-    transition: 0.2s;
-  }
+.bayasi-label {
+  font-size: 1.1em;
+  margin-left: 5px;
+  color: #fff;
+  text-shadow: 0 0 1px #fff, 0 0 2px #b19cd9;
+}
 
-  .comment-section button:hover {
-    background: #fff;
-    color: #6a0dad;
-  }
+.comment-btn {
+  margin-top: 10px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: none;
+  background: #b19cd9;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s;
+}
 
-  .comments-list {
-    margin-top: 10px;
-    list-style: none;
-    padding: 0;
-  }
+.comment-btn:hover {
+  background: #fff;
+  color: #6a0dad;
+}
 
-  .comments-list li {
-    background: #330033;
-    padding: 8px 10px;
-    margin-bottom: 5px;
-    border-radius: 8px;
-    font-size: 0.95em;
-    text-shadow: 0 0 2px #fff;
-  }
+.comment-section {
+  display: none;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #b19cd9;
+}
 
+.comment-section input {
+  width: 70%;
+  padding: 5px 8px;
+  border-radius: 5px;
+  border: 1px solid #b19cd9;
+  background: #1a001a;
+  color: #fff;
+  margin-right: 5px;
+}
+
+.comment-section button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  background: #b19cd9;
+  color: #fff;
+  cursor: pointer;
+}
+
+.comment-section button:hover {
+  background: #fff;
+  color: #6a0dad;
+}
+
+.comment-list {
+  margin-top: 10px;
+  max-height: 150px;
+  overflow-y: auto;
+  font-size: 0.95em;
+}
+
+.comment-list p {
+  background: rgba(255,255,255,0.05);
+  padding: 4px 6px;
+  border-radius: 4px;
+  margin: 3px 0;
+}
+
+/* Bayasi info alt */
+.bayasi-info {
+  font-size: 0.85em;
+  font-style: italic;
+  color: #c0a8ff;
+  margin-top: 10px;
+}
 </style>
 </head>
 <body>
@@ -173,79 +212,91 @@
 </header>
 
 <div class="search-container">
-  <input type="text" id="search" placeholder="Şeirlərdə axtar...">
+  <input type="text" id="searchInput" placeholder="Şeir axtar...">
 </div>
 
-<div class="poem-container" id="poemContainer"></div>
+<div class="add-buttons">
+  <button onclick="addPoemBlock()">Yeni Şeir Əlavə Et</button>
+</div>
+
+<div class="poem-container" id="poemContainer">
+  <!-- Şeirlər burada əlavə olunacaq -->
+</div>
 
 <script>
-const poems = [
-  {
-    title: "Göz qırpımında",
-    content: `Səhər kimsəni görmürəm, axşam iki üz görürəm,
-İkisidə mələk kimi ağ libasda, həzin-həzin, asta-asta,
-Mənə sarı gəlməkdədir, biri hüzün göz yaşında...
-Hər səhərin axşamı var, hər axşamın səhəri var....`
-  },
-  {
-    title: "Qoca və körpə",
-    content: `Gecənin bir aləmində, məscidin ön qapısında,
-Bir körpə naləsi insanları, haydan-küyə saldı...`
-  },
-  // buraya digər şeirləri əlavə et
-];
+// Helper funksiyalar
+function createPoemCard(title = "Şeir Başlığı", content = "Şeir mətni bura yazılacaq...") {
+  const card = document.createElement("div");
+  card.className = "poem-card";
 
-// Render şeirlər
-const container = document.getElementById('poemContainer');
-
-poems.forEach((poem, index) => {
-  const card = document.createElement('div');
-  card.className = 'poem-card';
   card.innerHTML = `
-    <div class="poem-title">${poem.title}</div>
-    <div class="poem-content">${poem.content}</div>
+    <div class="poem-title">${title}</div>
+    <div class="poem-content">${content}</div>
     <div class="star-container">
-      <button class="star-btn" onclick="toggleStar(this)">☆</button>
-      <button class="star-btn" onclick="toggleStar(this)">☆</button>
-      <button class="star-btn" onclick="toggleStar(this)">☆</button>
+      <button class="star-btn" onclick="rateStar(this, 1)">★</button>
+      <button class="star-btn" onclick="rateStar(this, 2)">★</button>
+      <button class="star-btn" onclick="rateStar(this, 3)">★</button>
       <span class="bayasi-label">BAYASI ✒️</span>
     </div>
+    <button class="comment-btn" onclick="toggleComments(this)">Şərhlər</button>
     <div class="comment-section">
-      <input type="text" placeholder="Şərh yaz..." class="comment-input">
+      <input type="text" placeholder="Şərh yazın...">
       <button onclick="addComment(this)">Göndər</button>
-      <ul class="comments-list"></ul>
+      <div class="comment-list"></div>
+      <div class="bayasi-info">
+        Mən Elmar Bəy Asi yazdığım şeirlər. Kontakt: elmarofficial692@gmail.com, 0518181584
+      </div>
     </div>
   `;
-  container.appendChild(card);
-});
+  return card;
+}
 
-// Search funksiyası
-document.getElementById('search').addEventListener('input', function() {
-  const filter = this.value.toLowerCase();
-  document.querySelectorAll('.poem-card').forEach(card => {
-    const title = card.querySelector('.poem-title').innerText.toLowerCase();
-    const content = card.querySelector('.poem-content').innerText.toLowerCase();
-    card.style.display = title.includes(filter) || content.includes(filter) ? 'block' : 'none';
+// Şeir əlavə et
+function addPoemBlock() {
+  const container = document.getElementById("poemContainer");
+  const card = createPoemCard();
+  container.appendChild(card);
+}
+
+// Ulduz bəyənmə
+function rateStar(btn, star) {
+  const stars = btn.parentElement.querySelectorAll(".star-btn");
+  stars.forEach((s, i) => {
+    s.style.color = (i < star) ? "#ffd700" : "#ffcc00";
+  });
+}
+
+// Şərh bölməsini açıb bağlama
+function toggleComments(btn) {
+  const section = btn.nextElementSibling;
+  section.style.display = (section.style.display === "block") ? "none" : "block";
+}
+
+// Şərh əlavə et
+function addComment(btn) {
+  const input = btn.previousElementSibling;
+  const text = input.value.trim();
+  if (!text) return;
+  const list = btn.nextElementSibling;
+  const p = document.createElement("p");
+  p.textContent = text;
+  list.appendChild(p);
+  input.value = "";
+}
+
+// Şeir axtar
+document.getElementById("searchInput").addEventListener("input", function() {
+  const val = this.value.toLowerCase();
+  const cards = document.querySelectorAll(".poem-card");
+  cards.forEach(card => {
+    const title = card.querySelector(".poem-title").textContent.toLowerCase();
+    const content = card.querySelector(".poem-content").textContent.toLowerCase();
+    card.style.display = (title.includes(val) || content.includes(val)) ? "block" : "none";
   });
 });
 
-// Ulduz toggle
-function toggleStar(button) {
-  button.classList.toggle('active');
-  button.innerText = button.classList.contains('active') ? '★' : '☆';
-}
-
-// Şərh əlavə etmə
-function addComment(button) {
-  const input = button.previousElementSibling;
-  const text = input.value.trim();
-  if(!text) return;
-  const list = button.nextElementSibling;
-  const li = document.createElement('li');
-  li.textContent = text;
-  list.appendChild(li);
-  input.value = '';
-}
+// İlk boş şeir kartı əlavə olunsun
+addPoemBlock();
 </script>
 
 </body>
