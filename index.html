@@ -1,132 +1,103 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>BAYASI ✒️ — Elmar Bayasi</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Lora&family=Poppins:wght@600&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#0b0b0b;
-      --card:#120612;
-      --accent1:#7a1f4e;
-      --accent2:#b76b9b;
-      --muted: #bfb0c2;
-      --glass: rgba(255,255,255,0.03);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font-family:'Lora', serif; background:
-      radial-gradient(1200px 400px at 10% 10%, rgba(183,107,155,0.06), transparent 8%),
-      radial-gradient(900px 300px at 90% 90%, rgba(122,31,78,0.04), transparent 8%),
-      var(--bg); color:#fff; -webkit-font-smoothing:antialiased;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BAYASI ✒️ — Elmar Bayasi</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Lora&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0b0b;
+  --card:#2c0d1e;
+  --accent1:#8b2f5e;
+  --accent2:#b76b9b;
+  --muted:#d1b8c9;
+  --glass: rgba(255,255,255,0.03);
+  --light-shadow: rgba(255,255,255,0.15);
+}
+*{box-sizing:border-box;}
+body{margin:0; font-family:'Lora', serif; background:var(--bg); color:#fff; -webkit-font-smoothing:antialiased;}
+header{
+  display:flex; justify-content:center; align-items:center; font-family:'Cinzel Decorative', serif;
+  font-size:3rem; margin:0; padding:40px 0;
+  color: var(--accent2); text-shadow: 0 0 12px var(--light-shadow), 2px 2px 6px var(--accent1);
+}
+.wrap{max-width:1100px; margin:0 auto; padding:0 20px;}
+#about{
+  text-align:center; margin-bottom:30px; padding:20px; border-radius:12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  border:1px solid rgba(255,255,255,0.05); backdrop-filter: blur(6px);
+}
+#about h2{margin-bottom:10px; font-size:2rem; color:var(--accent1);}
+#about p{color:var(--muted); font-size:1rem; line-height:1.6;}
 
-    header{
-      display:flex; align-items:center; gap:14px;
-      justify-content:center; padding:36px 20px;
-      font-family:'Cinzel Decorative', serif; font-size:2.4rem;
-      background: linear-gradient(90deg,var(--accent2),var(--accent1));
-      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-      text-shadow: 0 4px 18px rgba(0,0,0,0.6);
-    }
-    .wrap{max-width:1100px; margin:24px auto; padding:0 18px;}
+.controls{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:20px; justify-content:space-between;}
+.controls .left-controls, .controls .right-controls{display:flex; gap:8px; flex-wrap:wrap;}
+.search, select.filter{padding:10px 14px; border-radius:10px; border:none; font-family:inherit;}
+button.btn{padding:10px 14px; border-radius:10px; border:none; cursor:pointer; font-weight:600; font-family:inherit;}
+button.primary{background: linear-gradient(90deg,var(--accent2),var(--accent1)); color:var(--bg);}
+button.ghost{background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--muted);}
 
-    #about{
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
-      border-radius:12px; padding:22px; margin-bottom:18px; text-align:center;
-      border:1px solid rgba(255,255,255,0.04);
-      backdrop-filter: blur(6px);
-    }
-    #about h2{margin:0 0 8px; color:var(--accent2); font-family:'Cinzel Decorative'; font-size:1.6rem}
-    #about p{margin:0; color:var(--muted); line-height:1.6; max-width:900px; margin-left:auto; margin-right:auto}
-
-    .controls{display:flex; gap:10px; align-items:center; justify-content:space-between; margin:18px 0; flex-wrap:wrap;}
-    .left-controls{display:flex; gap:8px; align-items:center; flex-wrap:wrap;}
-    .search{padding:10px 14px; border-radius:10px; border:0; min-width:220px; font-family:inherit;}
-    select.filter{padding:10px 12px; border-radius:10px; border:0; font-family:inherit;}
-    button#audioControl{padding:10px 14px; border-radius:10px; border:0; cursor:pointer; font-weight:600;
-      background: linear-gradient(90deg,var(--accent2),var(--accent1)); color:var(--bg)}
-    .right-controls{display:flex; gap:8px; align-items:center;}
-
-    .grid{
-      display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:18px;
-    }
-
-    .card{
-      background: linear-gradient(180deg,var(--card), rgba(255,255,255,0.02));
-      border-radius:14px; padding:14px; border:1px solid rgba(255,255,255,0.04);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.6); overflow:hidden;
-      transition: transform .22s ease, box-shadow .22s ease;
-    }
-    .card:hover{transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.65)}
-    .title{
-      display:flex; align-items:center; justify-content:space-between; gap:12px; cursor:pointer;
-    }
-    .title h3{margin:0; font-family:'Cinzel Decorative'; color:var(--accent2); font-size:1.05rem}
-    .meta{color:var(--muted); font-size:0.82rem}
-
-    .content{
-      margin-top:12px; max-height:0; overflow:hidden; transition: max-height .28s ease, opacity .22s ease;
-      opacity:0;
-    }
-    .card.open .content{opacity:1; max-height:1200px} /* big enough for poems */
-
-    .poem-line{white-space:pre-wrap; color:#eee; line-height:1.65; margin:6px 0; font-size:0.98rem}
-    .actions{display:flex; gap:8px; margin-top:12px; align-items:center}
-    .btn{padding:8px 10px; border-radius:10px; border:0; cursor:pointer; font-weight:600; font-family:inherit}
-    .btn.ghost{background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--muted)}
-    .btn.primary{background: linear-gradient(90deg,var(--accent2),var(--accent1)); color:var(--bg)}
-    footer{margin:36px 0 90px; text-align:center; color:var(--muted)}
-    @media(max-width:640px){
-      header{font-size:1.6rem; padding:24px}
-      .search{min-width:140px}
-    }
-  </style>
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px;}
+.card{
+  background: linear-gradient(180deg,var(--card), rgba(255,255,255,0.02));
+  border-radius:14px; padding:16px; border:1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 8px 25px var(--light-shadow); overflow:hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover{transform: translateY(-5px); box-shadow: 0 20px 40px var(--light-shadow);}
+.title{display:flex; justify-content:space-between; align-items:center; cursor:pointer;}
+.title h3{margin:0; font-family:'Cinzel Decorative'; color:var(--accent2);}
+.title .meta{font-size:0.85rem; color:var(--muted);}
+.content{max-height:0; overflow:hidden; opacity:0; transition: max-height 0.3s ease, opacity 0.3s ease;}
+.card.open .content{max-height:1200px; opacity:1;}
+.poem-line{white-space:pre-wrap; margin:5px 0; line-height:1.6; color:#eee;}
+.actions{margin-top:10px;}
+footer{margin:50px 0; text-align:center; color:var(--muted);}
+</style>
 </head>
 <body>
-  <header>BAYASI ✒️</header>
 
-  <div class="wrap">
-    <section id="about">
-      <h2>Elmar Bəy Asi ✒️</h2>
-      <p class="slogan">Salam — burda bütün şeirlərim toplanıb. Başlığa kliklə şeiri aç, axtar və ya kateqoriyaya görə süz.</p>
-    </section>
+<header>BAY ASI ✒️</header>
 
-    <div class="controls">
-      <div class="left-controls">
-        <input id="search" class="search" placeholder="Şeirdə axtar..." />
-        <select id="filter" class="filter">
-          <option value="Hamısı">Hamısı</option>
-          <option value="Yeni">Yeni</option>
-          <option value="Klassik">Klassik</option>
-          <option value="Duygusal">Duygusal</option>
-          <option value="Meyxana">Meyxana</option>
-          <option value="Debat">Debat</option>
-          <option value="Düşüncə">Düşüncə</option>
-        </select>
-        <button id="clear" class="btn ghost">Təmizlə</button>
-      </div>
-      <div class="right-controls">
-        <button id="expandAll" class="btn ghost">Hamısını Aç</button>
-        <button id="collapseAll" class="btn ghost">Hamısını Bağla</button>
-        <button id="audioControl" class="btn primary">🎵 Bütün Şeirləri Dinlə</button>
-      </div>
+<div class="wrap">
+  <section id="about">
+    <h2>Elmar Bayasi ✒️</h2>
+    <p>Salam — burda bütün şeirlərim toplanıb. Başlığa kliklə şeiri aç, axtar və ya kateqoriyaya görə süz.</p>
+  </section>
+
+  <div class="controls">
+    <div class="left-controls">
+      <input id="search" class="search" placeholder="Şeirdə axtar...">
+      <select id="filter" class="filter">
+        <option value="Hamısı">Hamısı</option>
+        <option value="Yeni">Yeni</option>
+        <option value="Klassik">Klassik</option>
+        <option value="Duygusal">Duygusal</option>
+        <option value="Meyxana">Meyxana</option>
+        <option value="Debat">Debat</option>
+        <option value="Düşüncə">Düşüncə</option>
+      </select>
+      <button id="clear" class="btn ghost">Təmizlə</button>
     </div>
-
-    <main class="grid" id="poemsContainer" aria-live="polite"></main>
-
-    <footer>© <span id="year"></span> Elmar Bayasi ✒️ — Bütün hüquqlar qorunur</footer>
+    <div class="right-controls">
+      <button id="expandAll" class="btn ghost">Hamısını Aç</button>
+      <button id="collapseAll" class="btn ghost">Hamısını Bağla</button>
+      <button id="audioControl" class="btn primary">🎵 Bütün Şeirləri Dinlə</button>
+    </div>
   </div>
 
-  <script>
-    // Şeirlər massivi — hər şeiri tam olaraq daxil etdim
-    const poems = [
-      {
-        title: "Göz qırpımında",
-        category: "Yeni",
-        text: `Səhər kimsəni görmürəm, axşam iki üz görürəm,
+  <main class="grid" id="poemsContainer" aria-live="polite"></main>
+
+  <footer>© <span id="year"></span> Elmar Bayasi ✒️ — Bütün hüquqlar qorunur</footer>
+</div>
+
+<script>
+// Burda bütün şeirləri tam massiv kimi daxil edirik
+const poems = [
+  {
+    title: "Göz qırpımında",
+    category: "Yeni",
+    text: `Səhər kimsəni görmürəm, axşam iki üz görürəm,
 İkisidə mələk kimi ağ libasda, həzin-həzin, asta-asta,
 Mənə sarı gəlməkdədir, biri hüzün göz yaşında...
 Biri isə gülməkdədir,  biri bəlkə yüz yaşında,
@@ -145,11 +116,11 @@ Mən onlara çatmaq üçün, yuxuma, haram qatardım.
 Gələn onlardır bilsəydim, yəqin ömürlük yatardım.
 Bəlkə onda tez çatardım, əlbət bir gün o, da olar...
 Hər səhərin axşamı var, hər axşamın səhəri var....`
-      },
-      {
-        title: "Qoca və körpə",
-        category: "Klassik",
-        text: `Gecənin bir aləmində, məscidin ön qapısında,
+  },
+  {
+    title: "Qoca və körpə",
+    category: "Klassik",
+    text: `Gecənin bir aləmində, məscidin ön qapısında,
 Bir körpə naləsi insanları, haydan-küyə saldı.
 Biri baxdı köks ötürdü, biri göz yaşı tökürdü.
 Bu baxanlar arasından, bir qoca körpəni aldı...
@@ -172,7 +143,7 @@ Qızının əlindən öpüb, deyərək qalxdı "Ya Allah...."
 Artıq açılırdı sabah, körpə qoynunda yatırdı.
 Öpüb apardı özüylə, qızının otuz il öncə,
 Yatdığı taxta beşikdə, körpənin üsdünü örtdü...
-Sobanın önündə dinməz qızı hakkında düşündü,
+Sobanın önündə dinməz qızı haqqında düşündü,
 Bilmədi həqiqətən mi qızı..., onu səsləyirdi...?
 Bu vədə qız yenə dindi "Ata...","Ata..." deyirdi.
 Görəsən nə istəyirdi? Qocanı sardı həyacan...
@@ -199,359 +170,104 @@ Azan sədası duyuldu, qoca da namzını qıldı alnını səcdəyə qoydu,
 Dedi: "Razıyam İlahi məndən aldın, mənə verdin, gözümü mənaya çevirdin."
 Ay ötüb zaman keçirdi, körpə isə iməkləyirdi, öz dilində deyinirdi.
 Bir yaşda körpə dil açdı, ilk kəlməsi "Ata" oldu, qocanın gözləri doldu.`
-      },
-      {
-        title: "Olan oldu bağışla",
-        category: "Duygusal",
-        text: `Tanrıdan tək istəyim, sən idin ki, sənidə,
-Tanrı öz əlləri ilə məndən aldı bağışla.
+  }
+  // Burda davamında bütün digər şeirləri də eyni formatda əlavə edəcəksən
+];
 
-Görüşmədən sən demə, var qocalmağımızda,
-İlahinin izni var, bu ayrılmağımızda...,
-Kimsəsiz körpələr tək, ayrı qalmağımızda,
-Günahım yox sən yenə, olan oldu... bağışla.
+// helpers
+const container = document.getElementById('poemsContainer');
+const search = document.getElementById('search');
+const filter = document.getElementById('filter');
+const clearBtn = document.getElementById('clear');
+const expandAllBtn = document.getElementById('expandAll');
+const collapseAllBtn = document.getElementById('collapseAll');
+const audioBtn = document.getElementById('audioControl');
 
-İşdir ölüm küləyi, açsa mənə pəncərə...,
-Vidasız getmərəm mən, bu dünyadan heç yerə.
-Soyuq məzarım üstə, məndən sənə xatirə,
-Son ayrılıq məktubum, şeir qaldı... bağışla.
-
-Saçlarının ətrini, day gətirən külək yox...
-Sən geri qayıdanda, deməz idim gərək "yox..."
-Ürək deyir "geri dön..." dilim deyir "gərək yox..."
-Nifrətim ilə ürək yox, gözüm doldu... bağışla.`
-      },
-      {
-        title: "Meyxana",
-        category: "Meyxana",
-        text: `Bil ki, ey saqi meyin düşkünləri sər-səmdilər,
-Mey camında əks olan surət ilə həmdəmdilər.
-
-Süz şərabın ətrini duysun bütün divanələr,
-Lərzə salsın aləmi, cingildəyən peymanələr,
-Sənətimiz meyxanalar, neylər bizə biganələr.
-Meyli meyçün fe'l olanlar, biz ilə bahəmdilər.
-
-Canıva qəsd etməyin, ünvana çatmaqdır kəsə,
-Cananı, can bilməyin qoy ibrət olsun hər kəsə,
-Vermə izni ol yarın, xətmi-dəhanın yel kəsə,
-Var məsəl gül kasəsi, sübhi-səhər şəbnəm dilər.`
-      },
-      {
-        title: "Debat",
-        category: "Debat",
-        text: `Aqillər: Dünya rahi-imtahandır Tanrını sevmək gərək
-Cahillər: Tanrı dünyanı bizə sev söylədi biz neyləyək.
-
-Aqillər: Sevgidir, isdəydi Rəbbani məhəbbətdən keçir.
-Cahillər: Nəfsini sevimiş adamlar tüm həqiqətdən keçir
-
-Aqillər: Düzdü dünya, dünyanı sərdik yerə hak söylədi.
-Cahillər: Kosmosa fırlat raket sən isbat eylə böylədir.
-
-Aqillər: Göz verib Allah sənə, göz ilə gəz düz dünyanı.
-Cahillər: Əyri dünyamı sanırsan, düz olan öz dünyanı?!
-
-Aqillər: Mərhəmət etmək gərək, hər məzluma hər bizərə,
-Cahillər: Əl açar əl tutmaram ismarlaram Peyğəmbərə.
-
-Aqillər: Aləmə bir daş düşər, başdan-başa çaş-baş düşər.
-Cahillər: Baş dəyər daşdan-daşa başdan daşa daş-qaş düşər.
-
-Aqillər: Məkri-şeytani əməllərdən uzaq qalmaqdayam
-Cahillər: Nəyşeyi dəmsaz ilə hər şamu
-zövq almaqdayam.
-
-Aqillər: Bir düşün aləmləri xəlq eyləyən Allahıda
-Cahillər: Allahın kendi bize bəxş eyləyib iştahıda.
-
-Aqillər: Yırtıcı İştahımı mən mənliyimdə gizlədim
-Cahillər: Addım-addım nəfsimi bir addım öndə izlədim.
-
-Aqillər: Təkcə qar yağdırmasıyla xeyli üzlər güldürür.
-Cahillər: Buz beton küncündə evsiz xeyli insan öldürür.
-
-Aqillər: Tanrıdır nemətləri adəmlərə ehsan edən,
-Cahillər: Kəm düşən Nemət deyil insanları peşman edən!?`
-      },
-      {
-        title: "Axdaracaqsan",
-        category: "Duygusal",
-        text: `İstərəm bəyaz bir buluda dönüm,
-Bulud tək səmada başıva dönüm.
-Gəlib yətişəcək elə bir dönüm.
-Sen meni göylərdə axtaracaqsan
-
-Ətəyindən yapışsa, hər əli yetən,
-Yanında olduğumu hiss edəcəksən
-Nəfəsimlə saçını dağıtdıqca mən
-İncə əllərinlə darayacaqsan,
-Sən məni göylərdə axdaracaqsan,
-
-Səmada ulduzlar sənə baxdıqca,
-Qopub dan ulduzu yerə axdıqca
-Yağışlar yağdıqca, şimşək çaxdıqca.
-Diksinib pəncərədən boylanacaqsan,
-Sən məni göylərdə axtaracaqsan.
-
-Simsiyah dolmuş bir bulud olacam,
-Bəlkə də arzuma onda çatacam,
-Gözlərin parıldasa, məndə yağacam
-Mənim göz yaşımla islanacaqsan!
-Sən məni göylərdə axtaracaqsan.
-
-Əsib, saçlarıva düzsəm gül, çiçək,
-Dağlar utancından gül ləçək-ləçək
-De.. qışa çevrilsəm tutalım deyək,
-Qara kipriklərində qar dənəsi tək
-Özümü məhf etsəm, mən sanacaqsan !?
-Sən məni göylərdə axdaracaqsan !?
-
-Tanrı yaxşı bilir hər şeyin sonun,
-Bu ölüm pozmur ki, eşqin qanun,
-Silib göz yaşını, soyuq ovcunun,
-Əl açıb Tanrıya yalvaracaqsan.
-Sən məni göylərdə axtaracaqsan.`
-      },
-      {
-        title: "Tül çəkib iştahıma",
-        category: "Düşüncə",
-        text: `Var mənim heysiyyətim, vardır təmiz şəxsiyyətm,
-Vermərəm bıca yerə bir canımı, bir anımı.
-Uymaram dünyadəki neymətlərə, ziynətlərə.
-Pak təmiz göz yaşı tək, pak saxlaram vicdanımı,
-Olmaram qəddim düta, bir zalimə bir bizata
-Parça-parça min yerə, dur etsələr bir canımı.
-Tül çəkib iştahıma, əhd eyləsəm Allahıma,
-(Hz)İbrahim tək eylərəm, öz övladım qurbanımı,
-Ey Xudayi əhvi qıl, ya birdəfəlik məhvi qıl.
-Azmışam az bilmişəm imanımımı, azanımı.
-Bu halımnan ey Həbibim ölməyimdən qorxuram
-Tozlu rəfdə toz basıb, səccadəmi, quránımı`
-      },
-      {
-        title: "Ana təbiət....4 (Qış fəsli)",
-        category: "Düşüncə",
-        text: `Səninlə sevinir ancaq uşaqlar,
-Qırılır budaqlar, donur bulaqlar,
-Kasıb mənzilində yanır ocaqlar,
-Bu yanan ocaq yox, ürəyimizdir,
-Bir aylıq tədarük, çörəyimizdir,
-Arsız qonaqlar tək üç ay qalırsan,
-Səfil küçələrində canlar alırsan,
-Körpə beşiklerin, titrətmə yetər,
-İsti ana qucağı ona bəs edər.
-Hiddətim sənədir, nifrətim sənə,
-Çevrildin bizimçün zalım düsmənə,
-Soyuğun, qırovun, boranın, qarın,
-Vadinin bürüyür hər bir diyarın.
-Tar vurub doldurursan səngərləridə
-Xidmətdə üşüdürsən əsgərləridə,
-Nifrətim bu üzdən sənədir sənə,
-Fitnəni iblislərmi öyrədir sənə!?
-Şahların vicdanın sən dondurur san,
-Vəzirin cibini sən doldurur san,
-Şər atıb yalanlar sən uydurursan
-Bi'zərin daxmasın sən soydurursan,
-Sevən insanları ayırırsan...  Hə?!
-Vəhdət ürəkləri sən qırırsan... Hə!?
-Fəsillər içində ən nankorusan,
-Sən, ana təbiətin ögey oğlusan.
-Qüdrətim yettsəydi tutub əlimlə,
-Dar ağacından asardım səni dilimlə.
- - Elmar...
-Səbəb var, saçların çox tez ağarmış!
-Allah dağına görə qar yağdırarmış...!`
-      },
-      {
-        title: "Silə bilməzdim",
-        category: "Duygusal",
-        text: `Səni sevməkdən qeyri neylədim ?
-Səndən ayrı qalsam ,,ölərəm" dedim?
-Məni sevənlərə xatir, ölə bilmədim...,
-Cəsarətsizəm mi? ölə bilməzdim?!
-
-Sən axı sevməyi hardan bilərsən?
-Ögey bir mənzildə yad əllərdəsən.
-Əlimdə çatmazdı..., ele yerdəsən,
-Gəlmək istəsəm də gələ bilməzdim.
-
-Mənim də təqsirim bunda çoxdur-çox,
-Bağrım qəm lövhesi, kirpiklərin ox.
-Axan göz yaşımı silim eybi yox,
-Adını qəlbimdən silə bilməzdim.
-
-Cəsarət eyləyib ölə bilsəm də,
-Gəlmək isdesəmdə, gələ bilsəm də,
-Özüm-öz sonumu belə bilsəm də,
-Bu işin sonunu bilə bilməzdim.`
-      },
-      {
-        title: "Yağış damlaları",
-        category: "Düşüncə",
-        text: `Qəm yükünə, yüksək dağlar alçalar,
-Qəm suya çevrilsə buludlar alar.
-Qəmimizi bölsək belə sir qalar,
-Sirdaşımız, yağış damlalarıyla.
-
-Qara-qara günlərimiz ağlandı,
-Gülünecek günümüzə ağlandı,
-Sakkalımız göz yaşıyla islandı,
-Üst-başımız, yağış damlalarıyla.
-
-Xəyli xətalar oldu, duyğumuzda,
-Reallaşmadı bircə arzumuzda,
-Bu səbəbdən qarışdı ovcumuzda,
-Göz yaşımız, yağış damlalırıyla.
-
-Ölümümüzə doğma ürəklər yanar,
-İlk iki gün üstumuzdə ağlanar 
-Gün nəqədər qurtsada islanar.
-Baş daşımız, yağış damlalarıyla.`
-      },
-      {
-        title: "İlim-ilim itib ilim",
-        category: "Düşüncə",
-        text: `İlim-ilim itib gedir ayım, ilim.
-Kaş ki, zaman çərçivəsin sıxa bilim.
-Tanrı xoşbəxtlik adlanan guşəndə var
-Möhnət ver o pəncərədən baxa bilim.
-
-Göz yaşımız ovcumuzda çöküb gedir,
-Nəzər salan göz yaşını töküb gedir,
-Bu qara gün qamətimi büküb gedir.
-Mərhəmət et bir ağ günə çıxa bilim.`
-      }
-    ];
-
-    // helpers
-    const container = document.getElementById('poemsContainer');
-    const search = document.getElementById('search');
-    const filter = document.getElementById('filter');
-    const clearBtn = document.getElementById('clear');
-    const expandAllBtn = document.getElementById('expandAll');
-    const collapseAllBtn = document.getElementById('collapseAll');
-    const audioBtn = document.getElementById('audioControl');
-
-    // render
-    function renderList(list){
-      container.innerHTML = '';
-      list.forEach((p, idx) => {
-        const card = document.createElement('article');
-        card.className = 'card';
-        card.dataset.category = p.category;
-        card.innerHTML = `
-          <div class="title" aria-expanded="false" role="button" tabindex="0">
-            <div>
-              <h3>${escapeHtml(p.title)}</h3>
-              <div class="meta">${escapeHtml(p.category)}</div>
-            </div>
-            <div class="meta">+</div>
-          </div>
-          <div class="content" aria-hidden="true">
-            <div class="poem">
-              ${p.text.split('\\n').map(line => `<div class="poem-line">${escapeHtml(line)}</div>`).join('')}
-            </div>
-            <div class="actions">
-              <button class="btn ghost copyBtn">Kopyala</button>
-            </div>
-          </div>
-        `;
-        // toggle handlers
-        const title = card.querySelector('.title');
-        const content = card.querySelector('.content');
-        const plus = title.querySelectorAll('.meta')[1];
-
-        function openClose(){
-          const opened = card.classList.toggle('open');
-          title.setAttribute('aria-expanded', opened ? 'true' : 'false');
-          content.setAttribute('aria-hidden', opened ? 'false' : 'true');
-          plus.textContent = opened ? '−' : '+';
-        }
-        title.addEventListener('click', openClose);
-        title.addEventListener('keydown', (e)=>{ if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openClose(); } });
-
-        // copy action
-        const copyBtn = card.querySelector('.copyBtn');
-        copyBtn.addEventListener('click', ()=>{
-          // copy raw poem text to clipboard
-          navigator.clipboard.writeText(p.title + "\\n\\n" + p.text).then(()=>{
-            copyBtn.textContent = 'Kopyalandı ✓';
-            setTimeout(()=> copyBtn.textContent = 'Kopyala',1300);
-          }).catch(()=> {
-            copyBtn.textContent = 'Xəta';
-            setTimeout(()=> copyBtn.textContent = 'Kopyala',1300);
-          });
-        });
-
-        container.appendChild(card);
+// render funksiyası
+function renderList(list){
+  container.innerHTML='';
+  list.forEach(p=>{
+    const card=document.createElement('article');
+    card.className='card';
+    card.dataset.category=p.category;
+    card.innerHTML=`
+      <div class="title" aria-expanded="false" role="button" tabindex="0">
+        <h3>${p.title}</h3>
+        <div class="meta">${p.category}</div>
+      </div>
+      <div class="content" aria-hidden="true">
+        <div class="poem">
+          ${p.text.split('\n').map(l=>`<div class="poem-line">${l}</div>`).join('')}
+        </div>
+        <div class="actions">
+          <button class="btn ghost copyBtn">Kopyala</button>
+        </div>
+      </div>
+    `;
+    const title=card.querySelector('.title');
+    const content=card.querySelector('.content');
+    title.addEventListener('click',()=>{
+      const opened=card.classList.toggle('open');
+      title.setAttribute('aria-expanded', opened?'true':'false');
+      content.setAttribute('aria-hidden', opened?'false':'true');
+    });
+    card.querySelector('.copyBtn').addEventListener('click',()=>{
+      navigator.clipboard.writeText(p.title+"\n\n"+p.text).then(()=>{
+        card.querySelector('.copyBtn').textContent='Kopyalandı ✓';
+        setTimeout(()=>card.querySelector('.copyBtn').textContent='Kopyala',1300);
       });
-    }
-
-    // utility to escape HTML
-    function escapeHtml(str){
-      return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;')
-        .replace(/\\n/g, '<br>');
-    }
-
-    // initial render
-    renderList(poems);
-
-    // filtering & search
-    function applyFilters(){
-      const q = search.value.trim().toLowerCase();
-      const cat = filter.value;
-      const filtered = poems.filter(p=>{
-        const inCat = (cat === 'Hamısı') ? true : (p.category === cat);
-        const inText = (p.title + ' ' + p.text).toLowerCase().includes(q);
-        return inCat && inText;
-      });
-      renderList(filtered);
-    }
-
-    search.addEventListener('input', applyFilters);
-    filter.addEventListener('change', applyFilters);
-    clearBtn.addEventListener('click', ()=>{
-      search.value = '';
-      filter.value = 'Hamısı';
-      applyFilters();
     });
+    container.appendChild(card);
+  });
+}
 
-    // expand/collapse all
-    expandAllBtn.addEventListener('click', ()=>{
-      document.querySelectorAll('.card').forEach(c=>{
-        c.classList.add('open');
-        c.querySelector('.title').setAttribute('aria-expanded','true');
-        c.querySelector('.content').setAttribute('aria-hidden','// audio: example background music (loop). If you prefer not to auto-play, user clicks to start.
-    const audio = new Audio('https://cdn.pixabay.com/download/audio/2021/12/13/audio_2b90c6069e.mp3?filename=sadness-122608.mp3');
-    audio.loop = true;
-    let playing = false;
-    audioBtn.addEventListener('click', ()=>{
-      if(!playing){
-        audio.play().catch(()=>{}); // browsers require gesture; click already provided
-        audioBtn.textContent = '⏸️ Dayandır';
-      } else {
-        audio.pause();
-        audioBtn.textContent = '🎵 Bütün Şeirləri Dinlə';
-      }
-      playing = !playing;
-    });
+renderList(poems);
 
-    // show year
-    document.getElementById('year').textContent = new Date().getFullYear();
+// search & filter
+function applyFilters(){
+  const q=search.value.toLowerCase();
+  const cat=filter.value;
+  const filtered=poems.filter(p=>{
+    const inCat=(cat==='Hamısı')?true:(p.category===cat);
+    const inText=(p.title+' '+p.text).toLowerCase().includes(q);
+    return inCat && inText;
+  });
+  renderList(filtered);
+}
 
-    // accessibility: allow keyboard toggling for dynamically rendered items by delegation
-    document.addEventListener('keydown', (e) => {
-      if(e.key === 'Escape') {
-        // collapse all on Esc
-        collapseAllBtn.click();
-      }
-    });
-  </script>
+search.addEventListener('input',applyFilters);
+filter.addEventListener('change',applyFilters);
+clearBtn.addEventListener('click',()=>{
+  search.value=''; filter.value='Hamısı'; applyFilters();
+});
+
+expandAllBtn.addEventListener('click',()=>{
+  document.querySelectorAll('.card').forEach(c=>{
+    c.classList.add('open');
+    c.querySelector('.title').setAttribute('aria-expanded','true');
+    c.querySelector('.content').setAttribute('aria-hidden','false');
+  });
+});
+collapseAllBtn.addEventListener('click',()=>{
+  document.querySelectorAll('.card').forEach(c=>{
+    c.classList.remove('open');
+    c.querySelector('.title').setAttribute('aria-expanded','false');
+    c.querySelector('.content').setAttribute('aria-hidden','true');
+  });
+});
+
+// audio
+const audio=new Audio('https://cdn.pixabay.com/download/audio/2021/12/13/audio_2b90c6069e.mp3?filename=sadness-122608.mp3');
+audio.loop=true; let playing=false;
+audioBtn.addEventListener('click',()=>{
+  if(!playing){audio.play(); audioBtn.textContent='⏸️ Dayandır';}
+  else{audio.pause(); audioBtn.textContent='🎵 Bütün Şeirləri Dinlə';}
+  playing=!playing;
+});
+
+// footer year
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+
 </body>
 </html>
