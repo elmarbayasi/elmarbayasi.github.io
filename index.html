@@ -5,115 +5,90 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BAYASI 🎞️ — Elmar Bəy Asi</title>
 <style>
-/* --- FON & BODY --- */
+/* --- BODY & FON --- */
 body {
-  margin: 0;
-  font-family: "Arial", sans-serif;
-  background: #0b0012;
-  overflow-x: hidden;
-  color: #fff;
-  perspective: 1200px;
+  margin:0;
+  font-family:"Arial",sans-serif;
+  background: linear-gradient(135deg,#0b0012,#2a002f,#3a002f);
+  color:#fff;
+  overflow-x:hidden;
+  perspective:1200px;
 }
 
 /* --- PARTICLE FON --- */
 canvas#particles {
-  position: fixed;
-  top:0; left:0;
-  width:100%;
-  height:100%;
-  z-index: -1;
+  position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
 }
 
 /* --- HEADER --- */
-header {
-  text-align:center;
-  padding:50px 10px;
-}
-header h1 {
-  font-size: 80px;
-  color:#ff77ff;
-  text-shadow: 0 0 10px #fff,0 0 30px #ff00ff,0 0 50px #aa00ff;
-  transition: 0.3s;
-}
-header h1:hover {
-  text-shadow: 0 0 20px #fff,0 0 40px #ff77ff,0 0 60px #ff00ff,0 0 80px #bb00ff;
-}
-#bio {
-  font-size: 16px;
-  font-style:italic;
-  opacity:0.85;
-  text-shadow:0 0 4px rgba(255,255,255,0.3);
-  margin-top:-10px;
-}
-#contact {margin-top:5px; font-size:14px; opacity:0.7;}
-
-/* --- HAKKIMDA --- */
-.about-me {
-  width:90%;
-  margin:30px auto;
-  background: linear-gradient(145deg,#1a002a,#2a0045);
-  padding:30px;
-  border-radius:20px;
-  box-shadow:0 0 30px rgba(255,255,255,0.15);
-  border:1px solid rgba(255,255,255,0.05);
-}
-.about-me h2 {font-size:28px;color:#d2aaff;border-left:6px solid #aa00ff;padding-left:15px;text-shadow:0 0 8px #ffbbff;margin-top:0;font-weight:600;font-style:italic;}
-.about-me pre {white-space: pre-wrap;font-size:16px;line-height:1.6;color:#f0e6ff;letter-spacing:0.5px;}
-
-/* --- SEARCH --- */
-#searchBox {
-  width:90%;
-  margin:20px auto;
-  display:block;
-  padding:12px;
-  border-radius:15px;
-  border:none;
-  font-size:18px;
-  outline:none;
-  background:rgba(255,255,255,0.05);
-  color:#fff;
-}
-
-/* --- POEM BLOCKS --- */
-.poem {
-  width:90%;
-  margin:20px auto;
-  background:linear-gradient(145deg,#1a0a1f,#2a003a);
-  padding:20px;
-  border-radius:20px;
-  box-shadow:0 0 15px rgba(255,255,255,0.1);
-  transform-style: preserve-3d;
-  transition: transform 0.5s, box-shadow 0.5s;
-}
-.poem:hover {
-  transform: rotateY(5deg) rotateX(2deg) translateZ(20px);
-  box-shadow:0 0 50px rgba(255,255,255,0.3);
-}
-.poem h2 {
-  font-size:24px;
-  border-left:4px solid #aa00ff;
-  padding-left:10px;
-  text-shadow:0 0 6px #ff77ff;
-}
-.poem pre {white-space: pre-wrap;font-size:16px;line-height:1.5;color:#eee;}
-
-/* --- BUTTONS --- */
-.comment-btn,.add-comment,.admin-add,.random-btn,.subscribe-btn {
-  background:#aa00ff;
-  border:none;
-  padding:8px 14px;
-  color:#fff;
-  border-radius:10px;
-  cursor:pointer;
-  margin-top:10px;
+header{text-align:center;padding:50px 10px;}
+header h1{
+  font-size:90px;
+  color:#ff33ff;
+  font-family:"Impact",sans-serif;
+  text-shadow:0 0 10px #fff,0 0 20px #ff00ff,0 0 40px #aa00ff,0 0 60px #ff77ff;
   transition:0.3s;
 }
-.comment-btn:hover,.add-comment:hover,.admin-add:hover,.random-btn:hover,.subscribe-btn:hover {background:#ff00ff;}
+header h1:hover{
+  text-shadow:0 0 20px #fff,0 0 40px #ff77ff,0 0 60px #ff00ff,0 0 100px #bb00ff;
+}
+#bio{
+  font-size:18px;font-style:italic;opacity:0.85;text-shadow:0 0 6px rgba(255,255,255,0.4);
+  margin-top:-10px;
+}
+#contact{margin-top:5px;font-size:14px;opacity:0.7;}
+
+/* --- HAKKIMDA --- */
+.about-me{
+  width:90%;margin:30px auto;background:linear-gradient(145deg,#1a002a,#2a0045);
+  padding:30px;border-radius:20px;box-shadow:0 0 30px rgba(255,255,255,0.15);
+  border:1px solid rgba(255,255,255,0.05);
+}
+.about-me h2{
+  font-size:28px;color:#d2aaff;border-left:6px solid #aa00ff;
+  padding-left:15px;text-shadow:0 0 8px #ffbbff;margin-top:0;font-weight:600;font-style:italic;
+}
+.about-me pre{
+  white-space:pre-wrap;font-size:16px;line-height:1.6;color:#f0e6ff;letter-spacing:0.5px;
+}
+
+/* --- SEARCH --- */
+#searchBox{
+  width:90%;margin:20px auto;display:block;padding:12px;border-radius:15px;
+  border:none;font-size:18px;outline:none;background:rgba(255,255,255,0.05);color:#fff;
+}
+
+/* --- POEM BLOCK --- */
+.poem{
+  width:90%;margin:20px auto;
+  background:linear-gradient(145deg,#1a0a1f,#2a003a);
+  padding:20px;border-radius:20px;box-shadow:0 0 15px rgba(255,255,255,0.1);
+  transform-style: preserve-3d;
+  transition:transform 0.5s,box-shadow 0.5s,border 0.5s;
+  border:2px solid transparent;
+}
+.poem:hover{
+  transform:rotateY(5deg) rotateX(2deg) translateZ(20px);
+  box-shadow:0 0 50px rgba(255,255,255,0.3);
+  border:2px solid #ff33ff;
+}
+.poem h2{
+  font-size:24px;border-left:4px solid #aa00ff;
+  padding-left:10px;text-shadow:0 0 6px #ff77ff;
+}
+.poem pre{white-space:pre-wrap;font-size:16px;line-height:1.5;color:#eee;}
+
+/* --- BUTTONS --- */
+.comment-btn,.add-comment,.admin-add,.random-btn,.subscribe-btn{
+  background:#aa00ff;border:none;padding:8px 14px;color:#fff;
+  border-radius:10px;cursor:pointer;margin-top:10px;transition:0.3s;
+}
+.comment-btn:hover,.add-comment:hover,.admin-add:hover,.random-btn:hover,.subscribe-btn:hover{background:#ff00ff;}
 
 /* --- COMMENTS --- */
-.comments-box {display:none;margin-top:10px;}
-.comments-box textarea {width:100%;height:80px;padding:10px;border-radius:10px;border:none;background:#220033;color:#fff;}
-.all-comments {margin-top:10px;background:#222;padding:10px;border-radius:10px;}
+.comments-box{display:none;margin-top:10px;}
+.comments-box textarea{width:100%;height:80px;padding:10px;border-radius:10px;border:none;background:#220033;color:#fff;}
+.all-comments{margin-top:10px;background:#222;padding:10px;border-radius:10px;}
 
 /* --- STARS --- */
 .stars{font-size:26px;cursor:pointer;letter-spacing:5px;}
@@ -138,7 +113,6 @@ header h1:hover {
 </head>
 <body>
 
-<!-- PARTICLE FON -->
 <canvas id="particles"></canvas>
 
 <header>
@@ -161,7 +135,6 @@ Hər şeirim yalnız emosiyalar deyil, həm də insan təfəkkürünün dərin q
 
 <button class="random-btn">Təsadüfi Şeir</button>
 
-<!-- Admin panel -->
 <div id="adminPanel">
 <h3>Admin: Şeir əlavə et</h3>
 <input type="text" id="poemTitle" placeholder="Başlıq">
@@ -169,7 +142,6 @@ Hər şeirim yalnız emosiyalar deyil, həm də insan təfəkkürünün dərin q
 <button class="admin-add">Əlavə et</button>
 </div>
 
-<!-- Subscribe Modal -->
 <div id="subscribeModal">
   <div class="modal-content">
     <h3>Abunə ol</h3>
@@ -181,11 +153,11 @@ Hər şeirim yalnız emosiyalar deyil, həm də insan təfəkkürünün dərin q
 
 <script>
 /* --- PARTICLE FON --- */
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
-let W = canvas.width = window.innerWidth;
-let H = canvas.height = window.innerHeight;
-let particlesArray = [];
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+let W=canvas.width=window.innerWidth;
+let H=canvas.height=window.innerHeight;
+let particlesArray=[];
 class Particle{
   constructor(){this.x=Math.random()*W;this.y=Math.random()*H;this.size=Math.random()*2+1;this.speedX=Math.random()*1-0.5;this.speedY=Math.random()*1-0.5;}
   update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x>W)this.x=0;if(this.x<0)this.x=W;if(this.y>H)this.y=0;if(this.y<0)this.y=H;}
@@ -240,10 +212,7 @@ adminAdd.onclick=()=>{
 /* --- COMMENTS & STARS --- */
 function attachCommentEvents(){
   document.querySelectorAll(".comment-btn").forEach(btn=>{
-    btn.onclick=()=>{
-      const box=btn.parentElement.nextElementSibling;
-      box.style.display=box.style.display==="block"?"none":"block";
-    };
+    btn.onclick=()=>{const box=btn.parentElement.nextElementSibling;box.style.display=box.style.display==="block"?"none":"block";};
   });
   document.querySelectorAll(".add-comment").forEach(btn=>{
     btn.onclick=()=>{
@@ -260,9 +229,7 @@ function attachCommentEvents(){
   document.querySelectorAll(".stars").forEach(starBox=>{
     const stars=starBox.querySelectorAll("span");
     stars.forEach((star,idx)=>{
-      star.onclick=()=>{
-        stars.forEach((s,i)=>s.classList.toggle("active",i<=idx));
-      };
+      star.onclick=()=>{stars.forEach((s,i)=>s.classList.toggle("active",i<=idx));};
     });
   });
 }
@@ -270,9 +237,7 @@ function attachCommentEvents(){
 /* --- SEARCH --- */
 document.getElementById("searchBox").addEventListener("keyup",function(){
   const text=this.value.toLowerCase();
-  document.querySelectorAll(".poem").forEach(p=>{
-    p.style.display=p.innerText.toLowerCase().includes(text)?"block":"none";
-  });
+  document.querySelectorAll(".poem").forEach(p=>{p.style.display=p.innerText.toLowerCase().includes(text)?"block":"none";});
 });
 
 /* --- RANDOM POEM --- */
