@@ -1,56 +1,93 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>BAYASI ✒️ — Elmar Bayasi</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Lora&family=Poppins:wght@600&display=swap" rel="stylesheet">
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Lora',serif;background:#0a0a0a;color:#fff;min-height:100vh;}
-    header{display:flex;justify-content:center;align-items:center;padding:50px 20px;
-      font-family:'Cinzel Decorative',serif;font-size:3.2rem;
-      background:linear-gradient(45deg,#b085f5,#d9b3ff);
-      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-      text-shadow:2px 2px 5px rgba(0,0,0,0.6);transition:.25s}
-    header:hover{transform:scale(1.03)}
-    #about{padding:34px 20px;text-align:center;background:rgba(255,255,255,0.04);margin:18px;border-radius:12px;backdrop-filter:blur(4px)}
-    #about h2{font-size:2rem;color:#b085f5;font-family:'Cinzel Decorative';margin-bottom:8px}
-    #about p{max-width:760px;margin:6px auto;line-height:1.7;color:#fff}
-    #about .slogan{color:#d9b3ff;font-style:italic}
-    nav{display:flex;justify-content:center;gap:12px;margin:22px 10px 28px;flex-wrap:wrap}
-    nav button{padding:10px 18px;border-radius:10px;border:0;background:linear-gradient(135deg,#b085f5,#d9b3ff);
-      color:#0a0a0a;font-weight:600;cursor:pointer;font-family:'Poppins',sans-serif;box-shadow:0 6px 14px rgba(0,0,0,0.45)}
-    .container{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;padding:0 18px 50px}
-    .card{background:linear-gradient(145deg,#e6d6ff,#ffffff10);color:#0a0a0a;padding:20px;border-radius:12px;max-height:650px;overflow:auto;border:1px solid rgba(255,255,255,0.08);position:relative;backdrop-filter:blur(4px)}
-    .card h3{color:#b085f5;font-family:'Cinzel Decorative';margin-bottom:12px}
-    .card p{white-space:pre-wrap;margin-bottom:8px;line-height:1.6}
-    .music-btn{position:absolute;top:12px;right:12px;background:#b085f5;border:none;padding:6px 10px;border-radius:8px;cursor:pointer;font-size:1rem}
-    footer{padding:20px;text-align:center;color:#bbb}
-    @media(max-width:600px){header{font-size:2rem;padding:30px 8px}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BAYASI ✒️ — Elmar Bayasi</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Lora&family=Poppins:wght@600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Lora',serif;background:#0a0a0a;color:#fff;min-height:100vh;overflow-x:hidden;}
+
+/* Header */
+header{
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cinzel Decorative',serif;font-size:3rem;
+  padding:40px 20px;background:linear-gradient(45deg,#b085f5,#d9b3ff);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  text-shadow:2px 2px 5px rgba(0,0,0,0.6);transition:0.3s;gap:15px;
+}
+header:hover{transform:scale(1.03)}
+header img{width:40px;height:40px;}
+
+/* About */
+#about{padding:40px 20px;text-align:center;background:rgba(255,255,255,0.04);margin:20px;border-radius:12px;backdrop-filter:blur(4px);}
+#about h2{font-size:2rem;color:#b085f5;font-family:'Cinzel Decorative';margin-bottom:10px;}
+#about p{max-width:760px;margin:0 auto;line-height:1.7;color:#fff;}
+#about .slogan{color:#d9b3ff;font-style:italic;}
+
+/* About violet */
+#haqqinda{padding:50px 20px;text-align:center;background-color:#f3e6ff;border-radius:15px;margin:20px auto;max-width:900px;}
+#haqqinda h1{color:#6a0dad;font-size:3em;margin-bottom:20px;font-family:'Cinzel Decorative';background:linear-gradient(90deg,#b085f5,#d9b3ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+#haqqinda p{color:#4b0082;font-size:1.2em;line-height:1.8;margin-bottom:20px;}
+#haqqinda a{color:#6a0dad;text-decoration:none;font-weight:600;}
+
+/* Nav buttons */
+nav{display:flex;justify-content:center;gap:12px;margin:22px 10px 28px;flex-wrap:wrap;}
+nav button{padding:10px 18px;border-radius:10px;border:0;background:linear-gradient(135deg,#b085f5,#d9b3ff);
+color:#0a0a0a;font-weight:600;cursor:pointer;font-family:'Poppins',sans-serif;box-shadow:0 6px 14px rgba(0,0,0,0.45);transition:.3s;}
+nav button:hover{transform:scale(1.05);box-shadow:0 8px 18px rgba(0,0,0,0.6);}
+
+/* Poems container */
+.container{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;padding:0 20px 50px;}
+
+/* Poem card */
+.card{
+  background:linear-gradient(145deg,#e6d6ff,#ffffff10);
+  color:#0a0a0a;padding:20px;border-radius:15px;
+  max-height:650px;overflow:auto;border:1px solid rgba(255,255,255,0.08);
+  position:relative;backdrop-filter:blur(4px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.4);
+  transition:.3s;
+}
+.card:hover{transform:translateY(-5px);box-shadow:0 12px 28px rgba(255,255,255,0.4);}
+.card h3{color:#b085f5;font-family:'Cinzel Decorative';margin-bottom:12px; background:linear-gradient(90deg,#b085f5,#d9b3ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.card::before{content:"";position:absolute;top:0;left:0;width:5px;height:100%;background:linear-gradient(#fff,#fff);opacity:0;transition:.3s;border-radius:5px 0 0 5px;}
+.card:hover::before{opacity:0.7;}
+.card::after{content:"";position:absolute;top:0;right:0;width:5px;height:100%;background:linear-gradient(#fff,#fff);opacity:0;transition:.3s;border-radius:0 5px 5px 0;}
+.card:hover::after{opacity:0.7;}
+.card p{white-space:pre-wrap;margin-bottom:8px;line-height:1.6;}
+
+/* Audio button */
+#audioControl{display:block;margin:20px auto;padding:12px 20px;border:none;border-radius:12px;background:linear-gradient(135deg,#b085f5,#d9b3ff);color:#0a0a0a;font-size:1.2rem;font-weight:600;cursor:pointer;transition:.3s;}
+#audioControl:hover{transform:scale(1.05);box-shadow:0 6px 14px rgba(0,0,0,0.45);}
+
+footer{padding:20px;text-align:center;color:#bbb}
+@media(max-width:600px){header{font-size:2rem;padding:30px 8px}}
+</style>
 </head>
 <body>
 
-<header>BAYASI ✒️</header>
+<header>
+  <img src="https://img.icons8.com/ios-filled/50/ffffff/pencil-tip.png" alt="logo"/>
+  BAYASI ✒️
+</header>
 
 <section id="about">
   <h2>Elmar Bəy Asi ✒️</h2>
-<!-- Haqqında Bölməsi -->
-<section id="haqqinda" style="background-color: #fdf0f0; padding: 50px 20px; text-align: center; font-family: 'Arial', sans-serif;">
-  <h1 style="color: #800000; font-size: 3em; margin-bottom: 20px;">Elmar Bəy Asi</h1>
-  
-  <p style="color: #333; font-size: 1.2em; max-width: 700px; margin: 0 auto 30px auto; line-height: 1.8;">
-    Mən, Elmar Bəy Asi, söz və musiqi ilə ruhlara toxunan bir sənətkaram. 
-    Brendim altında yaratdığım şeirlər həyatın hər anını əks etdirir və duyğulara işıq tutur. 
-    Hər bir əsərim öz tərzimi, duyğularımı və həyat fəlsəfəmi əks etdirir.
-  </p>
-  
-  <div style="color: #555; font-size: 1.1em;">
-    <p>📞 WhatsApp: <a href="https://wa.me/0518181584" target="_blank" style="color:#800000; text-decoration:none;">051 818 15 84</a></p>
-    <p>✉️ Email: <a href="mailto:elmarofficial692@gmail.com" style="color:#800000; text-decoration:none;">elmarofficial692@gmail.com</a></p>
+  <p class="slogan">Söz və musiqi ilə ruhlara toxunan sənətkar, brend sahibi və şeir ustası.</p>
+</section>
+
+<section id="haqqinda">
+  <h1>Elmar Bəy Asi</h1>
+  <p>Mən, Elmar Bəy Asi, söz və musiqi ilə ruhlara toxunan bir sənətkaram. Brendim altında yaratdığım şeirlər həyatın hər anını əks etdirir və duyğulara işıq tutur. Hər bir əsərim öz tərzimi, duyğularımı və həyat fəlsəfəmi əks etdirir.</p>
+  <div>
+    <p>📞 WhatsApp: <a href="https://wa.me/0518181584" target="_blank">051 818 15 84</a></p>
+    <p>✉️ Email: <a href="mailto:elmarofficial692@gmail.com">elmarofficial692@gmail.com</a></p>
   </div>
 </section>
+
+<button id="audioControl">🎵 Bütün Şeirləri Dinlə</button>
 
 <nav>
   <button onclick="filterCategory('Yeni')">Yeni</button>
@@ -64,406 +101,109 @@
 <div class="container" id="poemsContainer"></div>
 
 <script>
-/*
-  Bütün şeirlər burada obyekt olaraq yerləşdirildi.
-  Hər obyekt: { title, category, text: [lines...] }
-*/
-
 const poems = [
+  {title:"GÖZ QIRPIMINDA",category:"Yeni",text:[
+"Səhər kimsəni görmürəm, axşam iki üz görürəm,",
+"İkisidə mələk kimi ağ libasda, həzin-həzin, asta-asta,",
+"Mənə sarı gəlməkdədir, biri hüzün göz yaşında...",
+"Biri isə gülməkdədir, biri bəlkə yüz yaşında,",
+"Biri on səkkiz yaşında, bu on səkkiz yaşı olan,",
+"Gözlərində yaşı olan, mənə necə tanış gəlir....",
+"San ki, iyirmi bir yaşımda, iz buraxıb yaddaşımda.",
+"Son iki gündür onları açıq, aydın görə bildim.",
+"Birin görüb çox sevindim, birin görüb kədərləndim.",
+"Biri ölüm mələyiyiş, biri ölmüş mələk imiş....",
+"İllər öncə məzarlıqda dəfn etdiyim, öz sevgilim.",
+"Dilim dinmədi söz deyim, ayağ istədi yeriyim,",
+"Axı... nəyi necə edim, bir addım ata bilmirəm.",
+"Niyyətim tək, məqsədim tək, onlara çata bilmirəm.",
+"Yox... yox... yanlış özümdədir, bu kor qalmış gözümdədir,",
+"Mən onlara çatmaq üçün, yuxuma, haram qatardım.",
+"Gələn onlardır bilsəydim, yəqin ömürlük yatardım.",
+"Bəlkə onda tez çatardım, əlbət bir gün o, da olar...",
+"Hər səhərin axşamı var, hər axşamın səhəri var...."
+]},
+{title:"QOCA VƏ KÖRPƏ",category:"Klassik",text:[
+"Gecənin bir aləmində, məscidin ön qapısında,",
+"Bir körpə naləsi insanları, haydan-küyə saldı.",
+"Biri baxdı köks ötürdü, biri göz yaşı tökürdü.",
+"Bu baxanlar arasından, bir qoca körpəni aldı...",
+"Daralan bağrına basdı, qırışan əlləri ilə",
+"Qırılan qaməti ilə titrəyən dizləri ilə",
+"Onu mənzilinə gətirdi, otağın zəif lanpası...",
+"Ölüm yatağına uzanmış, bir qadına nur verirdi,",
+"Bu qadın həmin yaşlının, mərhum yoldaşından qalan,",
+"Sonuncu mirası idi, o da xəstə döşəyində,",
+"San ki, şam tək əriyirdi... qoca göz yaşını sildi.",
+"Qoynunda ki o, mələknən yatağın ayaq küncünə,",
+"Qısınıb güclə oturdu, qızının ovcunu sıxdı,",
+"Qırışan əlləri ilə... Qızı incə bir təbəssüm,",
+"Edərək pıçıltı ilə \"Can Ata\" söyləyə bildi.",
+"Qoca təəccüb ilə baxdı, axı... qız son altı ildi",
+"Nə danışdı, nə də dindi, Qoca bir balaca sevindi,",
+"Bir balaca özünə deyindi, \"Bəlkə sən yanlış eşitdin\"",
+"Sual verməyə də utandı qızına: \"nə söylədin..? nə....?\"",
+"Qızının əlindən öpüb, deyərək qalxdı \"Ya Allah....\"",
+"Artıq açılırdı sabah, körpə qoynunda yatırdı.",
+"Öpüb apardı özüylə, qızının otuz il öncə",
+"Yatdığı taxta beşikdə, körpənin üstünü örtdü...",
+"Sobanın önündə dinməz qızı haqqında düşündü,",
+"Bilmədi həqiqətənmi qızı..., onu səsləyirdi...?",
+"Bu vaxt qız yenə dindi: \"Ata...\", \"Ata...\" deyirdi.",
+"Görəsən nə istəyirdi? Qocanı sardı həyacan...",
+"Qışqırdı \"Can Qızım can\" titrəyən dizləri ilə",
+"Yürüdü, otağa sarı, qızı yatan yatağa sarı....",
+"Əyilib üzündən öpdü, yaş axan gözündən öpdü,",
+"Qoca çarəsiz baxışla yatağın küncünə çökdü,",
+"Hönkürüb göz yaşı tökdü, dünya son ümüd evindən,",
+"Sonuncu kərpici sökdü, qoca gah bağrına vurdu,",
+"Gah əlilə dizinə vurdu, bu zaman sərt bir şəkildə,",
+"Qapı-pəncərələr açıldı, şiddətlə soyuq bir külək,",
+"Qırışan cöhrünə vurdu, yan otaqdan isə digər,",
+"Körpənin naləsi sanki, qocanı yanına çağırdı.",
+"O, səsdə həm qızı vardı, həm də yoldaşı vardı,",
+"O, səsdə həm həyat vardı, həm də ölümün öz adı",
+"Qoca titrək addım attı, beşiyin yanına çatdı,",
+"Körpənin üzündə sanki mələk təbəssümü vardı.",
+"Qoca baxdı, gözləri doldu, dedi: \"Allah bu nə sirdir?\"",
+"\"Görəsən bu körpə kimdir? Mənə ən son sınağındı!?\"",
+"Körpəni bağrına basıb dedi: \"Qızım getdi, sənmi gəldin?\"",
+"\"Demək ömür qapanmırmış, ölən ümüdlər doğurmuş\"",
+"Körpə sakitləşdi, susdu, qoca dinməz, sobanın yanında otur.",
+"Azan sədası duyuldu, qoca da namazını qıldı, alnını səcdəyə qoydu,",
+"Dedi: \"Razıyam İlahi, məndən aldın, mənə verdin, gözümü mənaya çevirdin.\"",
+"Ay ötüb zaman keçirdi, körpə isə iməkləyirdi, öz dilində deyinirdi.",
+"Bir yaşda körpə dil açdı, ilk kəlməsi \"Ata\" oldu, qocanın gözləri doldu."
+]}
+// Burada digər şeirlər də eyni formatda əlavə olunacaq
+];
 
-  {
-    title: "GÖZ QIRPIMINDA",
-    category: "Yeni",
-    text: [
-      "Səhər kimsəni görmürəm, axşam iki üz görürəm,",
-      "İkisidə mələk kimi ağ libasda, həzin-həzin, asta-asta,",
-      "Mənə sarı gəlməkdədir, biri hüzün göz yaşında...",
-      "Biri isə gülməkdədir, biri bəlkə yüz yaşında,",
-      "Biri on səkkiz yaşında, bu on səkkiz yaşı olan,",
-      "Gözlərində yaşı olan, mənə necə tanış gəlir....",
-      "San ki, iyirmi bir yaşımda, iz buraxıb yaddaşımda.",
-      "Son iki gündür onları açıq, aydın görə bildim.",
-      "Birin görüb çox sevindim, birin görüb kədərləndim.",
-      "Biri ölüm mələyiyiş, biri ölmüş mələk imiş....",
-      "İllər öncə məzarlıqda dəfn etdiyim, öz sevgilim.",
-      "Dilim dinmədi söz deyim, ayağ istədi yeriyim,",
-      "Axı... nəyi necə edim, bir addım ata bilmirəm.",
-      "Niyyətim tək, məqsədim tək, onlara çata bilmirəm.",
-      "Yox... yox... yanlış özümdədir, bu kor qalmış gözümdədir,",
-      "Mən onlara çatmaq üçün, yuxuma, haram qatardım.",
-      "Gələn onlardır bilsəydim, yəqin ömürlük yatardım.",
-      "Bəlkə onda tez çatardım, əlbət bir gün o, da olar...",
-      "Hər səhərin axşamı var, hər axşamın səhəri var...."
-    ]
-  },
-
-  {
-    title: "QOCA VƏ KÖRPƏ",
-    category: "Klassik",
-    text: [
-      "Gecənin bir aləmində, məscidin ön qapısında,",
-      "Bir körpə naləsi insanları, haydan-küyə saldı.",
-      "Biri baxdı köks ötürdü, biri göz yaşı tökürdü.",
-      "Bu baxanlar arasından, bir qoca körpəni aldı...",
-      "Daralan bağrına basdı, qırışan əlləri ilə",
-      "Qırılan qaməti ilə titrəyən dizləri ilə",
-      "Onu mənzilinə gətirdi, otağın zəif lanpası...",
-      "Ölüm yatağına uzanmış, bir qadına nur verirdi,",
-      "Bu qadın həmin yaşlının, mərhum yoldaşından qalan,",
-      "Sonuncu mirası idi, o da xəstə döşəyində,",
-      "San ki, şam tək əriyirdi... qoca göz yaşını sildi.",
-      "Qoynunda ki o, mələknən yatağın ayaq küncünə,",
-      "Qısınıb güclə oturdu, qızının ovcunu sıxdı,",
-      "Qırışan əlləri ilə... Qızı incə bir təbəssüm,",
-      "Edərək pıçıltı ilə \"Can Ata\" söyləyə bildi.",
-      "Qoca təəccüb ilə baxdı, axı... qız son altı ildi",
-      "Nə danışdı, nə də dindi, Qoca bir balaca sevindi,",
-      "Bir balaca özünə deyindi, \"Bəlkə sən yanlış eşitdin\"",
-      "Sual verməyə də utandı qızına: \"nə söylədin..? nə....?\"",
-      "Qızının əlindən öpüb, deyərək qalxdı \"Ya Allah....\"",
-      "Artıq açılırdı sabah, körpə qoynunda yatırdı.",
-      "Öpüb apardı özüylə, qızının otuz il öncə",
-      "Yatdığı taxta beşikdə, körpənin üstünü örtdü...",
-      "Sobanın önündə dinməz qızı haqqında düşündü,",
-      "Bilmədi həqiqətənmi qızı..., onu səsləyirdi...?",
-      "Bu vaxt qız yenə dindi: \"Ata...\", \"Ata...\" deyirdi.",
-      "Görəsən nə istəyirdi? Qocanı sardı həyacan...",
-      "Qışqırdı \"Can Qızım can\" titrəyən dizləri ilə",
-      "Yürüdü, otağa sarı, qızı yatan yatağa sarı....",
-      "Əyilib üzündən öpdü, yaş axan gözündən öpdü,",
-      "Qoca çarəsiz baxışla yatağın küncünə çökdü,",
-      "Hönkürüb göz yaşı tökdü, dünya son ümüd evindən,",
-      "Sonuncu kərpici sökdü, qoca gah bağrına vurdu,",
-      "Gah əlilə dizinə vurdu, bu zaman sərt bir şəkildə,",
-      "Qapı-pəncərələr açıldı, şiddətlə soyuq bir külək,",
-      "Qırışan cöhrünə vurdu, yan otaqdan isə digər,",
-      "Körpənin naləsi sanki, qocanı yanına çağırdı.",
-      "O, səsdə həm qızı vardı, həm də yoldaşı vardı,",
-      "O, səsdə həm həyat vardı, həm də ölümün öz adı",
-      "Qoca titrək addım attı, beşiyin yanına çatdı,",
-      "Körpənin üzündə sanki mələk təbəssümü vardı.",
-      "Qoca baxdı, gözləri doldu, dedi: \"Allah bu nə sirdir?\"",
-      "\"Görəsən bu körpə kimdir? Mənə ən son sınağındı!?\"",
-      "Körpəni bağrına basıb dedi: \"Qızım getdi, sənmi gəldin?\"",
-      "\"Demək ömür qapanmırmış, ölən ümüdlər doğurmuş\"",
-      "Körpə sakitləşdi, susdu, qoca dinməz, sobanın yanında otur.",
-      "Azan sədası duyuldu, qoca da namazını qıldı, alnını səcdəyə qoydu,",
-      "Dedi: \"Razıyam İlahi, məndən aldın, mənə verdin, gözümü mənaya çevirdin.\"",
-      "Ay ötüb zaman keçirdi, körpə isə iməkləyirdi, öz dilində deyinirdi.",
-      "Bir yaşda körpə dil açdı, ilk kəlməsi \"Ata\" oldu, qocanın gözləri doldu."
-    ]
-  },
-
-  {
-    title: "OLAN OLDU — BAĞIŞLA",
-    category: "Duygusal",
-    text: [
-      "Olan oldu, bağışla...",
-      "Tanrıdan tək istəyim, sən idin ki, sən idin də,",
-      "Tanrı öz əlləri ilə məndən aldı — bağışla.",
-      "",
-      "Görüşmədən sən demə, var qocalmağımızda,",
-      "İlahinin izni var, bu ayrılmağımızda...,",
-      "Kimsəsiz körpələr tək, ayrı qalmağımızda,",
-      "Günahım yox sən yenə, olan oldu... bağışla.",
-      "",
-      "İşdir ölüm küləyi, açsa mənə pəncərə...,",
-      "Vidasız getmərəm mən, bu dünyadan heç yerə.",
-      "Soyuq məzarım üstə, məndən sənə xatirə,",
-      "Son ayrılıq məktubum, şeir qaldı... bağışla.",
-      "",
-      "Saçlarının ətrini, day gətirən külək yox...",
-      "Sən geri qayıdanda, deməz idim gərək \"yox\"...",
-      "Ürək deyir \"geri dön...\" dilim deyir \"gərək yox...\"",
-      "Nifrətim ilə ürək yox, gözüm doldu... bağışla."
-    ]
-  },
-
-  {
-    title: "MEYXANA / NƏĞMƏ",
-    category: "Meyxana",
-    text: [
-      "Bil ki, ey saqi, meyin düşkünləri sər-səmdilər,",
-      "Mey camında əks olan surət ilə həmdəmdilər.",
-      "",
-      "Süz şərabın ətrini duysun bütün divanələr,",
-      "Lərzə salsın aləmi, cingildəyən peymanələr,",
-      "Sənətimiz meyxanalar, neylər bizə biganələr.",
-      "Meyli meyçün fe'l olanlar, biz ilə bahəmdilər.",
-      "",
-      "Canıva qəsd etməyin, ünvana çatmaqdır kəsə,",
-      "Cananı can bilməyin qoy ibrət olsun hər kəsə,",
-      "Vermə izni ol yarın, xətmi-dahanın yel kəsə,",
-      "Var məsəl gül kasəsi, sübhi-səhər şəbnəm dilər."
-    ]
-  },
-
-  {
-    title: "DEBAT",
-    category: "Debat",
-    text: [
-      "Aqillər: Dünya rəh-i imtahandır — Tanrını sevmək gərək",
-      "Cahillər: Tanrı dünyanı bizə sev söylədi, biz neyləyək.",
-      "",
-      "Aqillər: Sevgidir, isdəydi — Rəbbani məhəbbətdən keçir.",
-      "Cahillər: Nəfsini sevimiş adamlar tüm həqiqətdən keçir.",
-      "",
-      "Aqillər: Düzdü dünya, dünyanı sərdik yerə, hak söylədi.",
-      "Cahillər: Kosmosa fırlat raket, sən isbat eylə, böylədir.",
-      "",
-      "Aqillər: Göz verib Allah sənə, göz ilə gəz düz dünyanı.",
-      "Cahillər: Əyri dünyamı sanırsan, düz olan öz dünyanı?!",
-      "",
-      "Aqillər: Mərhəmət etmək gərək, hər məzluma, hər bizərə,",
-      "Cahillər: Əl açar, əl tutmaram, ismarlaram Peyğəmbərə.",
-      "",
-      "Aqillər: Aləmə bir daş düşər, başdan-başa çaş-baş düşər.",
-      "Cahillər: Baş dəyər daşdan-daşa, başdan daşa daş-qaş düşər.",
-      "",
-      "Aqillər: Məkri-şeytani əməllərdən uzaq qalmaqdayam",
-      "Cahillər: Nəyşeyi dəmsaz ilə hər şamın zövq almaqdayam.",
-      "",
-      "Aqillər: Bir düşün aləmləri xəlq eyləyən Allahıda",
-      "Cahillər: Allahın kendi bize bəxş eyləyib iştahıda.",
-      "",
-      "Aqillər: Yırtıcı iştahımı mən mənliyimdə gizlədim",
-      "Cahillər: Addım-addım nəfsimi bir addım öndə izlədim.",
-      "",
-      "Aqillər: Təkcə qar yağdırmasıyla xeyli üzlər güldürür.",
-      "Cahillər: Buz beton küncündə evsiz xeyli insan öldürür.",
-      "",
-      "Aqillər: Tanrıdır nemətləri adəmlərə ehsan edən,",
-      "Cahillər: Kəm düşən Nemət deyil insanları peşman edən!?"
-    ]
-  },
-
-  {
-    title: "AXDARACAQSAN",
-    category: "Klassik",
-    text: [
-      "İstərəm bəyaz bir buluda dönüm,",
-      "Bulud tək səmada başıva dönüm.",
-      "Gəlib yetişəcək elə bir dönüm.",
-      "Sən məni göylərdə axtaracaqsan.",
-      "",
-      "Ətəyindən yapışsa, hər əli yetən,",
-      "Yanında olduğumu hiss edəcəksən.",
-      "Nəfəsimlə saçını dağıtdıqca mən,",
-      "İncə əllərinlə darayacaqsan.",
-      "Sən məni göylərdə axtaracaqsan.",
-      "",
-      "Səmada ulduzlar sənə baxdıqca,",
-      "Qopub dan ulduzu yerə axdıqca,",
-      "Yağışlar yağdıqca, şimşək çaxdıqca,",
-      "Diksinib pəncərədən boylanacaqsan.",
-      "Sən məni göylərdə axtaracaqsan.",
-      "",
-      "Simsiyah dolmuş bir bulud olacam,",
-      "Bəlkə də arzuma onda çatacam,",
-      "Gözlərin parıldasa, məndə yağacam,",
-      "Mənim göz yaşımla islanacaqsan!",
-      "Sən məni göylərdə axtaracaqsan.",
-      "",
-      "Əsib, saçlarına düzsəm gül, çiçək,",
-      "Dağlar utancından gül ləçək-ləçək.",
-      "De.. qışa çevrilsəm tutalım deyək,",
-      "Qara kipriklərində qar dənəsi tək,",
-      "Özümü məhv etsəm, mən sanacaqsan!?",
-      "Sən məni göylərdə axtaracaqsan!?",
-      "",
-      "Tanrı yaxşı bilir hər şeyin sonun,",
-      "Bu ölüm pozmur ki, eşqin qanun,",
-      "Silib göz yaşını, soyuq ovcunun,",
-      "Əl açıb Tanrıya yalvaracaqsan.",
-      "Sən məni göylərdə axtaracaqsan."
-    ]
-  },
-
-  {
-    title: "TÜL ÇƏKİB İŞTAHIMA",
-    category: "Duygusal",
-    text: [
-      "Tül çəkib iştahıma, əhd eyləsəm Allahıma,",
-      "",
-      "Var mənim heysiyyətim, vardır təmiz şəxsiyyətim,",
-      "Vermərəm bıca yerə bir canımı, bir anımı.",
-      "Uymaram dünyadakı nemətlərə, ziynətlərə.",
-      "Pak təmiz göz yaşı tək, pak saxlaram vicdanımı,",
-      "Olmaram qəddim duta, bir zalimə bir bizata",
-      "Parça-parça min yerə, dur etsələr bir canımı.",
-      "Tül çəkib iştahıma, əhd eyləsəm Allahıma,",
-      "(Hz) İbrahim tək eylərəm, öz övladım qurbanımı.",
-      "Ey Xudayi, əhvi qıl, ya birdəfəlik məhvi qıl.",
-      "Azmışam, az bilmişəm imanımı, azanımı.",
-      "Bu halımdan ey Həbibim, ölməyimdən qorxuram.",
-      "Tozlu rəfdə toz basıb, səccadəmi, Qur'anımı."
-    ]
-  },
-
-  {
-    title: "ANA TƏBİƏT (Qış fəsli)",
-    category: "Klassik",
-    text: [
-      "Səninlə sevinir ancaq uşaqlar,",
-      "Qırılır budaqlar, donur bulaqlar,",
-      "Kasıb mənzilində yanır ocaqlar,",
-      "Bu yanan ocaq yox, ürəyimizdir,",
-      "Bir aylıq tədarük, çörəyimizdir,",
-      "Arsız qonaqlar tək üç ay qalırsan,",
-      "Səfil küçələrində canlar alırsan,",
-      "Körpə beşiklərin, titrətmə yetər,",
-      "İsti ana qucağı ona bəs edər.",
-      "",
-      "Hiddətim sənədir, nifrətim sənə,",
-      "Çevrildin bizimçün zalım düşmənə,",
-      "Soyuğun, qırovun, boranın, qarın,",
-      "Vadinin bürüyür hər bir diyarın.",
-      "Tar vurub doldurursan səngərləri də,",
-      "Xidmətdə üşüdürsən əsgərləri də,",
-      "Nifrətim bu üzdən sənədir sənə,",
-      "Fitnəni iblislərmi öyrədir sənə!?",
-      "Şahların vicdanını sən dondurur san,",
-      "Vəzirin cibini sən doldurur san,",
-      "Şər atıb yalanlar sən uydurursan,",
-      "Bizin daxmamızı sən soyduğursan,",
-      "Sevən insanları ayırırsan... Hə?!",
-      "Vəhdət ürəkləri sən qırırsan... Hə!?",
-      "Fəsillər içində ən nankorusan,",
-      "Sən, ana təbiətin ögey oğlusan.",
-      "Qüdrətim yettsəydi tutub əlimlə,",
-      "Dar ağacından asardım səni dilimlə.",
-      "",
-      "- Elmar... Səbəb var, saçların çox tez ağarmış!",
-      "Allah dağına görə qar yağdırarmış...!"
-    ]
-  },
-
-  {
-    title: "SİLƏ BİLMƏZDIM",
-    category: "Duygusal",
-    text: [
-      "Səni sevməkdən qeyri neylədim?",
-      "Səndən ayrı qalsam, 'ölərəm' dedim?",
-      "Məni sevənlərə xatir, ölə bilmədim...,",
-      "Cəsarətsizəm mi? ölə bilməzdim?!",
-      "",
-      "Sən axı sevməyi hardan bilərsən?",
-      "Ögey bir mənzildə yad əllərdəsən.",
-      "Əlimdə çatmazdı..., elə yerdəsən,",
-      "Gəlmək istəsəm də gələ bilməzdim.",
-      "",
-      "Mənim də təqsirim bunda çoxdur-çox,",
-      "Bağrım qəm lövhəsi, kirpiklərin ox.",
-      "Axan göz yaşımı silim eybi yox,",
-      "Adını qəlbimdən silə bilməzdim.",
-      "",
-      "Cəsarət eyləyib ölə bilsəm də,",
-      "Gəlmək istəsəmdə, gələ bilsəm də,",
-      "Özüm-öz sonumu belə bilsəm də,",
-      "Bu işin sonunu bilə bilməzdim."
-    ]
-  },
-
-  {
-    title: "YAĞIŞ DAMLALARI",
-    category: "Duygusal",
-    text: [
-      "Qəm yükünə, yüksək dağlar alçalar,",
-      "Qəm suya çevrilsə buludlar alar.",
-      "Qəmimizi bölsək belə sir qalar,",
-      "Sirdaşımız, yağış damlalarıyla.",
-      "",
-      "Qara-qara günlərimiz ağlandı,",
-      "Gülünəcək günümüzə ağlandı,",
-      "Sakkalımız göz yaşıyla islandı,",
-      "Üst-başımız, yağış damlalarıyla.",
-      "",
-      "Xeyli xətalar oldu, duyğumuzda,",
-      "Reallaşmadı bircə arzumuzda,",
-      "Bu səbəbdən qarışdı ovcumuzda,",
-      "Göz yaşımız, yağış damlalarıyla.",
-      "",
-      "Ölümümüzə doğma ürəklər yanar,",
-      "İlk iki gün üstümüzdə ağlanar,",
-      "Gün nə qədər qursa da islanar.",
-      "Baş daşımız, yağış damlalarıyla."
-    ]
-  },
-
-  {
-    title: "İLİM-İLİM İTİB İLİM",
-    category: "Düşüncə",
-    text: [
-      "İlim-ilim itib gedir ayım, ilim.",
-      "Kaş ki, zaman çərçivəsini sıxa bilim.",
-      "Tanrı xoşbəxtlik adlanan guşədə var,",
-      "Möhnət ver o pəncərədən baxa bilim.",
-      "",
-      "Göz yaşımız ovcumuzda çöküb gedir,",
-      "Nəzər salan göz yaşını töküb gedir,",
-      "Bu qara gün qamətimi büküb gedir.",
-      "Mərhəmət et bir ağ günə çıxa bilim."
-    ]
-  }
-
-]; // end poems
-
-/* ---------- rendering ---------- */
-
+// Display function
 const container = document.getElementById('poemsContainer');
-
 function displayPoems(list){
   container.innerHTML = "";
-  list.forEach(poem => {
-    const card = document.createElement('div');
-    card.className = "card";
-
-    // title
-    const h = document.createElement('h3');
-    h.textContent = poem.title;
-    card.appendChild(h);
-
-    // lines
-    poem.text.forEach(line => {
-      const p = document.createElement('p');
-      p.textContent = line;
-      card.appendChild(p);
-    });
-
-    // music button + audio (one sample audio used)
-    const musicBtn = document.createElement('button');
-    musicBtn.className = "music-btn";
-    musicBtn.textContent = "🎵";
-    const audio = document.createElement('audio');
-    // sample royalty-free track; dəyişmək istəsən öz URL-ni ver
-    audio.src = "https://cdn.pixabay.com/download/audio/2021/12/13/audio_2b90c6069e.mp3?filename=sadness-122608.mp3";
-    audio.preload = "none";
-    musicBtn.addEventListener('click', () => {
-      // stop other audios
-      document.querySelectorAll('audio').forEach(a=>{ try{ a.pause(); a.currentTime=0 }catch(e){} });
-      audio.play();
-    });
-
-    card.appendChild(musicBtn);
-    card.appendChild(audio);
-
+  list.forEach(poem=>{
+    const card=document.createElement('div');
+    card.className="card";
+    const h=document.createElement('h3');h.textContent=poem.title;card.appendChild(h);
+    poem.text.forEach(line=>{const p=document.createElement('p');p.textContent=line;card.appendChild(p);});
     container.appendChild(card);
   });
 }
 
-function filterCategory(cat){
-  if(cat === "Hamısı") displayPoems(poems);
-  else displayPoems(poems.filter(p => p.category === cat));
-}
+// Filter
+function filterCategory(cat){if(cat==="Hamısı") displayPoems(poems); else displayPoems(poems.filter(p=>p.category===cat));}
 
-// initial render
+// Audio
+const audio=new Audio("https://cdn.pixabay.com/download/audio/2021/12/13/audio_2b90c6069e.mp3?filename=sadness-122608.mp3");
+const audioBtn=document.getElementById("audioControl");
+let playing=false;
+audioBtn.addEventListener('click',()=>{if(!playing){audio.play();playing=true;audioBtn.textContent="⏸️ Dayandır";} else{audio.pause();playing=false;audioBtn.textContent="🎵 Bütün Şeirləri Dinlə";}});
+
+// Initial render
 displayPoems(poems);
-
 </script>
 
-<footer>
-  © Elmar Bayasi — Şeirlər toplusu
-</footer>
-
+<footer>© Elmar Bayasi — Şeirlər toplusu</footer>
 </body>
 </html>
