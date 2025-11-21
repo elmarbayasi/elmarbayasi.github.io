@@ -13,40 +13,15 @@ body {
   overflow-x:hidden;
   color:#fff;
   perspective:1200px;
-  position:relative;
 }
-
-/* --- PARTICLE FON --- */
-canvas#particles {
-  position:fixed;
-  top:0;left:0;
-  width:100%;
-  height:100%;
-  z-index:-1;
-}
+canvas#particles { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; }
 
 /* --- HEADER --- */
-header{
-  text-align:center;
-  padding:60px 10px;
-}
-header h1{
-  font-size:90px;
-  color:#ff00ff;
-  text-shadow:0 0 10px #fff,0 0 30px #ff77ff,0 0 50px #aa00ff,0 0 80px #bb00ff;
-  transition:0.3s;
-}
-header h1:hover{
-  text-shadow:0 0 20px #fff,0 0 50px #ff77ff,0 0 70px #aa00ff,0 0 100px #ff00ff;
-}
-#bio{
-  font-size:18px;
-  font-style:italic;
-  opacity:0.85;
-  text-shadow:0 0 6px rgba(255,255,255,0.4);
-  margin-top:-15px;
-}
-#contact{margin-top:5px;font-size:16px;opacity:0.8;}
+header{text-align:center; padding:60px 10px;}
+header h1{font-size:90px; color:#ff00ff; text-shadow:0 0 10px #fff,0 0 30px #ff77ff,0 0 50px #aa00ff,0 0 80px #bb00ff; transition:0.3s;}
+header h1:hover{ text-shadow:0 0 20px #fff,0 0 50px #ff77ff,0 0 70px #aa00ff,0 0 100px #ff00ff;}
+#bio{font-size:18px; font-style:italic; opacity:0.85; text-shadow:0 0 6px rgba(255,255,255,0.4); margin-top:-15px;}
+#contact{margin-top:5px; font-size:16px; opacity:0.8;}
 
 /* --- ABOUT ME --- */
 .about-me{
@@ -58,199 +33,53 @@ header h1:hover{
   box-shadow:0 0 30px rgba(255,255,255,0.2);
   border:1px solid rgba(255,255,255,0.05);
 }
-.about-me h2{
-  font-size:32px;
-  color:#ff77ff;
-  border-left:6px solid #aa00ff;
-  padding-left:15px;
-  text-shadow:0 0 8px #ffbbff;
-  margin-top:0;
-  font-weight:600;
-  font-style:italic;
-}
-.about-me pre{
-  white-space:pre-wrap;
-  font-size:17px;
-  line-height:1.6;
-  color:#f0e6ff;
-  letter-spacing:0.5px;
-  text-shadow:0 0 4px #ffbbff;
-}
+.about-me h2{ font-size:32px; color:#ff77ff; border-left:6px solid #aa00ff; padding-left:15px; text-shadow:0 0 8px #ffbbff; margin-top:0; font-weight:600; font-style:italic;}
+.about-me pre{white-space:pre-wrap; font-size:17px; line-height:1.6; color:#f0e6ff; letter-spacing:0.5px; text-shadow:0 0 4px #ffbbff;}
 
 /* --- SEARCH --- */
-#searchBox{
-  width:90%;
-  margin:20px auto;
-  display:block;
-  padding:12px;
-  border-radius:15px;
-  border:none;
-  font-size:18px;
-  outline:none;
-  background:rgba(255,255,255,0.05);
-  color:#fff;
-}
+#searchBox{width:90%; margin:20px auto; display:block; padding:12px; border-radius:15px; border:none; font-size:18px; outline:none; background:rgba(255,255,255,0.05); color:#fff;}
 
 /* --- POEM BLOCKS --- */
-.poem{
-  width:90%;
-  margin:20px auto;
-  background:linear-gradient(145deg,#1a0a1f,#2a003a);
-  padding:20px;
-  border-radius:20px;
-  box-shadow:0 0 15px rgba(255,255,255,0.2);
-  transform-style: preserve-3d;
-  transition: transform 0.5s, box-shadow 0.5s;
-}
-.poem:hover{
-  transform: rotateY(6deg) rotateX(3deg) translateZ(20px);
-  box-shadow:0 0 50px rgba(255,255,255,0.4);
-}
-.poem h2{
-  font-size:26px;
-  border-left:4px solid #ff00ff;
-  padding-left:12px;
-  text-shadow:0 0 8px #ff77ff;
-}
-.poem pre{
-  white-space: pre-wrap;
-  font-size:17px;
-  line-height:1.6;
-  color:#eee;
-  text-shadow:0 0 3px #fff, 0 0 6px #ff77ff, 0 0 10px #aa00ff;
-}
+.poem{width:90%; margin:20px auto; background:linear-gradient(145deg,#1a0a1f,#2a003a); padding:20px; border-radius:20px; box-shadow:0 0 15px rgba(255,255,255,0.2); transform-style: preserve-3d; transition: transform 0.5s, box-shadow 0.5s;}
+.poem:hover{ transform: rotateY(6deg) rotateX(3deg) translateZ(20px); box-shadow:0 0 50px rgba(255,255,255,0.4);}
+.poem h2{font-size:26px; border-left:4px solid #ff00ff; padding-left:12px; text-shadow:0 0 8px #ff77ff;}
+.poem .category{ font-size:14px; color:#ff77ff; margin-bottom:10px; opacity:0.8;}
+.poem pre{white-space: pre-wrap; font-size:17px; line-height:1.6; color:#eee;}
+.poem .share-buttons button{margin-right:8px; background:#aa00ff; color:#fff; border:none; padding:5px 10px; border-radius:8px; cursor:pointer; transition:0.3s;}
+.poem .share-buttons button:hover{background:#ff00ff;}
 
 /* --- BUTTONS --- */
-.comment-btn,.add-comment,.admin-add,.subscribe-btn{
-  background:#aa00ff;
-  border:none;
-  padding:8px 14px;
-  color:#fff;
-  border-radius:10px;
-  cursor:pointer;
-  margin-top:10px;
-  transition:0.3s;
-}
-.comment-btn:hover,.add-comment:hover,.admin-add:hover,.subscribe-btn:hover{
-  background:#ff00ff;
-}
+.comment-btn,.add-comment,.admin-add,.subscribe-btn{background:#aa00ff; border:none; padding:8px 14px; color:#fff; border-radius:10px; cursor:pointer; margin-top:10px; transition:0.3s;}
+.comment-btn:hover,.add-comment:hover,.admin-add:hover,.subscribe-btn:hover{background:#ff00ff;}
 
 /* --- COMMENTS --- */
-.comments-box{display:none;margin-top:10px;}
-.comments-box textarea{
-  width:100%;
-  height:80px;
-  padding:10px;
-  border-radius:10px;
-  border:none;
-  background:#220033;
-  color:#fff;
-}
-.all-comments{
-  margin-top:10px;
-  background:#222;
-  padding:10px;
-  border-radius:10px;
-}
+.comments-box{display:none; margin-top:10px;}
+.comments-box textarea{width:100%; height:80px; padding:10px; border-radius:10px; border:none; background:#220033; color:#fff;}
+.all-comments{margin-top:10px; background:#222; padding:10px; border-radius:10px;}
 
 /* --- STARS --- */
-.stars{font-size:26px;cursor:pointer;letter-spacing:5px;}
+.stars{font-size:26px; cursor:pointer; letter-spacing:5px;}
 .stars span{transition:0.3s;color:#888;}
 .stars span.active{color:gold;}
 
 /* --- ADMIN PANEL --- */
-#adminPanel{
-  width:90%;
-  margin:30px auto;
-  background:#220033;
-  padding:20px;
-  border-radius:20px;
-}
-#adminPanel textarea,#adminPanel input{
-  width:100%;
-  margin-bottom:10px;
-  padding:12px;
-  border-radius:12px;
-  border:none;
-  font-size:16px;
-  background:#330044;
-  color:#fff;
-}
+#adminPanel{width:90%; margin:30px auto; background:#220033; padding:20px; border-radius:20px;}
+#adminPanel textarea,#adminPanel input,#adminPanel select{width:100%; margin-bottom:10px; padding:12px; border-radius:12px; border:none; font-size:16px; background:#330044; color:#fff;}
 
 /* --- SUBSCRIBE MODAL --- */
-#subscribeModal{
-  display:none;
-  position:fixed;
-  top:0;left:0;
-  width:100%;height:100%;
-  background:rgba(0,0,0,0.85);
-  justify-content:center;
-  align-items:center;
-  z-index:1000;
-}
-#subscribeModal .modal-content{
-  background:#220033;
-  padding:30px;
-  border-radius:20px;
-  width:90%;
-  max-width:400px;
-  text-align:center;
-}
-#subscribeModal input{
-  width:80%;
-  padding:12px;
-  border-radius:12px;
-  border:none;
-  margin-bottom:10px;
-  background:#330044;
-  color:#fff;
-  font-size:16px;
-}
-#subscribeModal button{
-  width:50%;
-  padding:10px;
-  border-radius:12px;
-  border:none;
-  background:#aa00ff;
-  color:#fff;
-  font-size:16px;
-  cursor:pointer;
-  transition:0.3s;
-}
+#subscribeModal{display:none; position:fixed; top:0;left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; z-index:1000;}
+#subscribeModal .modal-content{background:#220033; padding:30px; border-radius:20px; width:90%; max-width:400px; text-align:center;}
+#subscribeModal input{width:80%; padding:12px; border-radius:12px; border:none; margin-bottom:10px; background:#330044; color:#fff; font-size:16px;}
+#subscribeModal button{width:50%; padding:10px; border-radius:12px; border:none; background:#aa00ff; color:#fff; font-size:16px; cursor:pointer; transition:0.3s;}
 #subscribeModal button:hover{background:#ff00ff;}
-#subscriberCount{
-  margin-top:10px;
-  font-size:14px;
-  color:#fff;
-  opacity:0.8;
-}
+#subscriberCount{margin-top:10px; font-size:14px; color:#fff; opacity:0.8;}
 
-/* --- NEON PARLAQLI HƏRFLƏR --- */
-.neon-text{
-  color:#ff77ff;
-  text-shadow:0 0 5px #fff,0 0 15px #ff00ff,0 0 20px #aa00ff;
-}
-
-/* --- NEON STARS --- */
-.star {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background: white;
-  border-radius: 50%;
-  box-shadow: 0 0 2px #fff, 0 0 4px #ff77ff, 0 0 6px #aa00ff;
-  opacity: 0.8;
-  animation: twinkle 3s infinite ease-in-out;
-}
-@keyframes twinkle {
-  0%, 100% {opacity: 0.8;}
-  50% {opacity: 0.2;}
-}
+/* --- NEON --- */
+.neon-text{color:#ff77ff; text-shadow:0 0 5px #fff,0 0 15px #ff00ff,0 0 20px #aa00ff;}
 </style>
 </head>
 <body>
 
-<!-- PARTICLE FON -->
 <canvas id="particles"></canvas>
 
 <header>
@@ -275,8 +104,14 @@ Hər şeirim yalnız emosiyalar deyil, həm də insan təfəkkürünün dərin q
 
 <!-- Admin panel -->
 <div id="adminPanel">
-<h3>Admin: Şeir əlavə et (Parol tələb olunur)</h3>
+<h3>Admin: Şeir əlavə et</h3>
 <input type="text" id="poemTitle" placeholder="Başlıq">
+<select id="poemCategory">
+  <option value="Sevgi">Sevgi</option>
+  <option value="Hüzün">Hüzün</option>
+  <option value="Motivasiya">Motivasiya</option>
+  <option value="Digər">Digər</option>
+</select>
 <textarea id="poemText" placeholder="Şeir mətnini daxil et"></textarea>
 <button class="admin-add">Əlavə et</button>
 </div>
@@ -292,44 +127,28 @@ Hər şeirim yalnız emosiyalar deyil, həm də insan təfəkkürünün dərin q
 </div>
 
 <script>
-/* --- PARTICLE FON --- */
+/* PARTICLES */
 const canvas=document.getElementById("particles");
 const ctx=canvas.getContext("2d");
 let W=canvas.width=window.innerWidth;
 let H=canvas.height=window.innerHeight;
 let particlesArray=[];
 class Particle{
-  constructor(){
-    this.x=Math.random()*W;
-    this.y=Math.random()*H;
-    this.size=Math.random()*2+1;
-    this.speedX=Math.random()*1-0.5;
-    this.speedY=Math.random()*1-0.5;
-  }
-  update(){
-    this.x+=this.speedX;
-    this.y+=this.speedY;
-    if(this.x>W)this.x=0;if(this.x<0)this.x=W;
-    if(this.y>H)this.y=0;if(this.y<0)this.y=H;
-  }
-  draw(){
-    ctx.fillStyle='rgba(255,255,255,0.05)';
-    ctx.beginPath();
-    ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
-    ctx.fill();
-  }
+  constructor(){ this.x=Math.random()*W; this.y=Math.random()*H; this.size=Math.random()*2+1; this.speedX=Math.random()*1-0.5; this.speedY=Math.random()*1-0.5; }
+  update(){ this.x+=this.speedX; this.y+=this.speedY; if(this.x>W)this.x=0;if(this.x<0)this.x=W;if(this.y>H)this.y=0;if(this.y<0)this.y=H; }
+  draw(){ ctx.fillStyle='rgba(255,255,255,0.05)'; ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fill();}
 }
 function initParticles(){particlesArray=[];for(let i=0;i<120;i++){particlesArray.push(new Particle());}}
 function animateParticles(){ctx.clearRect(0,0,W,H);particlesArray.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animateParticles);}
-window.addEventListener('resize',()=>{W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;});
-initParticles();animateParticles();
+window.addEventListener('resize',()=>{W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight;});
+initParticles(); animateParticles();
 
-/* --- LOCAL STORAGE & POEMS --- */
+/* POEMS */
 const poemsContainer=document.getElementById("poemsContainer");
 const poemTitle=document.getElementById("poemTitle");
 const poemText=document.getElementById("poemText");
+const poemCategory=document.getElementById("poemCategory");
 const adminAdd=document.querySelector(".admin-add");
-const ADMIN_PASSWORD = "1234"; // burada admin parolunu dəyişə bilərsən
 
 function renderPoems(){
   poemsContainer.innerHTML="";
@@ -339,6 +158,7 @@ function renderPoems(){
     div.className="poem";
     div.innerHTML=`
       <h2>${p.title}</h2>
+      <div class="category">${p.category}</div>
       <pre>${p.text}</pre>
       <div class="poem-actions">
         <div class="stars" data-id="${index}">
@@ -351,55 +171,63 @@ function renderPoems(){
         <textarea placeholder="Şərhini yaz..."></textarea>
         <button class="add-comment">Göndər</button>
       </div>
+      <div class="share-buttons">
+        <button onclick="share('fb','${p.title}')">Facebook</button>
+        <button onclick="share('tg','${p.title}')">Telegram</button>
+        <button onclick="share('wa','${p.title}')">WhatsApp</button>
+      </div>
     `;
     poemsContainer.appendChild(div);
   });
   attachCommentEvents();
 }
-
 adminAdd.onclick=()=>{
-  let pass = prompt("Admin parolunu daxil et:");
-  if(pass !== ADMIN_PASSWORD){alert("Səhv parol!"); return;}
   const title=poemTitle.value.trim();
   const text=poemText.value.trim();
+  const category=poemCategory.value;
   if(!title||!text)return;
   let poems=JSON.parse(localStorage.getItem("poems")||"[]");
-  poems.push({title,text});
+  poems.push({title,text,category});
   localStorage.setItem("poems",JSON.stringify(poems));
   poemTitle.value="";poemText.value="";
   renderPoems();
 }
 
-/* --- COMMENTS & STARS --- */
+/* COMMENTS & STARS */
 function attachCommentEvents(){
-  document.querySelectorAll(".comment-btn").forEach(btn=>{
-    btn.onclick=()=>{const box=btn.parentElement.nextElementSibling;box.style.display=box.style.display==="block"?"none":"block";}
-  });
-  document.querySelectorAll(".add-comment").forEach(btn=>{
-    btn.onclick=()=>{
-      const box=btn.parentElement;
-      const text=box.querySelector("textarea").value;
-      if(text.trim()==="")return;
-      const div=document.createElement("div");
-      div.style.padding="8px";div.style.borderBottom="1px solid #333";
-      div.innerText="Anonim: "+text;
-      box.querySelector(".all-comments").appendChild(div);
-      box.querySelector("textarea").value="";
-    };
-  });
+  document.querySelectorAll(".comment-btn").forEach(btn=>{btn.onclick=()=>{const box=btn.parentElement.nextElementSibling;box.style.display=box.style.display==="block"?"none":"block";}});
+  document.querySelectorAll(".add-comment").forEach(btn=>{btn.onclick=()=>{
+    const box=btn.parentElement;
+    const text=box.querySelector("textarea").value;
+    if(text.trim()==="")return;
+    const div=document.createElement("div");
+    div.style.padding="8px"; div.style.borderBottom="1px solid #333";
+    div.innerText="Anonim: "+text;
+    box.querySelector(".all-comments").appendChild(div);
+    box.querySelector("textarea").value="";
+  };});
   document.querySelectorAll(".stars").forEach(starBox=>{
     const stars=starBox.querySelectorAll("span");
     stars.forEach((star,idx)=>{star.onclick=()=>{stars.forEach((s,i)=>s.classList.toggle("active",i<=idx));};});
   });
 }
 
-/* --- SEARCH --- */
+/* SEARCH */
 document.getElementById("searchBox").addEventListener("keyup",function(){
   const text=this.value.toLowerCase();
   document.querySelectorAll(".poem").forEach(p=>{p.style.display=p.innerText.toLowerCase().includes(text)?"block":"none";});
 });
 
-/* --- SUBSCRIBE MODAL --- */
+/* SHARE */
+function share(platform,title){
+  let url=encodeURIComponent(window.location.href);
+  let text=encodeURIComponent(title);
+  if(platform==='fb') window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`,'_blank');
+  if(platform==='tg') window.open(`https://t.me/share/url?url=${url}&text=${text}`,'_blank');
+  if(platform==='wa') window.open(`https://api.whatsapp.com/send?text=${text}%20${url}`,'_blank');
+}
+
+/* SUBSCRIBE */
 const subscribeModal=document.getElementById("subscribeModal");
 document.querySelector(".subscribe-btn").onclick=()=>{subscribeModal.style.display="flex";}
 document.getElementById("subscribeBtn").onclick=()=>{
@@ -409,29 +237,6 @@ document.getElementById("subscribeBtn").onclick=()=>{
   document.getElementById("subscriberEmail").value="";
   subscribeModal.style.display="none";
 };
-
-/* --- NEON STARS ANIMATION --- */
-const starCount = 100;
-for(let i=0;i<starCount;i++){
-  const star = document.createElement("div");
-  star.classList.add("star");
-  star.style.top = Math.random()*window.innerHeight + "px";
-  star.style.left = Math.random()*window.innerWidth + "px";
-  star.style.animationDuration = 2 + Math.random()*3 + "s";
-  star.style.width = 1 + Math.random()*3 + "px";
-  star.style.height = star.style.width;
-  body.appendChild(star);
-}
-function moveStars(){
-  document.querySelectorAll(".star").forEach(star=>{
-    let top = parseFloat(star.style.top);
-    top += 0.2;
-    if(top > window.innerHeight) top = 0;
-    star.style.top = top + "px";
-  });
-  requestAnimationFrame(moveStars);
-}
-moveStars();
 
 renderPoems();
 </script>
