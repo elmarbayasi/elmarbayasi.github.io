@@ -1,265 +1,151 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BAYASI 🎞️ — Elmar Bəy Asi</title>
-<style>
-body {margin:0;font-family:Arial,sans-serif;background:#0b0012;color:#fff;transition:0.3s;}
-body.light{background:#f5f5f5;color:#111;}
-header{padding:30px 10px;text-align:center;position:relative;}
-header h1{font-size:60px;color:#ff00ff;text-shadow:0 0 10px #fff,0 0 30px #ff77ff;}
-header h1:hover{text-shadow:0 0 20px #fff,0 0 50px #ff77ff;}
-#bio{font-style:italic;opacity:0.85;margin-top:-10px;}
-.toggle-theme{position:absolute; top:15px; right:15px; padding:8px 12px; background:#aa00ff;color:#fff;border:none;border-radius:8px;cursor:pointer;}
-.toggle-theme:hover{background:#ff00ff;}
-.about-me{width:90%;margin:20px auto;padding:20px;border-radius:20px;background:linear-gradient(145deg,#1a001f,#2a0035);}
-body.light .about-me{background:#ddd;color:#111;}
-.about-me h2{color:#ff77ff;border-left:6px solid #aa00ff;padding-left:10px;}
-#searchBox,#categoryFilter{width:90%;margin:15px auto;display:block;padding:10px;border-radius:12px;border:none;background:rgba(255,255,255,0.05);color:#fff;}
-body.light #searchBox, body.light #categoryFilter{background:rgba(0,0,0,0.05);color:#111;}
-.poem{width:90%;margin:15px auto;background:linear-gradient(145deg,#1a0a1f,#2a003a);padding:15px;border-radius:20px;box-shadow:0 0 15px rgba(255,255,255,0.2);transition:0.5s;position:relative;}
-.poem:hover{transform:scale(1.02);box-shadow:0 0 50px rgba(255,255,255,0.4);}
-.poem h2{border-left:4px solid #ff00ff;padding-left:10px;}
-.poem-category{opacity:0.7;margin-bottom:8px;}
-.poem pre {white-space: pre-wrap; word-wrap: break-word;}
-.comment-btn,.add-comment,.admin-add,.subscribe-btn,.delete-btn,.edit-btn,.fav-btn{background:#aa00ff;border:none;padding:6px 12px;color:#fff;border-radius:8px;cursor:pointer;margin-top:8px;transition:0.3s;}
-.comment-btn:hover,.add-comment:hover,.admin-add:hover,.subscribe-btn:hover,.delete-btn:hover,.edit-btn:hover,.fav-btn:hover{background:#ff00ff;}
-.comments-box{display:none;margin-top:10px;}
-.comments-box textarea{width:100%;height:70px;padding:8px;border-radius:8px;border:none;background:#220033;color:#fff;}
-body.light .comments-box textarea{background:#ddd;color:#111;}
-.all-comments{margin-top:8px;background:#222;padding:8px;border-radius:8px;}
-body.light .all-comments{background:#ccc;color:#111;}
-.stars{font-size:20px;cursor:pointer;letter-spacing:4px;}
-.stars span{transition:0.3s;color:#888;}
-.stars span.active{color:gold;}
-#adminPanel{width:90%;margin:20px auto;padding:15px;background:#220033;border-radius:20px;}
-#adminPanel input,#adminPanel select,#adminPanel textarea{width:100%;margin-bottom:8px;padding:10px;border-radius:8px;border:none;background:#330044;color:#fff;}
-body.light #adminPanel{background:#ddd;color:#111;}
-#adminPanel textarea, body.light #adminPanel textarea{background:#fff;color:#111;}
-#subscribeModal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);justify-content:center;align-items:center;z-index:1000;}
-#subscribeModal .modal-content{background:#220033;padding:20px;border-radius:20px;width:90%;max-width:400px;text-align:center;}
-#subscribeModal input{width:80%;padding:10px;border-radius:12px;border:none;margin-bottom:10px;background:#330044;color:#fff;font-size:14px;}
-#subscribeModal button{width:50%;padding:8px;border-radius:12px;border:none;background:#aa00ff;color:#fff;cursor:pointer;}
-#subscribeModal button:hover{background:#ff00ff;}
-#popular, #recent{width:90%;margin:20px auto;}
-#popular h3,#recent h3{color:#ff77ff;}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BAYASI ✒️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Lora&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Lora', serif; background-color:#0a0a0a; color:#fff; min-height:100vh; }
+    header { display:flex; justify-content:center; align-items:center; text-align:center; padding:50px 20px; font-family:'Cinzel Decorative', serif; font-size:3.5rem; background: linear-gradient(45deg, #b085f5, #d9b3ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow:2px 2px 5px rgba(0,0,0,0.7); transition:0.3s; }
+    header:hover { transform: scale(1.05); }
+    #about { padding:50px 20px; text-align:center; background-color: rgba(255,255,255,0.05); border-radius:15px; margin:20px; backdrop-filter: blur(5px); }
+    #about h2 { font-size:2.5rem; color: #b085f5; text-shadow:2px 2px 5px rgba(0,0,0,0.5); margin-bottom:20px; font-family:'Cinzel Decorative', serif; }
+    #about p { color:white; font-size:1.1rem; max-width:700px; margin:10px auto; line-height:1.7; }
+    #about .slogan { color:#d9b3ff; font-size:1rem; font-style:italic; }
+    nav { display:flex; justify-content:center; gap:20px; margin-bottom:40px; flex-wrap:wrap; }
+    nav button { padding:12px 25px; border:none; border-radius:12px; background: linear-gradient(135deg, #b085f5, #d9b3ff); color:#0a0a0a; font-weight:bold; font-family:'Poppins', sans-serif; cursor:pointer; transition:0.4s; box-shadow:0 4px 15px rgba(0,0,0,0.5); }
+    nav button:hover { transform:scale(1.1); background: linear-gradient(135deg, #d9b3ff, #b085f5); box-shadow:0 6px 20px rgba(0,0,0,0.6); }
+    .container { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:25px; padding:0 20px 50px 20px; }
+    .card { background: linear-gradient(145deg, #e6d6ff, #ffffff10); color:#0a0a0a; padding:25px; border-radius:15px; max-height:650px; overflow-y:auto; transition:0.4s; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.2); position:relative; }
+    .card:hover { transform:scale(1.03); box-shadow:0 6px 20px rgba(184,133,245,0.6); border: 1px solid rgba(184,133,245,0.7); }
+    .card h3 { margin-bottom:15px; color:#b085f5; font-weight:600; font-family:'Cinzel Decorative', serif; }
+    .card p { line-height:1.7; font-size:1rem; white-space: pre-wrap; word-wrap: break-word; margin-bottom:10px; }
+    .music-btn { position:absolute; top:15px; right:15px; background:#b085f5; border:none; padding:5px 10px; border-radius:8px; cursor:pointer; font-size:1.2rem; }
+    @media(max-width:600px){ header { font-size:2.5rem; padding:40px 10px; } nav button { padding:10px 18px; font-size:0.9rem; } }
+  </style>
 </head>
 <body>
 
-<header>
-  <h1>BAYASI 🎞️</h1>
-  <button class="toggle-theme">🌙 / ☀️</button>
-  <div id="bio">Mən Elmar Bəy Asi — yazdığım şeirlər ilə ruhunuza toxunuram...</div>
-  <button class="subscribe-btn">Abunə ol</button>
-</header>
+<header>BAYASI ✒️</header>
 
-<div class="about-me">
-<h2>Haqqımda</h2>
-<pre>Mən Elmar Bəy Asi — şeirlərin, qəlbin və düşüncənin səssiz melodiyasını araşdırıram...</pre>
-</div>
+<section id="about">
+  <h2>Elmar Bəy Asi ✒️</h2>
+  <p>Salam! Mən Elmar Bəy Asi. Şeir və musiqi ilə məşğulam. Bu saytda öz yaradıcılığımı paylaşır, oxucularımla birbaşa ünsiyyət qururam.</p>
+  <p>Sözlər mənim alətim, şeirlərim isə mənim dünyamın bir aynasıdır.</p>
+  <p class="slogan">“Duyğulara söz vermək, hər baxışa iz qoymaq.”</p>
+</section>
 
-<input type="text" id="searchBox" placeholder="Şeir axtar...">
-<select id="categoryFilter">
-  <option value="All">Bütün kateqoriyalar</option>
-  <option value="Sevgi">Sevgi</option>
-  <option value="Hüzün">Hüzün</option>
-  <option value="Motivasiya">Motivasiya</option>
-</select>
+<nav>
+  <button onclick="filterCategory('Yeni')">Yeni Şeir</button>
+  <button onclick="filterCategory('Klassik')">Klassiklər</button>
+  <button onclick="filterCategory('Duygusal')">Duygusal</button>
+  <button onclick="filterCategory('Hamısı')">Hamısı</button>
+</nav>
 
-<div id="popular"><h3>Populyar Şeirlər</h3><div id="popularList"></div></div>
-<div id="recent"><h3>Son Əlavə Olunanlar</h3><div id="recentList"></div></div>
-
-<div id="poemsContainer"></div>
-
-<div id="adminPanel">
-<h3>Admin: Şeir əlavə et</h3>
-<input type="text" id="poemTitle" placeholder="Başlıq">
-<select id="poemCategory">
-  <option value="Sevgi">Sevgi</option>
-  <option value="Hüzün">Hüzün</option>
-  <option value="Motivasiya">Motivasiya</option>
-</select>
-<textarea id="poemText" placeholder="Şeir mətnini daxil et"></textarea>
-<button class="admin-add">Əlavə et</button>
-</div>
-
-<div id="subscribeModal">
-<div class="modal-content">
-<h3>Abunə ol</h3>
-<input type="email" id="subscriberEmail" placeholder="Emailinizi daxil edin">
-<button id="subscribeBtn">Abunə ol</button>
-</div>
-</div>
+<div class="container" id="poemsContainer"></div>
 
 <script>
-// LOCAL STORAGE FUNKSİYALARI
-function getPoems(){return JSON.parse(localStorage.getItem("poems")||"[]");}
-function setPoems(p){localStorage.setItem("poems",JSON.stringify(p));}
+const poems = [
+  { 
+    title:"GÖZ QIRPIMINDA", 
+    category:"Yeni", 
+    text:[
+      "Göz açıram səhər olur, göz yumuram axşam olur,",
+      "Səhər kimsəni görmürəm, axşam iki üz görürəm,",
+      "İkisidə mələk kimi ağ libasda, həzin-həzin, asta-asta,",
+      "Mənə sarı gəlməkdədir, biri hüzün göz yaşında...",
+      "Biri isə gülməkdədir, biri bəlkə yüz yaşında,",
+      "Biri on səkkiz yaşında, bu on səkkiz yaşı olan,",
+      "Gözlərində yaşı olan, mənə necə tanış gəlir....",
+      "San ki, iyirmi bir yaşımda, iz buraxıb yaddaşımda.",
+      "Son iki gündür onları açıq, aydın görə bildim.",
+      "Birin görüb çox sevindim, birin görüb kədərləndim.",
+      "Biri ölüm mələyiyiş, biri ölmüş mələk imiş....",
+      "İllər öncə məzarlıqda dəfn etdiyim, öz sevgilim.",
+      "Dilim dinmədi söz deyim, ayağ istədi yeriyim,",
+      "Axı... nəyi necə edim, bir addım ata bilmirəm.",
+      "Niyyətim tək, məqsədim tək, onlara çata bilmirəm.",
+      "Yox... yox... yanlış özümdədir, bu kor qalmış gözümdədir,",
+      "Mən onlara çatmaq üçün, yuxuma, haram qatardım.",
+      "Gələn onlardır bilsəydim, yəqin ömürlük yatardım.",
+      "Bəlkə onda tez çatardım, əlbət bir gün o, da olar...",
+      "Hər səhərin axşamı var, hər axşamın səhəri var..."
+    ]
+  },
+  { 
+    title:"QOCA VƏ KÖRPƏ", 
+    category:"Klassik", 
+    text:[
+      "Gecənin bir aləmində, məscidin ön qapısında,",
+      "Bir körpə naləsi insanları, haydan-küyə saldı.",
+      "Biri baxdı köks ötürdü, biri göz yaşı tökürdü.",
+      "Bu baxanlar arasından, bir qoca körpəni aldı...",
+      "Daralan bağrına basdı, qırışan əlləri ilə",
+      "Qırılan qaməti ilə titrəyən dizləri ilə",
+      "Onu mənzilinə gətirdi, otağın zəif lanpası...",
+      "Ölüm yatağina uzanmış, bir qadına nur verirdi,",
+      "Bu qadın həmin yaşlının, mərhum yoldaşından qalan,",
+      "Sonuncu mirası idi, o da xəstə döşşəyində,",
+      "San ki, şam tək əriyirdi... qoca göz yaşını sildi.",
+      "Qoynunda kı o, mələknən yatağın ayaq küncünə,",
+      "Qısınıb güclə oturdu, qızının ovcunu sıxdı,",
+      "Qırışan əlləri ilə... Qızı incə bir təbbəssüm,",
+      "Edərək pıçıltı ilə 'Can Ata' söyləyə bildi.",
+      "Qoca təəccüb ilə baxdı, axı... qız son altı ildi",
+      "Nə danışdı, nə də dindi, Qoca bir balaca sevindi"
+    ]
+  },
+  { 
+    title:"AXTARACAQSAN", 
+    category:"Klassik", 
+    text:[
+      "İstərəm, bəyaz bir buluda dönüm,",
+      "Bulud tək səmada başına dönüm.",
+      "Gəlib yetişəcək elə bir dönəm,",
+      "Sən məni göylərdə axtaracaqsan.",
+      "Ətəyindən yapışsa hər əli yetən,",
+      "Yanında olduğumu hiss edəcəksən.",
+      "Nəfəsimlə saçını dağıtdıqca mən,",
+      "İncə əllərinlə darayacaqsan.",
+      "Sən məni göylərdə axtaracaqsan."
+    ]
+  }
+];
 
-// THEME STATE
-if(localStorage.getItem("theme")==="light") document.body.classList.add("light");
+const container = document.getElementById('poemsContainer');
 
-// RENDER ŞEİRLƏR
-function renderPoems(){
-  const container=document.getElementById("poemsContainer");
-  const popularList=document.getElementById("popularList");
-  const recentList=document.getElementById("recentList");
-  const searchVal=document.getElementById("searchBox").value.toLowerCase();
-  const category=document.getElementById("categoryFilter").value;
+function displayPoems(list){
+  container.innerHTML = "";
+  list.forEach(poem => {
+    const card = document.createElement('div');
+    card.className = "card";
+    card.innerHTML = `<h3>${poem.title}</h3>` + poem.text.map(p => `<p>${p}</p>`).join("");
 
-  container.innerHTML=""; popularList.innerHTML=""; recentList.innerHTML="";
-  const poems=getPoems();
+    // Musiqi düyməsi
+    const musicBtn = document.createElement('button');
+    musicBtn.className = "music-btn";
+    musicBtn.textContent = "🎵";
+    const audio = document.createElement('audio');
+    audio.src = "https://cdn.pixabay.com/download/audio/2021/12/13/audio_2b90c6069e.mp3?filename=sadness-122608.mp3";
+    audio.preload = "none";
 
-  // Populyar
-  poems.slice().sort((a,b)=>(b.rating||0)-(a.rating||0)).slice(0,3).forEach(p=>{
-    const div=document.createElement("div"); 
-    div.innerHTML=`<a href="#${p.id}" style="color:#ff77ff;text-decoration:none;">${p.title}</a>`; 
-    popularList.appendChild(div);
-  });
+    musicBtn.addEventListener('click', () => audio.play());
 
-  // Son əlavə olunanlar
-  poems.slice(-3).forEach(p=>{
-    const div=document.createElement("div"); 
-    div.innerHTML=`<a href="#${p.id}" style="color:#ff77ff;text-decoration:none;">${p.title}</a>`; 
-    recentList.appendChild(div);
-  });
-
-  poems.forEach((p)=>{
-    if(category!=="All" && p.category!==category) return;
-    if(!p.title.toLowerCase().includes(searchVal) && !p.text.toLowerCase().includes(searchVal)) return;
-
-    const div=document.createElement("div"); div.className="poem"; div.id=p.id;
-    let starsHtml="";
-    for(let i=1;i<=3;i++){ starsHtml+=`<span${p.rating>=i?' class="active"':''}>★</span>`; }
-
-    div.innerHTML=`<h2>${p.title}</h2>
-      <div class="poem-category">${p.category}</div>
-      <pre>${p.text}</pre>
-      <div class="poem-actions">
-        <div class="stars" data-id="${p.id}">${starsHtml}</div>
-        <button class="comment-btn">Şərhlər</button>
-        <button class="edit-btn" data-id="${p.id}">Redaktə</button>
-        <button class="delete-btn" data-id="${p.id}">Sil</button>
-      </div>
-      <div class="comments-box"><div class="all-comments"></div>
-      <textarea placeholder="Şərhini yaz..."></textarea>
-      <button class="add-comment">Göndər</button></div>`;
-    container.appendChild(div);
-
-    // şərhləri render et
-    const commentsBox=div.querySelector(".all-comments");
-    if(p.comments) p.comments.forEach(c=>{
-      const d=document.createElement("div"); d.innerText=c; d.style.padding="4px"; d.style.borderBottom="1px solid #333";
-      commentsBox.appendChild(d);
-    });
-  });
-
-  attachEvents();
-
-  // Populyar / Son Əlavə link scroll
-  document.querySelectorAll("#popularList a, #recentList a").forEach(a=>{
-    a.onclick=(e)=>{
-      e.preventDefault();
-      const target=document.getElementById(a.getAttribute("href").substring(1));
-      if(target) target.scrollIntoView({behavior:"smooth"});
-    };
-  });
-}
-
-// EVENTLƏR
-function attachEvents(){
-  document.querySelectorAll(".comment-btn").forEach(b=>b.onclick=()=>{
-    let box=b.parentElement.nextElementSibling; 
-    box.style.display=box.style.display==="block"?"none":"block";
-  });
-
-  document.querySelectorAll(".add-comment").forEach(b=>{
-    b.onclick=()=>{
-      const box=b.parentElement; 
-      const text=box.querySelector("textarea").value.trim();
-      if(!text)return;
-      const poemId=b.closest(".poem").id;
-      const poems=getPoems();
-      const poem=poems.find(p=>p.id===poemId);
-      if(!poem.comments) poem.comments=[];
-      poem.comments.push("Anonim: "+text);
-      setPoems(poems);
-      renderPoems();
-    };
-  });
-
-  document.querySelectorAll(".delete-btn").forEach(b=>b.onclick=()=>{
-    const id=b.dataset.id;
-    let poems=getPoems(); 
-    setPoems(poems.filter(p=>p.id!==id));
-    renderPoems();
-  });
-
-  document.querySelectorAll(".edit-btn").forEach(b=>b.onclick=()=>{
-    const id=b.dataset.id;
-    const poems=getPoems();
-    const poem=poems.find(p=>p.id===id);
-    if(!poem) return;
-    document.getElementById("poemTitle").value=poem.title;
-    document.getElementById("poemText").value=poem.text;
-    document.getElementById("poemCategory").value=poem.category;
-    setPoems(poems.filter(p=>p.id!==id));
-    renderPoems();
-  });
-
-  document.querySelectorAll(".stars").forEach(box=>{
-    const stars=box.querySelectorAll("span");
-    stars.forEach((s,idx)=>s.onclick=()=>{
-      const id=box.dataset.id;
-      const poems=getPoems();
-      const poem=poems.find(p=>p.id===id);
-      if(!poem) return;
-      poem.rating=idx+1;
-      setPoems(poems);
-      renderPoems();
-    });
+    card.appendChild(musicBtn);
+    card.appendChild(audio);
+    container.appendChild(card);
   });
 }
 
-// ADMIN ƏLAVƏ
-document.querySelector(".admin-add").onclick=()=>{
-  const title=document.getElementById("poemTitle").value.trim();
-  const text=document.getElementById("poemText").value.trim();
-  const category=document.getElementById("poemCategory").value;
-  if(!title||!text){alert("Başlıq və şeir boş ola bilməz!"); return;}
-  const poems=getPoems(); 
-  const id="p"+Date.now();
-  poems.push({id,title,text,category,rating:0,comments:[]}); 
-  setPoems(poems);
-  document.getElementById("poemTitle").value=""; 
-  document.getElementById("poemText").value="";
-  renderPoems();
+function filterCategory(cat){
+  if(cat==="Hamısı") displayPoems(poems);
+  else displayPoems(poems.filter(p=>p.category===cat));
 }
 
-// SEARCH & FILTER
-document.getElementById("searchBox").oninput=renderPoems;
-document.getElementById("categoryFilter").onchange=renderPoems;
-
-// THEME TOGGLE
-document.querySelector(".toggle-theme").onclick=()=>{
-  document.body.classList.toggle("light");
-  localStorage.setItem("theme", document.body.classList.contains("light")?"light":"dark");
-}
-
-// SUBSCRIBE
-document.querySelector(".subscribe-btn").onclick=()=>{document.getElementById("subscribeModal").style.display="flex";}
-document.getElementById("subscribeBtn").onclick=()=>{
-  const email=document.getElementById("subscriberEmail").value.trim();
-  const regex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if(!regex.test(email)){alert("Düzgün email daxil edin!"); return;}
-  alert(`Təşəkkürlər, ${email} abunə oldu!`);
-  document.getElementById("subscriberEmail").value=""; 
-  document.getElementById("subscribeModal").style.display="none";
-}
-
-renderPoems();
+displayPoems(poems);
 </script>
+
 </body>
 </html>
