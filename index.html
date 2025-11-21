@@ -1,149 +1,21 @@
-<!DOCTYPE html>
-<html lang="az">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BAYASI 🎞️ — Elmar Bəy Asi</title>
-<style>
-/* --- BODY & FON --- */
-body {
-  margin:0;
-  font-family:"Arial",sans-serif;
-  background:#0b0012;
-  overflow-x:hidden;
-  color:#fff;
-  perspective:1200px;
-}
-canvas#particles { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; }
-
-/* --- HEADER --- */
-header{text-align:center; padding:60px 10px;}
-header h1{font-size:90px; color:#ff00ff; text-shadow:0 0 10px #fff,0 0 30px #ff77ff,0 0 50px #aa00ff,0 0 80px #bb00ff; transition:0.3s;}
-header h1:hover{ text-shadow:0 0 20px #fff,0 0 50px #ff77ff,0 0 70px #aa00ff,0 0 100px #ff00ff;}
-#bio{font-size:18px; font-style:italic; opacity:0.85; text-shadow:0 0 6px rgba(255,255,255,0.4); margin-top:-15px;}
-#contact{margin-top:5px; font-size:16px; opacity:0.8;}
-
-/* --- ABOUT ME --- */
-.about-me{
-  width:90%;
-  margin:30px auto;
-  background:linear-gradient(145deg,#1a001f,#2a0035);
-  padding:30px;
-  border-radius:20px;
-  box-shadow:0 0 30px rgba(255,255,255,0.2);
-  border:1px solid rgba(255,255,255,0.05);
-}
-.about-me h2{ font-size:32px; color:#ff77ff; border-left:6px solid #aa00ff; padding-left:15px; text-shadow:0 0 8px #ffbbff; margin-top:0; font-weight:600; font-style:italic;}
-.about-me pre{white-space:pre-wrap; font-size:17px; line-height:1.6; color:#f0e6ff; letter-spacing:0.5px; text-shadow:0 0 4px #ffbbff;}
-
-/* --- SEARCH --- */
-#searchBox{width:90%; margin:20px auto; display:block; padding:12px; border-radius:15px; border:none; font-size:18px; outline:none; background:rgba(255,255,255,0.05); color:#fff;}
-
-/* --- POEM BLOCKS --- */
-.poem{width:90%; margin:20px auto; background:linear-gradient(145deg,#1a0a1f,#2a003a); padding:20px; border-radius:20px; box-shadow:0 0 15px rgba(255,255,255,0.2); transform-style: preserve-3d; transition: transform 0.5s, box-shadow 0.5s;}
-.poem:hover{ transform: rotateY(6deg) rotateX(3deg) translateZ(20px); box-shadow:0 0 50px rgba(255,255,255,0.4);}
-.poem h2{font-size:26px; border-left:4px solid #ff00ff; padding-left:12px; text-shadow:0 0 8px #ff77ff;}
-.poem .category{ font-size:14px; color:#ff77ff; margin-bottom:10px; opacity:0.8;}
-.poem pre{white-space: pre-wrap; font-size:17px; line-height:1.6; color:#eee;}
-.poem .share-buttons button{margin-right:8px; background:#aa00ff; color:#fff; border:none; padding:5px 10px; border-radius:8px; cursor:pointer; transition:0.3s;}
-.poem .share-buttons button:hover{background:#ff00ff;}
-
-/* --- BUTTONS --- */
-.comment-btn,.add-comment,.admin-add,.subscribe-btn{background:#aa00ff; border:none; padding:8px 14px; color:#fff; border-radius:10px; cursor:pointer; margin-top:10px; transition:0.3s;}
-.comment-btn:hover,.add-comment:hover,.admin-add:hover,.subscribe-btn:hover{background:#ff00ff;}
-
-/* --- COMMENTS --- */
-.comments-box{display:none; margin-top:10px;}
-.comments-box textarea{width:100%; height:80px; padding:10px; border-radius:10px; border:none; background:#220033; color:#fff;}
-.all-comments{margin-top:10px; background:#222; padding:10px; border-radius:10px;}
-
-/* --- STARS --- */
-.stars{font-size:26px; cursor:pointer; letter-spacing:5px;}
-.stars span{transition:0.3s;color:#888;}
-.stars span.active{color:gold;}
-
-/* --- ADMIN PANEL --- */
-#adminPanel{width:90%; margin:30px auto; background:#220033; padding:20px; border-radius:20px;}
-#adminPanel textarea,#adminPanel input,#adminPanel select{width:100%; margin-bottom:10px; padding:12px; border-radius:12px; border:none; font-size:16px; background:#330044; color:#fff;}
-
-/* --- SUBSCRIBE MODAL --- */
-#subscribeModal{display:none; position:fixed; top:0;left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; z-index:1000;}
-#subscribeModal .modal-content{background:#220033; padding:30px; border-radius:20px; width:90%; max-width:400px; text-align:center;}
-#subscribeModal input{width:80%; padding:12px; border-radius:12px; border:none; margin-bottom:10px; background:#330044; color:#fff; font-size:16px;}
-#subscribeModal button{width:50%; padding:10px; border-radius:12px; border:none; background:#aa00ff; color:#fff; font-size:16px; cursor:pointer; transition:0.3s;}
-#subscribeModal button:hover{background:#ff00ff;}
-#subscriberCount{margin-top:10px; font-size:14px; color:#fff; opacity:0.8;}
-
-/* --- NEON --- */
-.neon-text{color:#ff77ff; text-shadow:0 0 5px #fff,0 0 15px #ff00ff,0 0 20px #aa00ff;}
-</style>
-</head>
-<body>
-
-<canvas id="particles"></canvas>
-
-<header>
-<h1 class="neon-text">BAYASI 🎞️</h1>
-<div id="bio" class="neon-text">Mən Elmar Bəy Asi — yazdığım şeirlər və poeziya ilə ruhunuza toxunuram...</div>
-<div id="contact">📞 051 818 15 84 — 📧 elmarofficial692@gmail.com</div>
-<button class="subscribe-btn">Abunə ol</button>
-<div id="subscriberCount">Abunə sayı: 347</div>
-</header>
-
-<div class="about-me">
-<h2>Haqqımda</h2>
-<pre>
-Mən Elmar Bəy Asi — sözlərin, qəlbin və düşüncənin səssiz melodiyasını araşdıran bir şair və düşünürəm.
-Hər şeirim yalnız emosiyalar deyil, həm də insan təfəkkürünün dərin qatlarına işıq salır.
-İntellektual və estetik duyğu ilə yoğrulmuş yaradıcılığım oxucunun ruhuna və zehninə toxunur.
-</pre>
-</div>
-
-<input type="text" id="searchBox" placeholder="Şeir axtar...">
-<div id="poemsContainer"></div>
-
-<!-- Admin panel -->
-<div id="adminPanel">
-<h3>Admin: Şeir əlavə et</h3>
-<input type="text" id="poemTitle" placeholder="Başlıq">
-<select id="poemCategory">
-  <option value="Sevgi">Sevgi</option>
-  <option value="Hüzün">Hüzün</option>
-  <option value="Motivasiya">Motivasiya</option>
-  <option value="Digər">Digər</option>
-</select>
-<textarea id="poemText" placeholder="Şeir mətnini daxil et"></textarea>
-<button class="admin-add">Əlavə et</button>
-</div>
-
-<!-- Subscribe Modal -->
-<div id="subscribeModal">
-  <div class="modal-content">
-    <h3>Abunə ol</h3>
-    <input type="email" id="subscriberEmail" placeholder="Emailinizi daxil edin">
-    <button id="subscribeBtn">Abunə ol</button>
-    <div id="subscriberCountModal">Abunə sayı: 347</div>
-  </div>
-</div>
-
 <script>
-/* PARTICLES */
+/* --- PARTICLE FON --- */
 const canvas=document.getElementById("particles");
 const ctx=canvas.getContext("2d");
 let W=canvas.width=window.innerWidth;
 let H=canvas.height=window.innerHeight;
 let particlesArray=[];
 class Particle{
-  constructor(){ this.x=Math.random()*W; this.y=Math.random()*H; this.size=Math.random()*2+1; this.speedX=Math.random()*1-0.5; this.speedY=Math.random()*1-0.5; }
-  update(){ this.x+=this.speedX; this.y+=this.speedY; if(this.x>W)this.x=0;if(this.x<0)this.x=W;if(this.y>H)this.y=0;if(this.y<0)this.y=H; }
-  draw(){ ctx.fillStyle='rgba(255,255,255,0.05)'; ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fill();}
+  constructor(){this.x=Math.random()*W;this.y=Math.random()*H;this.size=Math.random()*2+1;this.speedX=Math.random()*1-0.5;this.speedY=Math.random()*1-0.5;}
+  update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x>W)this.x=0;if(this.x<0)this.x=W;if(this.y>H)this.y=0;if(this.y<0)this.y=H;}
+  draw(){ctx.fillStyle='rgba(255,255,255,0.05)';ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();}
 }
 function initParticles(){particlesArray=[];for(let i=0;i<120;i++){particlesArray.push(new Particle());}}
 function animateParticles(){ctx.clearRect(0,0,W,H);particlesArray.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animateParticles);}
-window.addEventListener('resize',()=>{W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight;});
-initParticles(); animateParticles();
+window.addEventListener('resize',()=>{W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;});
+initParticles();animateParticles();
 
-/* POEMS */
+/* --- POEMS --- */
 const poemsContainer=document.getElementById("poemsContainer");
 const poemTitle=document.getElementById("poemTitle");
 const poemText=document.getElementById("poemText");
@@ -153,34 +25,43 @@ const adminAdd=document.querySelector(".admin-add");
 function renderPoems(){
   poemsContainer.innerHTML="";
   let poems=JSON.parse(localStorage.getItem("poems")||"[]");
+
+  // Popular / Recent
+  let popularList=document.getElementById("popularList");
+  let recentList=document.getElementById("recentList");
+  popularList.innerHTML=""; recentList.innerHTML="";
+  let sortedByRandom = [...poems].sort(()=>0.5-Math.random());
+  sortedByRandom.slice(0,3).forEach(p=>{
+    let div=document.createElement("div"); div.innerText=p.title; popularList.appendChild(div);
+  });
+  poems.slice(-3).forEach(p=>{
+    let div=document.createElement("div"); div.innerText=p.title; recentList.appendChild(div);
+  });
+
   poems.forEach((p,index)=>{
     const div=document.createElement("div");
     div.className="poem";
+    div.dataset.category=p.category;
     div.innerHTML=`
       <h2>${p.title}</h2>
-      <div class="category">${p.category}</div>
+      <div class="poem-category">${p.category}</div>
       <pre>${p.text}</pre>
       <div class="poem-actions">
-        <div class="stars" data-id="${index}">
-          <span>★</span><span>★</span><span>★</span>
-        </div>
+        <div class="stars" data-id="${index}"><span>★</span><span>★</span><span>★</span></div>
         <button class="comment-btn">Şərhlər</button>
+        <div class="share-buttons">
+          <button onclick="share('facebook',${index})">Facebook</button>
+          <button onclick="share('twitter',${index})">Twitter</button>
+        </div>
+        <button class="delete-btn" data-id="${index}">Sil</button>
       </div>
-      <div class="comments-box">
-        <div class="all-comments"></div>
-        <textarea placeholder="Şərhini yaz..."></textarea>
-        <button class="add-comment">Göndər</button>
-      </div>
-      <div class="share-buttons">
-        <button onclick="share('fb','${p.title}')">Facebook</button>
-        <button onclick="share('tg','${p.title}')">Telegram</button>
-        <button onclick="share('wa','${p.title}')">WhatsApp</button>
-      </div>
+      <div class="comments-box"><div class="all-comments"></div><textarea placeholder="Şərhini yaz..."></textarea><button class="add-comment">Göndər</button></div>
     `;
     poemsContainer.appendChild(div);
   });
   attachCommentEvents();
 }
+
 adminAdd.onclick=()=>{
   const title=poemTitle.value.trim();
   const text=poemText.value.trim();
@@ -193,41 +74,56 @@ adminAdd.onclick=()=>{
   renderPoems();
 }
 
-/* COMMENTS & STARS */
+/* --- COMMENTS & STARS --- */
 function attachCommentEvents(){
-  document.querySelectorAll(".comment-btn").forEach(btn=>{btn.onclick=()=>{const box=btn.parentElement.nextElementSibling;box.style.display=box.style.display==="block"?"none":"block";}});
-  document.querySelectorAll(".add-comment").forEach(btn=>{btn.onclick=()=>{
-    const box=btn.parentElement;
-    const text=box.querySelector("textarea").value;
-    if(text.trim()==="")return;
-    const div=document.createElement("div");
-    div.style.padding="8px"; div.style.borderBottom="1px solid #333";
-    div.innerText="Anonim: "+text;
-    box.querySelector(".all-comments").appendChild(div);
-    box.querySelector("textarea").value="";
-  };});
+  document.querySelectorAll(".comment-btn").forEach(btn=>{
+    btn.onclick=()=>{const box=btn.parentElement.nextElementSibling;box.style.display=box.style.display==="block"?"none":"block";}
+  });
+  document.querySelectorAll(".add-comment").forEach(btn=>{
+    btn.onclick=()=>{
+      const box=btn.parentElement;
+      const text=box.querySelector("textarea").value;
+      if(text.trim()==="")return;
+      const div=document.createElement("div");
+      div.style.padding="6px";div.style.borderBottom="1px solid #333";
+      div.innerText="Anonim: "+text;
+      box.querySelector(".all-comments").appendChild(div);
+      box.querySelector("textarea").value="";
+    };
+  });
   document.querySelectorAll(".stars").forEach(starBox=>{
     const stars=starBox.querySelectorAll("span");
-    stars.forEach((star,idx)=>{star.onclick=()=>{stars.forEach((s,i)=>s.classList.toggle("active",i<=idx));};});
+    stars.forEach((star,idx)=>{
+      star.onclick=()=>{
+        stars.forEach((s,i)=>s.classList.toggle("active",i<=idx));
+      };
+    });
+  });
+  document.querySelectorAll(".delete-btn").forEach(btn=>{
+    btn.onclick=()=>{
+      let poems=JSON.parse(localStorage.getItem("poems")||"[]");
+      poems.splice(btn.dataset.id,1);
+      localStorage.setItem("poems",JSON.stringify(poems));
+      renderPoems();
+    };
   });
 }
 
-/* SEARCH */
+/* --- SEARCH & CATEGORY FILTER --- */
 document.getElementById("searchBox").addEventListener("keyup",function(){
   const text=this.value.toLowerCase();
-  document.querySelectorAll(".poem").forEach(p=>{p.style.display=p.innerText.toLowerCase().includes(text)?"block":"none";});
+  document.querySelectorAll(".poem").forEach(p=>{
+    p.style.display=p.innerText.toLowerCase().includes(text)?"block":"none";
+  });
+});
+document.getElementById("categoryFilter").addEventListener("change",function(){
+  const val=this.value;
+  document.querySelectorAll(".poem").forEach(p=>{
+    p.style.display=(val==="All"||p.dataset.category===val)?"block":"none";
+  });
 });
 
-/* SHARE */
-function share(platform,title){
-  let url=encodeURIComponent(window.location.href);
-  let text=encodeURIComponent(title);
-  if(platform==='fb') window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`,'_blank');
-  if(platform==='tg') window.open(`https://t.me/share/url?url=${url}&text=${text}`,'_blank');
-  if(platform==='wa') window.open(`https://api.whatsapp.com/send?text=${text}%20${url}`,'_blank');
-}
-
-/* SUBSCRIBE */
+/* --- SUBSCRIBE MODAL --- */
 const subscribeModal=document.getElementById("subscribeModal");
 document.querySelector(".subscribe-btn").onclick=()=>{subscribeModal.style.display="flex";}
 document.getElementById("subscribeBtn").onclick=()=>{
@@ -238,7 +134,28 @@ document.getElementById("subscribeBtn").onclick=()=>{
   subscribeModal.style.display="none";
 };
 
+/* --- SOCIAL SHARE --- */
+function share(platform,index){
+  const poems=JSON.parse(localStorage.getItem("poems")||"[]");
+  const url=encodeURIComponent(window.location.href);
+  const text=encodeURIComponent(poems[index].title + "\n\n" + poems[index].text);
+  let shareUrl="";
+  if(platform==="facebook") shareUrl=`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`;
+  if(platform==="twitter") shareUrl=`https://twitter.com/intent/tweet?text=${text}&url=${url}`;
+  window.open(shareUrl,"_blank");
+}
+
+/* --- HAMBURGER MENU --- */
+const hamburger=document.getElementById("hamburger");
+const navMenu=document.getElementById("navMenu");
+hamburger.onclick=()=>{navMenu.classList.toggle("show");}
+
+/* --- TOGGLE THEME --- */
+const toggleThemeBtn=document.querySelector(".toggle-theme");
+toggleThemeBtn.onclick=()=>{
+  document.body.classList.toggle("light");
+};
+
+/* --- INIT --- */
 renderPoems();
 </script>
-</body>
-</html>
