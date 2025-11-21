@@ -13,6 +13,7 @@ body {
   overflow-x:hidden;
   color:#fff;
   perspective:1200px;
+  position:relative;
 }
 
 /* --- PARTICLE FON --- */
@@ -116,6 +117,7 @@ header h1:hover{
   font-size:17px;
   line-height:1.6;
   color:#eee;
+  text-shadow:0 0 3px #fff, 0 0 6px #ff77ff, 0 0 10px #aa00ff;
 }
 
 /* --- BUTTONS --- */
@@ -228,6 +230,22 @@ header h1:hover{
   color:#ff77ff;
   text-shadow:0 0 5px #fff,0 0 15px #ff00ff,0 0 20px #aa00ff;
 }
+
+/* --- NEON STARS --- */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 2px #fff, 0 0 4px #ff77ff, 0 0 6px #aa00ff;
+  opacity: 0.8;
+  animation: twinkle 3s infinite ease-in-out;
+}
+@keyframes twinkle {
+  0%, 100% {opacity: 0.8;}
+  50% {opacity: 0.2;}
+}
 </style>
 </head>
 <body>
@@ -257,7 +275,7 @@ Hər şeirim yalnız emosiyalar deyil, həm də insan təfəkkürünün dərin q
 
 <!-- Admin panel -->
 <div id="adminPanel">
-<h3>Admin: Şeir əlavə et</h3>
+<h3>Admin: Şeir əlavə et (Parol tələb olunur)</h3>
 <input type="text" id="poemTitle" placeholder="Başlıq">
 <textarea id="poemText" placeholder="Şeir mətnini daxil et"></textarea>
 <button class="admin-add">Əlavə et</button>
@@ -306,13 +324,13 @@ function animateParticles(){ctx.clearRect(0,0,W,H);particlesArray.forEach(p=>{p.
 window.addEventListener('resize',()=>{W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;});
 initParticles();animateParticles();
 
-/* --- POEMS --- */
+/* --- LOCAL STORAGE & POEMS --- */
 const poemsContainer=document.getElementById("poemsContainer");
 const poemTitle=document.getElementById("poemTitle");
 const poemText=document.getElementById("poemText");
 const adminAdd=document.querySelector(".admin-add");
+const ADMIN_PASSWORD = "1234"; // burada admin parolunu dəyişə bilərsən
 
-// Render poems for everyone
 function renderPoems(){
   poemsContainer.innerHTML="";
   let poems=JSON.parse(localStorage.getItem("poems")||"[]");
@@ -322,13 +340,26 @@ function renderPoems(){
     div.innerHTML=`
       <h2>${p.title}</h2>
       <pre>${p.text}</pre>
+      <div class="poem-actions">
+        <div class="stars" data-id="${index}">
+          <span>★</span><span>★</span><span>★</span>
+        </div>
+        <button class="comment-btn">Şərhlər</button>
+      </div>
+      <div class="comments-box">
+        <div class="all-comments"></div>
+        <textarea placeholder="Şərhini yaz..."></textarea>
+        <button class="add-comment">Göndər</button>
+      </div>
     `;
     poemsContainer.appendChild(div);
   });
+  attachCommentEvents();
 }
 
-// Admin can add poems
 adminAdd.onclick=()=>{
+  let pass = prompt("Admin parolunu daxil et:");
+  if(pass !== ADMIN_PASSWORD){alert("Səhv parol!"); return;}
   const title=poemTitle.value.trim();
   const text=poemText.value.trim();
   if(!title||!text)return;
@@ -339,12 +370,33 @@ adminAdd.onclick=()=>{
   renderPoems();
 }
 
-// Search functionality
+/* --- COMMENTS & STARS --- */
+function attachCommentEvents(){
+  document.querySelectorAll(".comment-btn").forEach(btn=>{
+    btn.onclick=()=>{const box=btn.parentElement.nextElementSibling;box.style.display=box.style.display==="block"?"none":"block";}
+  });
+  document.querySelectorAll(".add-comment").forEach(btn=>{
+    btn.onclick=()=>{
+      const box=btn.parentElement;
+      const text=box.querySelector("textarea").value;
+      if(text.trim()==="")return;
+      const div=document.createElement("div");
+      div.style.padding="8px";div.style.borderBottom="1px solid #333";
+      div.innerText="Anonim: "+text;
+      box.querySelector(".all-comments").appendChild(div);
+      box.querySelector("textarea").value="";
+    };
+  });
+  document.querySelectorAll(".stars").forEach(starBox=>{
+    const stars=starBox.querySelectorAll("span");
+    stars.forEach((star,idx)=>{star.onclick=()=>{stars.forEach((s,i)=>s.classList.toggle("active",i<=idx));};});
+  });
+}
+
+/* --- SEARCH --- */
 document.getElementById("searchBox").addEventListener("keyup",function(){
   const text=this.value.toLowerCase();
-  document.querySelectorAll(".poem").forEach(p=>{
-    p.style.display=p.innerText.toLowerCase().includes(text)?"block":"none";
-  });
+  document.querySelectorAll(".poem").forEach(p=>{p.style.display=p.innerText.toLowerCase().includes(text)?"block":"none";});
 });
 
 /* --- SUBSCRIBE MODAL --- */
@@ -358,7 +410,29 @@ document.getElementById("subscribeBtn").onclick=()=>{
   subscribeModal.style.display="none";
 };
 
-// Initial render
+/* --- NEON STARS ANIMATION --- */
+const starCount = 100;
+for(let i=0;i<starCount;i++){
+  const star = document.createElement("div");
+  star.classList.add("star");
+  star.style.top = Math.random()*window.innerHeight + "px";
+  star.style.left = Math.random()*window.innerWidth + "px";
+  star.style.animationDuration = 2 + Math.random()*3 + "s";
+  star.style.width = 1 + Math.random()*3 + "px";
+  star.style.height = star.style.width;
+  body.appendChild(star);
+}
+function moveStars(){
+  document.querySelectorAll(".star").forEach(star=>{
+    let top = parseFloat(star.style.top);
+    top += 0.2;
+    if(top > window.innerHeight) top = 0;
+    star.style.top = top + "px";
+  });
+  requestAnimationFrame(moveStars);
+}
+moveStars();
+
 renderPoems();
 </script>
 </body>
