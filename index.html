@@ -3,301 +3,248 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BAYASI ✒️ — Şeirlər</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display&display=swap" rel="stylesheet">
+<title>BAYASI ✒️ — Elmar Bəy Asi</title>
 <style>
 body {
-  margin: 0;
-  font-family: 'Playfair Display', serif;
-  background-color: #0a0a0a;
-  color: #e0d6ff;
-  line-height: 1.7;
+    margin: 0;
+    background: #111;
+    font-family: "Georgia", serif;
+    color: #fff;
 }
 
+/* Header */
 header {
-  text-align: center;
-  padding: 40px 20px 20px 20px;
+    text-align: center;
+    padding: 30px 10px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1), rgba(0,0,0,1));
 }
 
-h1 {
-  font-family: 'Cinzel', serif;
-  font-size: 5em;
-  font-weight: 900;
-  color: #6a0dad;
-  text-shadow: 0 0 2px #fff, 0 0 5px #b19cd9; /* ağ parıltı çox cüzi */
+header h1 {
+    font-size: 48px;
+    letter-spacing: 5px;
+    font-style: italic;
+    color: #fff;
+    text-shadow: 0 0 8px rgba(255,255,255,0.3);
 }
 
-.search-container {
-  max-width: 900px;
-  margin: 0 auto 20px auto;
-  text-align: center;
+#bio {
+    text-align: center;
+    margin-top: -10px;
+    font-size: 14px;
+    opacity: 0.8;
+    font-style: italic;
 }
 
-.search-container input {
-  width: 80%;
-  padding: 10px 15px;
-  font-size: 1.2em;
-  border-radius: 10px;
-  border: 2px solid #b19cd9;
-  outline: none;
-  background: #1a001a;
-  color: #fff;
-  box-shadow: 0 0 5px #fff;
+#contact {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 13px;
+    opacity: 0.7;
 }
 
-.add-buttons {
-  max-width: 900px;
-  margin: 10px auto 30px auto;
-  text-align: center;
+#searchBox {
+    width: 90%;
+    margin: 20px auto;
+    padding: 12px;
+    border-radius: 15px;
+    border: none;
+    font-size: 18px;
+    outline: none;
 }
 
-.add-buttons button {
-  margin: 5px;
-  padding: 8px 12px;
-  border-radius: 8px;
-  border: none;
-  background: #b19cd9;
-  color: #fff;
-  cursor: pointer;
-  transition: 0.2s;
+/* Poem blocks */
+.poem {
+    width: 90%;
+    margin: 20px auto;
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #000;
 }
 
-.add-buttons button:hover {
-  background: #fff;
-  color: #6a0dad;
+.poem h2 {
+    margin-top: 0;
+    font-size: 26px;
+    border-left: 4px solid #880000;
+    padding-left: 10px;
 }
 
-.poem-container {
-  max-width: 900px;
-  margin: 0 auto 50px auto;
-  padding: 0 20px;
+pre {
+    white-space: pre-wrap;
+    font-size: 17px;
+    line-height: 1.5;
 }
 
-.poem-card {
-  background: linear-gradient(145deg, #2a002a, #4b004b);
-  border-radius: 15px;
-  margin-bottom: 25px;
-  padding: 20px;
-  border: 2px dashed #b19cd9;
-  box-shadow: 0 0 5px #fff, 0 0 10px #b19cd9 inset;
-  position: relative;
-  transition: transform 0.3s, box-shadow 0.3s;
+/* Stars */
+.stars {
+    font-size: 26px;
+    cursor: pointer;
+    letter-spacing: 5px;
 }
 
-.poem-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 15px #fff, 0 0 25px #b19cd9 inset;
+/* Buttons */
+.comment-btn, .add-comment {
+    background: #880000;
+    border: none;
+    padding: 8px 14px;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
-.poem-title {
-  font-family: 'Cinzel', serif;
-  font-size: 2em;
-  font-weight: 700;
-  margin: 0 0 10px 0;
-  color: #b19cd9;
-  text-shadow: 0 0 2px #fff, 0 0 5px #fff;
+.comments-box {
+    display: none;
+    margin-top: 10px;
 }
 
-.poem-content {
-  margin-top: 10px;
-  white-space: pre-line;
-  font-size: 1.1em;
-  color: #f0e6ff;
-  text-shadow: 0 0 2px #fff;
+.comments-box textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
 }
 
-.star-container {
-  display: flex;
-  gap: 5px;
-  align-items: center;
-  font-family: 'Cinzel', serif;
-  color: #ffcc00;
-  margin-top: 10px;
+.all-comments {
+    margin-top: 10px;
+    background: #222;
+    padding: 10px;
+    border-radius: 10px;
 }
 
-.star-btn {
-  background: transparent;
-  border: none;
-  font-size: 1.5em;
-  cursor: pointer;
-  transition: transform 0.2s;
-  color: #ffcc00;
+/* Admin panel */
+#adminPanel {
+    display: none;
+    width: 90%;
+    margin: 20px auto;
+    padding: 15px;
+    background: #222;
+    border-radius: 15px;
 }
-
-.star-btn:hover {
-  transform: scale(1.3);
+#adminPanel input, #adminPanel textarea {
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
 }
-
-.bayasi-label {
-  font-size: 1.1em;
-  margin-left: 5px;
-  color: #fff;
-  text-shadow: 0 0 1px #fff, 0 0 2px #b19cd9;
-}
-
-.comment-btn {
-  margin-top: 10px;
-  padding: 7px 12px;
-  border-radius: 8px;
-  border: none;
-  background: #b19cd9;
-  color: #fff;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.comment-btn:hover {
-  background: #fff;
-  color: #6a0dad;
-}
-
-.comment-section {
-  display: none;
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px solid #b19cd9;
-}
-
-.comment-section input {
-  width: 70%;
-  padding: 5px 8px;
-  border-radius: 5px;
-  border: 1px solid #b19cd9;
-  background: #1a001a;
-  color: #fff;
-  margin-right: 5px;
-}
-
-.comment-section button {
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: none;
-  background: #b19cd9;
-  color: #fff;
-  cursor: pointer;
-}
-
-.comment-section button:hover {
-  background: #fff;
-  color: #6a0dad;
-}
-
-.comment-list {
-  margin-top: 10px;
-  max-height: 150px;
-  overflow-y: auto;
-  font-size: 0.95em;
-}
-
-.comment-list p {
-  background: rgba(255,255,255,0.05);
-  padding: 4px 6px;
-  border-radius: 4px;
-  margin: 3px 0;
-}
-
-/* Bayasi info alt */
-.bayasi-info {
-  font-size: 0.85em;
-  font-style: italic;
-  color: #c0a8ff;
-  margin-top: 10px;
+#adminPanel button {
+    background: #880000;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 5px;
 }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>BAYASI ✒️</h1>
+    <h1>BAYASI ✒️</h1>
+    <div id="bio">Mən Elmar Bəy Asi — yazdığım şeirlər, poeziya, həyat, sözün ətri...</div>
+    <div id="contact">📞 051 818 15 84 — 📧 elmarofficial692@gmail.com</div>
 </header>
 
-<div class="search-container">
-  <input type="text" id="searchInput" placeholder="Şeir axtar...">
+<input type="text" id="searchBox" placeholder="Şeir axtar...">
+
+<!-- Admin login -->
+<div id="loginPanel" style="width:90%; margin:20px auto; text-align:center;">
+    <input type="password" id="adminPass" placeholder="Admin şifrəni daxil et">
+    <button id="loginBtn">Daxil ol</button>
 </div>
 
-<div class="add-buttons">
-  <button onclick="addPoemBlock()">Yeni Şeir Əlavə Et</button>
+<!-- Admin panel -->
+<div id="adminPanel">
+    <h3>Yeni Şeir Əlavə Et</h3>
+    <input type="text" id="poemTitle" placeholder="Şeir başlığı">
+    <textarea id="poemText" placeholder="Şeir mətni"></textarea>
+    <button id="addPoemBtn">Əlavə et</button>
 </div>
 
-<div class="poem-container" id="poemContainer">
-  <!-- Şeirlər burada əlavə olunacaq -->
+<!-- Şeirlər blokları -->
+<div id="poemsContainer">
+    <!-- Şeirlər buraya əlavə olunacaq -->
 </div>
 
 <script>
-// Helper funksiyalar
-function createPoemCard(title = "Şeir Başlığı", content = "Şeir mətni bura yazılacaq...") {
-  const card = document.createElement("div");
-  card.className = "poem-card";
-
-  card.innerHTML = `
-    <div class="poem-title">${title}</div>
-    <div class="poem-content">${content}</div>
-    <div class="star-container">
-      <button class="star-btn" onclick="rateStar(this, 1)">★</button>
-      <button class="star-btn" onclick="rateStar(this, 2)">★</button>
-      <button class="star-btn" onclick="rateStar(this, 3)">★</button>
-      <span class="bayasi-label">BAYASI ✒️</span>
-    </div>
-    <button class="comment-btn" onclick="toggleComments(this)">Şərhlər</button>
-    <div class="comment-section">
-      <input type="text" placeholder="Şərh yazın...">
-      <button onclick="addComment(this)">Göndər</button>
-      <div class="comment-list"></div>
-      <div class="bayasi-info">
-        Mən Elmar Bəy Asi yazdığım şeirlər. Kontakt: elmarofficial692@gmail.com, 0518181584
-      </div>
-    </div>
-  `;
-  return card;
-}
-
-// Şeir əlavə et
-function addPoemBlock() {
-  const container = document.getElementById("poemContainer");
-  const card = createPoemCard();
-  container.appendChild(card);
-}
-
-// Ulduz bəyənmə
-function rateStar(btn, star) {
-  const stars = btn.parentElement.querySelectorAll(".star-btn");
-  stars.forEach((s, i) => {
-    s.style.color = (i < star) ? "#ffd700" : "#ffcc00";
-  });
-}
-
-// Şərh bölməsini açıb bağlama
-function toggleComments(btn) {
-  const section = btn.nextElementSibling;
-  section.style.display = (section.style.display === "block") ? "none" : "block";
-}
-
-// Şərh əlavə et
-function addComment(btn) {
-  const input = btn.previousElementSibling;
-  const text = input.value.trim();
-  if (!text) return;
-  const list = btn.nextElementSibling;
-  const p = document.createElement("p");
-  p.textContent = text;
-  list.appendChild(p);
-  input.value = "";
-}
-
-// Şeir axtar
-document.getElementById("searchInput").addEventListener("input", function() {
-  const val = this.value.toLowerCase();
-  const cards = document.querySelectorAll(".poem-card");
-  cards.forEach(card => {
-    const title = card.querySelector(".poem-title").textContent.toLowerCase();
-    const content = card.querySelector(".poem-content").textContent.toLowerCase();
-    card.style.display = (title.includes(val) || content.includes(val)) ? "block" : "none";
-  });
+// SEARCH FUNCTION
+document.getElementById("searchBox").addEventListener("keyup", function() {
+    let text = this.value.toLowerCase();
+    document.querySelectorAll(".poem").forEach(p => {
+        p.style.display = p.innerText.toLowerCase().includes(text) ? "block" : "none";
+    });
 });
 
-// İlk boş şeir kartı əlavə olunsun
-addPoemBlock();
-</script>
+// COMMENT FUNCTION
+function enableComments(poemDiv){
+    const commentBtn = poemDiv.querySelector(".comment-btn");
+    const commentBox = poemDiv.querySelector(".comments-box");
+    const addBtn = poemDiv.querySelector(".add-comment");
+    const allComments = poemDiv.querySelector(".all-comments");
 
+    commentBtn.onclick = () => {
+        commentBox.style.display = commentBox.style.display === "block" ? "none" : "block";
+    };
+
+    addBtn.onclick = () => {
+        let text = commentBox.querySelector("textarea").value;
+        if(text.trim()==="") return;
+        let div = document.createElement("div");
+        div.style.padding="8px";
+        div.style.borderBottom="1px solid #333";
+        div.innerText = "Anonim: " + text;
+        allComments.appendChild(div);
+        commentBox.querySelector("textarea").value="";
+    };
+}
+
+// ADMIN LOGIN
+const adminPassword = "1234"; // Sənin şifrən, dəyişə bilərsən
+document.getElementById("loginBtn").onclick = () => {
+    const pass = document.getElementById("adminPass").value;
+    if(pass === adminPassword){
+        document.getElementById("adminPanel").style.display = "block";
+        alert("Admin giriş uğurlu!");
+    } else {
+        alert("Yanlış şifrə!");
+    }
+};
+
+// ADD POEM
+document.getElementById("addPoemBtn").onclick = () => {
+    const title = document.getElementById("poemTitle").value;
+    const text = document.getElementById("poemText").value;
+    if(title.trim()==="" || text.trim()==="") return;
+
+    const container = document.getElementById("poemsContainer");
+
+    const poemDiv = document.createElement("div");
+    poemDiv.className = "poem";
+
+    poemDiv.innerHTML = `
+        <h2>${title}</h2>
+        <pre>${text}</pre>
+        <div class="poem-actions">
+            <div class="stars" data-id="1">★ ★ ★</div>
+            <button class="comment-btn">Şərhlər</button>
+        </div>
+        <div class="comments-box">
+            <textarea placeholder="Şərhini yaz..."></textarea>
+            <button class="add-comment">Göndər</button>
+            <div class="all-comments"></div>
+        </div>
+    `;
+
+    container.appendChild(poemDiv);
+    enableComments(poemDiv);
+
+    // clear admin panel fields
+    document.getElementById("poemTitle").value="";
+    document.getElementById("poemText").value="";
+};
+</script>
 </body>
 </html>
