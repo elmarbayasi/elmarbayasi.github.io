@@ -7,7 +7,7 @@
 <style>
 body {
     margin: 0;
-    background: #111;
+    background: linear-gradient(to bottom, #120022, #2a003a);
     font-family: "Georgia", serif;
     color: #fff;
 }
@@ -15,33 +15,48 @@ body {
 /* Header */
 header {
     text-align: center;
-    padding: 30px 10px;
-    background: radial-gradient(circle, rgba(255,255,255,0.1), rgba(0,0,0,1));
+    padding: 40px 10px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08), rgba(18,0,34,1));
 }
 
 header h1 {
-    font-size: 48px;
-    letter-spacing: 5px;
+    font-size: 52px;
+    letter-spacing: 6px;
     font-style: italic;
     color: #fff;
-    text-shadow: 0 0 8px rgba(255,255,255,0.3);
+    text-shadow: 0 0 15px rgba(255,255,255,0.5),
+                 0 0 25px #aa00ff,
+                 0 0 35px #ff00ff,
+                 0 0 50px #bb00ff;
+    transition: 0.3s all;
 }
 
+header h1:hover {
+    text-shadow: 0 0 20px #fff,
+                 0 0 30px #ff77ff,
+                 0 0 40px #bb00ff,
+                 0 0 60px #ff00ff;
+}
+
+/* Bio */
 #bio {
     text-align: center;
-    margin-top: -10px;
-    font-size: 14px;
-    opacity: 0.8;
+    margin-top: -5px;
+    font-size: 15px;
     font-style: italic;
+    opacity: 0.85;
+    text-shadow: 0 0 4px rgba(255,255,255,0.3);
 }
 
+/* Contact */
 #contact {
     text-align: center;
     margin-top: 5px;
-    font-size: 13px;
+    font-size: 14px;
     opacity: 0.7;
 }
 
+/* Search */
 #searchBox {
     width: 90%;
     margin: 20px auto;
@@ -50,49 +65,59 @@ header h1 {
     border: none;
     font-size: 18px;
     outline: none;
+    background: rgba(255,255,255,0.05);
+    color: #fff;
 }
 
 /* Poem blocks */
 .poem {
     width: 90%;
     margin: 20px auto;
-    background: #1a1a1a;
+    background: linear-gradient(145deg, #1a0a1f, #2a003a);
     padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 0 10px #000;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(255,255,255,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.poem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(255,255,255,0.3);
 }
 
 .poem h2 {
     margin-top: 0;
-    font-size: 26px;
-    border-left: 4px solid #880000;
-    padding-left: 10px;
+    font-size: 28px;
+    border-left: 5px solid #aa00ff;
+    padding-left: 12px;
+    text-shadow: 0 0 6px #ff77ff;
 }
 
+/* Poem text */
 pre {
     white-space: pre-wrap;
     font-size: 17px;
-    line-height: 1.5;
-}
-
-/* Stars */
-.stars {
-    font-size: 26px;
-    cursor: pointer;
-    letter-spacing: 5px;
+    line-height: 1.6;
+    color: #eee;
 }
 
 /* Buttons */
-.comment-btn, .add-comment {
-    background: #880000;
+.comment-btn, .add-comment, .admin-add {
+    background: #aa00ff;
     border: none;
     padding: 8px 14px;
     color: #fff;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
     margin-top: 10px;
+    transition: 0.3s;
 }
 
+.comment-btn:hover, .add-comment:hover, .admin-add:hover {
+    background: #ff00ff;
+}
+
+/* Comments */
 .comments-box {
     display: none;
     margin-top: 10px;
@@ -104,6 +129,8 @@ pre {
     padding: 10px;
     border-radius: 10px;
     border: none;
+    background: #220033;
+    color: #fff;
 }
 
 .all-comments {
@@ -115,28 +142,22 @@ pre {
 
 /* Admin panel */
 #adminPanel {
-    display: none;
     width: 90%;
-    margin: 20px auto;
-    padding: 15px;
-    background: #222;
-    border-radius: 15px;
+    margin: 30px auto;
+    background: #220033;
+    padding: 20px;
+    border-radius: 20px;
 }
-#adminPanel input, #adminPanel textarea {
+
+#adminPanel textarea, #adminPanel input {
     width: 100%;
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 12px;
+    border-radius: 12px;
     border: none;
-}
-#adminPanel button {
-    background: #880000;
+    font-size: 16px;
+    background: #330044;
     color: #fff;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 8px;
-    margin-top: 5px;
 }
 </style>
 </head>
@@ -150,27 +171,84 @@ pre {
 
 <input type="text" id="searchBox" placeholder="Şeir axtar...">
 
-<!-- Admin login -->
-<div id="loginPanel" style="width:90%; margin:20px auto; text-align:center;">
-    <input type="password" id="adminPass" placeholder="Admin şifrəni daxil et">
-    <button id="loginBtn">Daxil ol</button>
-</div>
+<div id="poemsContainer"></div>
 
 <!-- Admin panel -->
 <div id="adminPanel">
-    <h3>Yeni Şeir Əlavə Et</h3>
-    <input type="text" id="poemTitle" placeholder="Şeir başlığı">
-    <textarea id="poemText" placeholder="Şeir mətni"></textarea>
-    <button id="addPoemBtn">Əlavə et</button>
-</div>
-
-<!-- Şeirlər blokları -->
-<div id="poemsContainer">
-    <!-- Şeirlər buraya əlavə olunacaq -->
+    <h3>Admin: Şeir əlavə et</h3>
+    <input type="text" id="poemTitle" placeholder="Başlıq">
+    <textarea id="poemText" placeholder="Şeir mətnini daxil et"></textarea>
+    <button class="admin-add">Əlavə et</button>
 </div>
 
 <script>
-// SEARCH FUNCTION
+// --- LOCAL STORAGE İLE ŞEİRLƏRİ SAXLA ---
+const poemsContainer = document.getElementById("poemsContainer");
+const poemTitle = document.getElementById("poemTitle");
+const poemText = document.getElementById("poemText");
+const adminAdd = document.querySelector(".admin-add");
+
+function renderPoems() {
+    poemsContainer.innerHTML = "";
+    let poems = JSON.parse(localStorage.getItem("poems") || "[]");
+    poems.forEach((p, index) => {
+        const div = document.createElement("div");
+        div.className = "poem";
+        div.innerHTML = `
+            <h2>${p.title}</h2>
+            <pre>${p.text}</pre>
+            <div class="poem-actions">
+                <div class="stars" data-id="${index}">★ ★ ★</div>
+                <button class="comment-btn">Şərhlər</button>
+            </div>
+            <div class="comments-box">
+                <textarea placeholder="Şərhini yaz..."></textarea>
+                <button class="add-comment">Göndər</button>
+                <div class="all-comments"></div>
+            </div>
+        `;
+        poemsContainer.appendChild(div);
+    });
+    attachCommentEvents();
+}
+
+// --- ADMIN ŞEİR ƏLAVƏ ---
+adminAdd.onclick = () => {
+    const title = poemTitle.value.trim();
+    const text = poemText.value.trim();
+    if(!title || !text) return;
+    let poems = JSON.parse(localStorage.getItem("poems") || "[]");
+    poems.push({title, text});
+    localStorage.setItem("poems", JSON.stringify(poems));
+    poemTitle.value = "";
+    poemText.value = "";
+    renderPoems();
+}
+
+// --- ŞƏRH EVENT ---
+function attachCommentEvents() {
+    document.querySelectorAll(".comment-btn").forEach(btn => {
+        btn.onclick = () => {
+            let box = btn.parentElement.nextElementSibling;
+            box.style.display = box.style.display === "block" ? "none" : "block";
+        };
+    });
+    document.querySelectorAll(".add-comment").forEach(btn => {
+        btn.onclick = () => {
+            let box = btn.parentElement;
+            let text = box.querySelector("textarea").value;
+            if (text.trim() === "") return;
+            let div = document.createElement("div");
+            div.style.padding = "8px";
+            div.style.borderBottom = "1px solid #333";
+            div.innerText = "Anonim: " + text;
+            box.querySelector(".all-comments").appendChild(div);
+            box.querySelector("textarea").value = "";
+        };
+    });
+}
+
+// --- SEARCH ---
 document.getElementById("searchBox").addEventListener("keyup", function() {
     let text = this.value.toLowerCase();
     document.querySelectorAll(".poem").forEach(p => {
@@ -178,73 +256,8 @@ document.getElementById("searchBox").addEventListener("keyup", function() {
     });
 });
 
-// COMMENT FUNCTION
-function enableComments(poemDiv){
-    const commentBtn = poemDiv.querySelector(".comment-btn");
-    const commentBox = poemDiv.querySelector(".comments-box");
-    const addBtn = poemDiv.querySelector(".add-comment");
-    const allComments = poemDiv.querySelector(".all-comments");
-
-    commentBtn.onclick = () => {
-        commentBox.style.display = commentBox.style.display === "block" ? "none" : "block";
-    };
-
-    addBtn.onclick = () => {
-        let text = commentBox.querySelector("textarea").value;
-        if(text.trim()==="") return;
-        let div = document.createElement("div");
-        div.style.padding="8px";
-        div.style.borderBottom="1px solid #333";
-        div.innerText = "Anonim: " + text;
-        allComments.appendChild(div);
-        commentBox.querySelector("textarea").value="";
-    };
-}
-
-// ADMIN LOGIN
-const adminPassword = "1234"; // Sənin şifrən, dəyişə bilərsən
-document.getElementById("loginBtn").onclick = () => {
-    const pass = document.getElementById("adminPass").value;
-    if(pass === adminPassword){
-        document.getElementById("adminPanel").style.display = "block";
-        alert("Admin giriş uğurlu!");
-    } else {
-        alert("Yanlış şifrə!");
-    }
-};
-
-// ADD POEM
-document.getElementById("addPoemBtn").onclick = () => {
-    const title = document.getElementById("poemTitle").value;
-    const text = document.getElementById("poemText").value;
-    if(title.trim()==="" || text.trim()==="") return;
-
-    const container = document.getElementById("poemsContainer");
-
-    const poemDiv = document.createElement("div");
-    poemDiv.className = "poem";
-
-    poemDiv.innerHTML = `
-        <h2>${title}</h2>
-        <pre>${text}</pre>
-        <div class="poem-actions">
-            <div class="stars" data-id="1">★ ★ ★</div>
-            <button class="comment-btn">Şərhlər</button>
-        </div>
-        <div class="comments-box">
-            <textarea placeholder="Şərhini yaz..."></textarea>
-            <button class="add-comment">Göndər</button>
-            <div class="all-comments"></div>
-        </div>
-    `;
-
-    container.appendChild(poemDiv);
-    enableComments(poemDiv);
-
-    // clear admin panel fields
-    document.getElementById("poemTitle").value="";
-    document.getElementById("poemText").value="";
-};
+// Render initial
+renderPoems();
 </script>
 </body>
 </html>
