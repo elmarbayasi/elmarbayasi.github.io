@@ -56,6 +56,36 @@ header h1:hover {
     opacity: 0.7;
 }
 
+/* Haqqımda blok */
+.about-me {
+    width: 90%;
+    margin: 30px auto;
+    background: linear-gradient(145deg, #1a002a, #2a0045);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.about-me h2 {
+    font-size: 30px;
+    color: #d2aaff;
+    border-left: 6px solid #aa00ff;
+    padding-left: 15px;
+    text-shadow: 0 0 8px #ffbbff;
+    margin-top: 0;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.about-me pre {
+    white-space: pre-wrap;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #f0e6ff;
+    letter-spacing: 0.5px;
+}
+
 /* Search */
 #searchBox {
     width: 90%;
@@ -169,8 +199,25 @@ pre {
     <div id="contact">📞 051 818 15 84 — 📧 elmarofficial692@gmail.com</div>
 </header>
 
-<input type="text" id="searchBox" placeholder="Şeir axtar...">
+<!-- Haqqımda bölməsi -->
+<div class="about-me">
+    <h2>Haqqımda</h2>
+    <pre>
+Mən Elmar Bəy Asi — sözlərin, qəlbin və düşüncənin səssiz melodiyasını araşdıran bir şair və düşünürəm.
+Yazdığım hər şeir yalnız emosiyalar deyil, həm də insan təfəkkürünün dərin qatlarına işıq salır.
 
+Hər kəlmə, hər sətir bir niyyətlə seçilir: ruhun titrəyən incə tellərinə toxunmaq, zamanın labirintində iz buraxmaq,
+və oxucuya yalnız oxumaq deyil, düşünmək fürsəti vermək.
+
+Yaradıcılığım intellektual duyğu ilə yoğrulub: hər hekayə bir fəlsəfi səyahət, hər metafora zəkânın işığında parlayan bir işarədir.
+Mənim məqsədim yalnız şeir yazmaq deyil — mən brendimi ruhlara və düşüncələrə əks etdirmək istəyirəm.
+
+Əgər siz də mənim dünyama daxil olsanız, şeirlərim sizə həm duyğu, həm də intellektual zövq verəcək.
+Hər sətir bir işıq, hər hekayə bir sirr, və hər sirr sizin öz daxili aləminizə açılan bir qapıdır.
+    </pre>
+</div>
+
+<input type="text" id="searchBox" placeholder="Şeir axtar...">
 <div id="poemsContainer"></div>
 
 <!-- Admin panel -->
