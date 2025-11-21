@@ -9,20 +9,20 @@
     margin: 0;
     font-family: 'Georgia', serif;
     background-color: #0a0a0a; /* qara fon */
-    color: #e0e0e0; /* ümumi mətn rəngi */
-    line-height: 1.6;
+    color: #d6b3ff; /* ümumi bənövşəyi mətn */
+    line-height: 1.7;
   }
 
   header {
     text-align: center;
-    padding: 50px 20px 20px 20px;
+    padding: 50px 20px 30px 20px;
   }
 
   h1 {
     font-size: 4em;
     font-weight: bold;
     color: #b65fb5; /* bənövşəyi başlıq */
-    text-shadow: 3px 3px 8px #800000; /* tünd bordo kölgə */
+    text-shadow: 0 0 10px #b65fb5, 0 0 20px #d18fff, 0 0 30px #ff9aff;
   }
 
   .poem-container {
@@ -32,24 +32,27 @@
   }
 
   .poem-card {
-    background: linear-gradient(145deg, #1a001a, #330000);
+    background: linear-gradient(145deg, #1a001a, #330033);
     border-radius: 12px;
     margin-bottom: 20px;
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
     padding: 20px;
+    border: 1px solid #b65fb5;
+    box-shadow: 0 0 15px #b65fb5;
   }
 
   .poem-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(182, 95, 181, 0.6);
+    box-shadow: 0 0 30px #ff9aff, 0 0 40px #d18fff;
   }
 
   .poem-title {
-    font-size: 1.5em;
+    font-size: 1.8em;
     font-weight: bold;
-    color: #b65fb5;
+    color: #ffb3ff;
+    text-shadow: 0 0 5px #ffb3ff, 0 0 10px #b65fb5;
     margin: 0;
   }
 
@@ -57,7 +60,8 @@
     display: none;
     margin-top: 15px;
     white-space: pre-line;
-    color: #ffffff;
+    color: #f0e6ff;
+    text-shadow: 0 0 5px #d18fff;
   }
 </style>
 </head>
@@ -68,326 +72,277 @@
 </header>
 
 <div class="poem-container">
+  <!-- Göz qırpımında -->
   
-  <div class="poem-card" onclick="togglePoem(this)">
-    <div class="poem-title">Göz qırpımında</div>
-    <div class="poem-content">
-Səhər kimsəni görmürəm, axşam iki üz görürəm,
-İkisidə mələk kimi ağ libasda, həzin-həzin, asta-asta,
-Mənə sarı gəlməkdədir, biri hüzün göz yaşında...
-Biri isə gülməkdədir,  biri bəlkə yüz yaşında,
-Biri on səkkiz yaşında, bu on səkkiz yaşı olan,
-Gözlərində yaşı olan, mənə necə tanış gəlir....
-San ki, iyirmi bir yaşımda, iz buraxıb yaddaşımda.
-Son iki gündür onları açıq, aydın görə bildim.
-Birin görüb çox sevindim, birin görüb kədərləndim.
-Biri ölüm mələyiyiş, biri ölmüş mələk imiş....
-İllər öncə məzarlıqda dəfn etdiyim, öz sevgilim.
-Dilim dinmədi söz deyim, ayağ istədi yeriyim,
-Axı...² nəyi necə edim, bir addım ata bilmirəm.
-Niyyətim tək, məqsədim tək, onlara çata bilmirəm.
-Yox... yox... yanlış özümdədir, bu kor qalmış gözümdədir,
-Mən onlara çatmaq üçün, yuxuma, haram qatardım.
-Gələn onlardır bilsəydim, yəqin ömürlük yatardım.
-Bəlkə onda tez çatardım, əlbət bir gün o, da olar...
-Hər səhərin axşamı var, hər axşamın səhəri var....
-    </div>
-  </div>
+<section>
+  <h2>Göz qırpımında</h2>
+  <p>Səhər kimsəni görmürəm, axşam iki üz görürəm,</p>
+  <p>İkisidə mələk kimi ağ libasda, həzin-həzin, asta-asta,</p>
+  <p>Mənə sarı gəlməkdədir, biri hüzün göz yaşında...</p>
+  <p>Biri isə gülməkdədir, biri bəlkə yüz yaşında,</p>
+  <p>Biri on səkkiz yaşında, bu on səkkiz yaşı olan,</p>
+  <p>Gözlərində yaşı olan, mənə necə tanış gəlir....</p>
+  <p>San ki, iyirmi bir yaşımda, iz buraxıb yaddaşımda.</p>
+  <p>Son iki gündür onları açıq, aydın görə bildim.</p>
+  <p>Birin görüb çox sevindim, birin görüb kədərləndim.</p>
+  <p>Biri ölüm mələyiyiş, biri ölmüş mələk imiş....</p>
+  <p>İllər öncə məzarlıqda dəfn etdiyim, öz sevgilim.</p>
+  <p>Dilim dinmədi söz deyim, ayağ istədi yeriyim,</p>
+  <p>Axı...² nəyi necə edim, bir addım ata bilmirəm.</p>
+  <p>Niyyətim tək, məqsədim tək, onlara çata bilmirəm.</p>
+  <p>Yox... yox... yanlış özümdədir, bu kor qalmış gözümdədir,</p>
+  <p>Mən onlara çatmaq üçün, yuxuma, haram qatardım.</p>
+  <p>Gələn onlardır bilsəydim, yəqin ömürlük yatardım.</p>
+  <p>Bəlkə onda tez çatardım, əlbət bir gün o, da olar...</p>
+  <p>Hər səhərin axşamı var, hər axşamın səhəri var....</p>
+</section>
 
-  <div class="poem-card" onclick="togglePoem(this)">
-    <div class="poem-title">Qoca və körpə</div>
-    <div class="poem-content">
-Gecənin bir aləmində, məscidin ön qapısında,
-Bir körpə naləsi insanları, haydan-küyə saldı.
-Biri baxdı köks ötürdü, biri göz yaşı tökürdü.
-Bu baxanlar arasından, bir qoca körpəni aldı...
-Daralan bağrına basdı, qırışan əlləri ilə
-Qırılan qaməti ilə titrəyən dizləri ilə
-Onu mənzilinə gətirdi, otağın zəif lanpası...
-Ölüm yatağina uzanmış, bir qadına nur verirdi,
-Bu qadın həmin yaşlının, mərhum yoldaşından qalan,
-Sonuncu mirası idi, o da xəstə döşşəyində,
-San ki, şam tək əriyirdi... qoca göz yaşını sildi.
-Qoynunda kı o, mələknən yatağın ayaq küncünə,
-Qısınıb güclə oturdu, qızının ovcunu sıxdı,
-Qırışan əlləri ilə... Qızı incə bir təbbəssüm,
-Edərək pıçıltı ilə "Can Ata" söyləyə bildi.
-Qoca təəccüb ilə baxdı, axı... qız son altı ildi
-Nə danışdı, nə də dindi, Qoca bir balaca sevindi,
-Bir balaca özünə deyindi, "Bəlkə sən yanlış eşitdin"
-Sual verməyədə utandı qızına "nə sölədin..? nə....?"
-Qızının əlindən öpüb, deyərək qalxdı "Ya Allah...."
-Artıq açılırdı sabah, körpə qoynunda yatırdı.
-Öpüb apardı özüylə, qızının otuz il öncə,
-Yatdığı taxta beşikdə, körpənin üsdünü örtdü...
-Sobanın önündə dinməz qızı hakkında düşündü,
-Bilmədi həqiqətən mi qızı..., onu səsləyirdi...?
-Bu vədə qız yenə dindi "Ata...", "Ata..." deyirdi.
-Görəsən nə istəyirdi, Qocanı sardı həyacan...
-Qışqırdı "Can Qızım can" titrəyən dizləri ilə
-Yürüdü, otağa sarı, qızı yatan yatağa sarı....
-Əyilib üzündən öpdü, yaş axan gözündən öpdü,
-Qoca çarəsiz baxışla yatağın küncünə çökdü,
-Hönkürüb göz yaşı tökdü, dünya son ümüd evindən,
-Sonuncu kərpici sökdü, qoca gah bağrına vurdu,
-Gah əlilə dizinə vurdu, bu zaman sərt bir şəkildə,
-Qapı pəncərələr açıldı, şiddətlə soyuq bir külək,
-Qırışan cöhrünə vurdu, yan otaq dan isə digər,
-Körpənin naləsi san ki, qocanı yanına çağırdı.
-O, səsdə həm qızı vardı, həmdə ki yoldaşı vardı,
-O, səsdə həm həyat vardı, həmdə ki, ölümün öz adı
-Qoca titrək addım attdı, beşiyin yanına çatdı,
-Körpənin üzündə san ki, mələk təbəssümü vardı.
-Qoca baxdı, gözləri doldu, dedi: "Allah bu nə sirdir?"
-"Görəsən bu körpə kimdir? Mənə ən son sınağındı !?"
-Körpəni bağrına basıb dedi: "Qızım getdi, sənmi gəldin?"
-"Demək ömür qapanmırmış, ölən ümüdlər doğurmuş"
-Körpə sakitləşdi, susdu, qoca dinməz, sobanın yanında otur.
-Azan sədası duyuldu, qoca da namzını qıldı alnını səcdəyə qoydu,
-Dedi: "Razıyam İlahi məndən aldın, mənə verdin, gözümü mənaya çevirdin."
-Ay ötüb zaman keçirdi, körpə isə iməkləyirdi, öz dilində deyinirdi.
-Bir yaşda körpə dil açdı, ilk kəlməsi "Ata" oldu, qocanın gözləri doldu.
-    </div>
-  </div>
+<section>
+  <h2>Qoca və körpə</h2>
+  <p>Gecənin bir aləmində, məscidin ön qapısında,</p>
+  <p>Bir körpə naləsi insanları, haydan-küyə saldı.</p>
+  <p>Biri baxdı köks ötürdü, biri göz yaşı tökürdü.</p>
+  <p>Bu baxanlar arasından, bir qoca körpəni aldı...</p>
+  <p>Daralan bağrına basdı, qırışan əlləri ilə</p>
+  <p>Qırılan qaməti ilə titrəyən dizləri ilə</p>
+  <p>Onu mənzilinə gətirdi, otağın zəif lanpası...</p>
+  <p>Ölüm yatağina uzanmış, bir qadına nur verirdi,</p>
+  <p>Bu qadın həmin yaşlının, mərhum yoldaşından qalan,</p>
+  <p>Sonuncu mirası idi, o da xəstə döşşəyində,</p>
+  <p>San ki, şam tək əriyirdi... qoca göz yaşını sildi.</p>
+  <p>Qoynunda kı o, mələknən yatağın ayaq küncünə,</p>
+  <p>Qısınıb güclə oturdu, qızının ovcunu sıxdı,</p>
+  <p>Qırışan əlləri ilə... Qızı incə bir təbbəssüm,</p>
+  <p>Edərək pıçıltı ilə "Can Ata" söyləyə bildi.</p>
+  <p>Qoca təəccüb ilə baxdı, axı... qız son altı ildi</p>
+  <p>Nə danışdı, nə də dindi, Qoca bir balaca sevindi,</p>
+  <p>Bir balaca özünə deyindi, "Bəlkə sən yanlış eşitdin"</p>
+  <p>Sual verməyədə utandı qızına "nə sölədin..? nə....?"</p>
+  <p>Qızının əlindən öpüb, deyərək qalxdı "Ya Allah...."</p>
+  <p>Artıq açılırdı sabah, körpə qoynunda yatırdı.</p>
+  <p>Öpüb apardı özüylə, qızının otuz il öncə,</p>
+  <p>Yatdığı taxta beşikdə, körpənin üsdünü örtdü...</p>
+  <p>Sobanın önündə dinməz qızı haqqında düşündü,</p>
+  <p>Bilmədi həqiqətən mi qızı..., onu səsləyirdi...?</p>
+  <p>Bu vədə qız yenə dindi "Ata...", "Ata..." deyirdi.</p>
+  <p>Görəsən nə istəyirdi, Qocanı sardı həyacan...</p>
+  <p>Qışqırdı "Can Qızım can" titrəyən dizləri ilə</p>
+  <p>Yürüdü, otağa sarı, qızı yatan yatağa sarı....</p>
+  <p>Əyilib üzündən öpdü, yaş axan gözündən öpdü,</p>
+  <p>Qoca çarəsiz baxışla yatağın küncünə çökdü,</p>
+  <p>Hönkürüb göz yaşı tökdü, dünya son ümüd evindən,</p>
+  <p>Sonuncu kərpici sökdü, qoca gah bağrına vurdu,</p>
+  <p>Gah əlilə dizinə vurdu, bu zaman sərt bir şəkildə,</p>
+  <p>Qapı pəncərələr açıldı, şiddətlə soyuq bir külək,</p>
+  <p>Qırışan cöhrünə vurdu, yan otaqdan isə digər,</p>
+  <p>Körpənin naləsi san ki, qocanı yanına çağırdı.</p>
+  <p>O, səsdə həm qızı vardı, həm də ki yoldaşı vardı,</p>
+  <p>O, səsdə həm həyat vardı, həm də ki, ölümün öz adı</p>
+  <p>Qoca titrək addım attdı, beşiyin yanına çatdı,</p>
+  <p>Körpənin üzündə san ki, mələk təbəssümü vardı.</p>
+  <p>Qoca baxdı, gözləri doldu, dedi: "Allah bu nə sirdir?"</p>
+  <p>"Görəsən bu körpə kimdir? Mənə ən son sınağındı !?"</p>
+  <p>Körpəni bağrına basıb dedi: "Qızım getdi, sənmi gəldin?"</p>
+  <p>"Demək ömür qapanmırmış, ölən ümüdlər doğurmuş"</p>
+  <p>Körpə sakitləşdi, susdu, qoca dinməz, sobanın yanında otur.</p>
+  <p>Azan sədası duyuldu, qoca da namazını qıldı alnını səcdəyə qoydu,</p>
+  <p>Dedi: "Razıyam İlahi məndən aldın, mənə verdin, gözümü mənaya çevirdin."</p>
+  <p>Ay ötüb zaman keçirdi, körpə isə iməkləyirdi, öz dilində deyinirdi.</p>
+  <p>Bir yaşda körpə dil açdı, ilk kəlməsi "Ata" oldu, qocanın gözləri doldu.</p>
+</section>
 
-  <div class="poem-card" onclick="togglePoem(this)">
-    <div class="poem-title">Olan oldu bağışla</div>
-    <div class="poem-content">
-Tanrıdan tək istəyim, sən idin ki, sənidə,
-Tanrı öz əlləri ilə məndən aldı bağışla.
+<section>
+  <h2>Olan oldu bağışla</h2>
+  <p>Tanrıdan tək istəyim, sən idin ki, sənidə,</p>
+  <p>Tanrı öz əlləri ilə məndən aldı bağışla.</p>
+  <p>Görüşmədən sən demə, var qocalmağımızda,</p>
+  <p>İlahinin izni var, bu ayrılmağımızda...,</p>
+  <p>Kimsəsiz körpələr tək, ayrı qalmağımızda,</p>
+  <p>Günahım yox sən yenə, olan oldu... bağışla.</p>
+  <p>İşdir ölüm küləyi, açsa mənə pəncərə...,</p>
+  <p>Vidasız getmərəm mən, bu dünyadan heç yerə.</p>
+  <p>Soyuq məzarım üstə, məndən sənə xatirə,</p>
+  <p>Son ayrılıq məktubum, şeir qaldı... bağışla.</p>
+  <p>Saçlarının ətrini, day gətirən külək yox...</p>
+  <p>Sən geri qayıdanda, deməz idim gərək "yox..."</p>
+  <p>Ürək deyir "geri dön..." dilim deyir "gərək yox..."</p>
+  <p>Nifrətim ilə ürək yox, gözüm doldu... bağışla.</p>
+</section>
 
-Görüşmədən sən demə, var qocalmağımızda,
-İlahinin izni var, bu ayrılmağımızda...,
-Kimsəsiz körpələr tək, ayrı qalmağımızda,
-Günahım yox sən yenə, olan oldu... bağışla.
+<section>
+  <h2>Bil ki, ey saqi</h2>
+  <p>Bil ki, ey saqi meyin düşkünləri sər-səmdilər,</p>
+  <p>Mey camında əks olan surət ilə həmdəmdilər.</p>
+  <p>Süz şərabın ətrini duysun bütün divanələr,</p>
+  <p>Lərzə salsın aləmi, cingildəyən peymanələr,</p>
+  <p>Sənətimiz meyxanalar, neylər bizə biganələr.</p>
+  <p>Meyli meyçün fe'l olanlar, biz ilə bahəmdilər.</p>
+  <p>Canıva qəsd etməyin, ünvana çatmaqdır kəsə,</p>
+  <p>Cananı, can bilməyin qoy ibrət olsun hər kəsə,</p>
+  <p>Vermə izni ol yarın, xətmi-dəhanın yel kəsə,</p>
+  <p>Var məsəl gül kasəsi, sübhi-səhər şəbnəm dilər.</p>
+</section>
 
-İşdir ölüm küləyi, açsa mənə pəncərə...,
-Vidasız getmərəm mən, bu dünyadan heç yerə.
-Soyuq məzarım üstə, məndən sənə xatirə,
-Son ayrılıq məktubum, şeir qaldı... bağışla.
+<section>
+  <h2>Debat</h2>
+  <p>Aqillər: Dünya rahi-imtahandır Tanrını sevmək gərək</p>
+  <p>Cahillər: Tanrı dünyanı bizə sev söylədi biz neyləyək.</p>
+  <p>Aqillər: Sevgidir, isdəydi Rəbbani məhəbbətdən keçir.</p>
+  <p>Cahillər: Nəfsini sevimiş adamlar tüm həqiqətdən keçir</p>
+  <p>Aqillər: Düzdü dünya, dünyanı sərdik yerə hak söylədi.</p>
+  <p>Cahillər: Kosmosa fırlat raket sən isbat eylə böylədir.</p>
+  <p>Aqillər: Göz verib Allah sənə, göz ilə gəz düz dünyanı.</p>
+  <p>Cahillər: Əyri dünyamı sanırsan, düz olan öz dünyanı?!</p>
+  <p>Aqillər: Mərhəmət etmək gərək, hər məzluma hər bizərə,</p>
+  <p>Cahillər: Əl açar əl tutmaram ismarlaram Peyğəmbərə.</p>
+  <p>Aqillər: Aləmə bir daş düşər, başdan-başa çaş-baş düşər.</p>
+  <p>Cahillər: Baş dəyər daşdan-daşa başdan daşa daş-qaş düşər.</p>
+  <p>Aqillər: Məkri-şeytani əməllərdən uzaq qalmaqdayam</p>
+  <p>Cahillər: Nəyşeyi dəmsaz ilə hər şamu zövq almaqdayam.</p>
+  <p>Aqillər: Bir düşün aləmləri xəlq eyləyən Allahıda</p>
+  <p>Cahillər: Allahın kendi bize bəxş eyləyib iştahıda.</p>
+  <p>Aqillər: Yırtıcı İştahımı mən mənliyimdə gizlədim</p>
+  <p>Cahillər: Addım-addım nəfsimi bir addım öndə izlədim.</p>
+  <p>Aqillər: Təkcə qar yağdırmasıyla xeyli üzlər güldürür.</p>
+  <p>Cahillər: Buz beton küncündə evsiz xeyli insan öldürür.</p>
+  <p>Aqillər: Tanrıdır nemətləri adəmlərə ehsan edən,</p>
+  <p>Cahillər: Kəm düşən Nemət deyil insanları peşman edən!?</p>
+</section>
 
-Saçlarının ətrini, day gətirən külək yox...
-Sən geri qayıdanda, deməz idim gərək "yox..."
-Ürək deyir "geri dön..." dilim deyir "gərək yox..."
-Nifrətim ilə ürək yox, gözüm doldu... bağışla.
-    </div>
-  </div>
+<section>
+  <h2>Axdaracaqsan</h2>
+  <p>İstərəm bəyaz bir buluda dönüm,</p>
+  <p>Bulud tək səmada başıva dönüm.</p>
+  <p>Gəlib yətişəcək elə bir dönüm.</p>
+  <p>Sen meni göylərdə axtaracaqsan</p>
+  <p>Ətəyindən yapışsa, hər əli yetən,</p>
+  <p>Yanında olduğumu hiss edəcəksən</p>
+  <p>Nəfəsimlə saçını dağıtdıqca mən</p>
+  <p>İncə əllərinlə darayacaqsan,</p>
+  <p>Sən məni göylərdə axdaracaqsan,</p>
+  <p>Səmada ulduzlar sənə baxdıqca,</p>
+  <p>Qopub dan ulduzu yerə axdıqca</p>
+  <p>Yağışlar yağdıqca, şimşək çaxdıqca.</p>
+  <p>Diksinib pəncərədən boylanacaqsan,</p>
+  <p>Sən məni göylərdə axtaracaqsan.</p>
+  <p>Simsiyah dolmuş bir bulud olacam,</p>
+  <p>Bəlkə də arzuma onda çatacam,</p>
+  <p>Gözlərin parıldasa, məndə yağacam</p>
+  <p>Mənim göz yaşımla islanacaqsan!</p>
+  <p>Sən məni göylərdə axtaracaqsan.</p>
+  <p>Əsib, saçlarıva düzsəm gül, çiçək,</p>
+  <p>Dağlar utancından gül ləçək-ləçək</p>
+  <p>De.. qışa çevrilsəm tutalım deyək,</p>
+  <p>Qara kipriklərində qar dənəsi tək</p>
+  <p>Özümü məhf etsəm, mən sanacaqsan !?</p>
+  <p>Sən məni göylərdə axdaracaqsan !?</p>
+  <p>Tanrı yaxşı bilir hər şeyin sonun,</p>
+  <p>Bu ölüm pozmur ki, eşqin qanun,</p>
+  <p>Silib göz yaşını, soyuq ovcunun,</p>
+  <p>Əl açıb Tanrıya yalvaracaqsan.</p>
+  <p>Sən məni göylərdə axtaracaqsan.</p>
+</section><section>
+  <h2>Tül çəkib iştahıma</h2>
+  <p>Var mənim heysiyyətim, vardır təmiz şəxsiyyətm,</p>
+  <p>Vermərəm bıca yerə bir canımı, bir anımı.</p>
+  <p>Uymaram dünyadəki neymətlərə, ziynətlərə.</p>
+  <p>Pak təmiz göz yaşı tək, pak saxlaram vicdanımı,</p>
+  <p>Olmaram qəddim düta, bir zalimə bir bizata</p>
+  <p>Parça-parça min yerə, dur etsələr bir canımı.</p>
+  <p>Tül çəkib iştahıma, əhd eyləsəm Allahıma,</p>
+  <p>(Hz)İbrahim tək eylərəm, öz övladım qurbanımı,</p>
+  <p>Ey Xudayi əhvi qıl, ya birdəfəlik məhvi qıl.</p>
+  <p>Azmışam az bilmişəm imanımımı, azanımı.</p>
+  <p>Bu halımnan ey Həbibim ölməyimdən qorxuram</p>
+  <p>Tozlu rəfdə toz basıb, səccadəmi, quránımı</p>
+</section>
 
-  <div class="poem-card" onclick="togglePoem(this)">
-    <div class="poem-title">Bil ki, ey saqi</div>
-    <div class="poem-content">
-Bil ki, ey saqi meyin düşkünləri sər-səmdilər,
-Mey camında əks olan surət ilə həmdəmdilər.
+<section>
+  <h2>Ana təbiət....4 (Qış fəsli)</h2>
+  <p>Səninlə sevinir ancaq uşaqlar,</p>
+  <p>Qırılır budaqlar, donur bulaqlar,</p>
+  <p>Kasıb mənzilində yanır ocaqlar,</p>
+  <p>Bu yanan ocaq yox, ürəyimizdir,</p>
+  <p>Bir aylıq tədarük, çörəyimizdir,</p>
+  <p>Arsız qonaqlar tək üç ay qalırsan,</p>
+  <p>Səfil küçələrində canlar alırsan,</p>
+  <p>Körpə beşiklerin, titrətmə yetər,</p>
+  <p>İsti ana qucağı ona bəs edər.</p>
+  <p>Hiddətim sənədir, nifrətim sənə,</p>
+  <p>Çevrildin bizimçün zalım düsmənə,</p>
+  <p>Soyuğun, qırovun, boranın, qarın,</p>
+  <p>Vadinin bürüyür hər bir diyarın.</p>
+  <p>Tar vurub doldurursan səngərləridə</p>
+  <p>Xidmətdə üşüdürsən əsgərləridə,</p>
+  <p>Nifrətim bu üzdən sənədir sənə,</p>
+  <p>Fitnəni iblislərmi öyrədir sənə!?</p>
+  <p>Şahların vicdanın sən dondurur san,</p>
+  <p>Vəzirin cibini sən doldurur san,</p>
+  <p>Şər atıb yalanlar sən uydurursan</p>
+  <p>Bi'zərin daxmasın sən soydurursan,</p>
+  <p>Sevən insanları ayırırsan... Hə!?</p>
+  <p>Vəhdət ürəkləri sən qırırsan... Hə!?</p>
+  <p>Fəsillər içində ən nankorusan,</p>
+  <p>Sən, ana təbiətin ögey oğlusan.</p>
+  <p>Qüdrətim yettsəydi tutub əlimlə,</p>
+  <p>Dar ağacından asardım səni dilimlə.</p>
+  <p>- Elmar...</p>
+  <p>Səbəb var, saçların çox tez ağarmış!</p>
+  <p>Allah dağına görə qar yağdırarmış...!</p>
+</section>
 
-Süz şərabın ətrini duysun bütün divanələr,
-Lərzə salsın aləmi, cingildəyən peymanələr,
-Sənətimiz meyxanalar, neylər bizə biganələr.
-Meyli meyçün fe'l olanlar, biz ilə bahəmdilər.
+<section>
+  <h2>Silə bilməzdim</h2>
+  <p>Səni sevməkdən qeyri neylədim ?</p>
+  <p>Səndən ayrı qalsam ,,ölərəm" dedim?</p>
+  <p>Məni sevənlərə xatir, ölə bilmədim...,</p>
+  <p>Cəsarətsizəm mi? ölə bilməzdim?!</p>
+  <p>Sən axı sevməyi hardan bilərsən?</p>
+  <p>Ögey bir mənzildə yad əllərdəsən.</p>
+  <p>Əlimdə çatmazdı..., ele yerdəsən,</p>
+  <p>Gəlmək istəsəm də gələ bilməzdim.</p>
+  <p>Mənim də təqsirim bunda çoxdur-çox,</p>
+  <p>Bağrım qəm lövhesi, kirpiklərin ox.</p>
+  <p>Axan göz yaşımı silim eybi yox,</p>
+  <p>Adını qəlbimdən silə bilməzdim.</p>
+  <p>Cəsarət eyləyib ölə bilsəm də,</p>
+  <p>Gəlmək isdesəmdə, gələ bilsəm də,</p>
+  <p>Özüm-öz sonumu belə bilsəm də,</p>
+  <p>Bu işin sonunu bilə bilməzdim.</p>
+</section>
 
-Canıva qəsd etməyin, ünvana çatmaqdır kəsə,
-Cananı, can bilməyin qoy ibrət olsun hər kəsə,
-Vermə izni ol yarın, xətmi-dəhanın yel kəsə,
-Var məsəl gül kasəsi, sübhi-səhər şəbnəm dilər.
-    </div>
-  </div>
-<div class="poem-card" onclick="togglePoem(this)">
-  <div class="poem-title">Debat</div>
-  <div class="poem-content">
-Aqillər: Dünya rahi-imtahandır Tanrını sevmək gərək  
-Cahillər: Tanrı dünyanı bizə sev söylədi biz neyləyək.  
+<section>
+  <h2>Yağış damlaları</h2>
+  <p>Qəm yükünə, yüksək dağlar alçalar,</p>
+  <p>Qəm suya çevrilsə buludlar alar.</p>
+  <p>Qəmimizi bölsək belə sir qalar,</p>
+  <p>Sirdaşımız, yağış damlalarıyla.</p>
+  <p>Qara-qara günlərimiz ağlandı,</p>
+  <p>Gülünecek günümüzə ağlandı,</p>
+  <p>Sakkalımız göz yaşıyla islandı,</p>
+  <p>Üst-başımız, yağış damlalarıyla.</p>
+  <p>Xəyli xətalar oldu, duyğumuzda,</p>
+  <p>Reallaşmadı bircə arzumuzda,</p>
+  <p>Bu səbəbdən qarışdı ovcumuzda,</p>
+  <p>Göz yaşımız, yağış damlalırıyla.</p>
+  <p>Ölümümüzə doğma ürəklər yanar,</p>
+  <p>İlk iki gün üstumuzdə ağlanar</p>
+  <p>Gün nəqədər qurtsada islanar.</p>
+  <p>Baş daşımız, yağış damlalarıyla.</p>
+</section>
 
-Aqillər: Sevgidir, isdəydi Rəbbani məhəbbətdən keçir.  
-Cahillər: Nəfsini sevimiş adamlar tüm həqiqətdən keçir  
-
-Aqillər: Düzdü dünya, dünyanı sərdik yerə hak söylədi.  
-Cahillər: Kosmosa fırlat raket sən isbat eylə böylədir.  
-
-Aqillər: Göz verib Allah sənə, göz ilə gəz düz dünyanı.  
-Cahillər: Əyri dünyamı sanırsan, düz olan öz dünyanı?!  
-
-Aqillər: Mərhəmət etmək gərək, hər məzluma hər bizərə,  
-Cahillər: Əl açar əl tutmaram ismarlaram Peyğəmbərə.  
-
-Aqillər: Aləmə bir daş düşər, başdan-başa çaş-baş düşər.  
-Cahillər: Baş dəyər daşdan-daşa başdan daşa daş-qaş düşər.  
-
-Aqillər: Məkri-şeytani əməllərdən uzaq qalmaqdayam  
-Cahillər: Nəyşeyi dəmsaz ilə hər şamu zövq almaqdayam.  
-
-Aqillər: Bir düşün aləmləri xəlq eyləyən Allahıda  
-Cahillər: Allahın kendi bize bəxş eyləyib iştahıda.  
-
-Aqillər: Yırtıcı İştahımı mən mənliyimdə gizlədim  
-Cahillər: Addım-addım nəfsimi bir addım öndə izlədim.  
-
-Aqillər: Təkcə qar yağdırmasıyla xeyli üzlər güldürür.  
-Cahillər: Buz beton küncündə evsiz xeyli insan öldürür.  
-
-Aqillər: Tanrıdır nemətləri adəmlərə ehsan edən,  
-Cahillər: Kəm düşən Nemət deyil insanları peşman edən!?  
-  </div>
-</div>
-
-<div class="poem-card" onclick="togglePoem(this)">
-  <div class="poem-title">Axdaracaqsan</div>
-  <div class="poem-content">
-İstərəm bəyaz bir buluda dönüm,  
-Bulud tək səmada başıva dönüm.  
-Gəlib yətişəcək elə bir dönüm.  
-Sen meni göylərdə axtaracaqsan  
-
-Ətəyindən yapışsa, hər əli yetən,  
-Yanında olduğumu hiss edəcəksən  
-Nəfəsimlə saçını dağıtdıqca mən  
-İncə əllərinlə darayacaqsan,  
-Sən məni göylərdə axdaracaqsan,  
-
-Səmada ulduzlar sənə baxdıqca,  
-Qopub dan ulduzu yerə axdıqca  
-Yağışlar yağdıqca, şimşək çaxdıqca.  
-Diksinib pəncərədən boylanacaqsan,  
-Sən məni göylərdə axtaracaqsan.  
-
-Simsiyah dolmuş bir bulud olacam,  
-Bəlkə də arzuma onda çatacam,  
-Gözlərin parıldasa, məndə yağacam  
-Mənim göz yaşımla islanacaqsan!  
-Sən məni göylərdə axtaracaqsan.  
-
-Əsib, saçlarıva düzsəm gül, çiçək,  
-Dağlar utancından gül ləçək-ləçək  
-De.. qışa çevrilsəm tutalım deyək,  
-Qara kipriklərində qar dənəsi tək  
-Özümü məhf etsəm, mən sanacaqsan !?  
-Sən məni göylərdə axdaracaqsan !?  
-
-Tanrı yaxşı bilir hər şeyin sonun,  
-Bu ölüm pozmur ki, eşqin qanun,  
-Silib göz yaşını, soyuq ovcunun,  
-Əl açıb Tanrıya yalvaracaqsan.  
-Sən məni göylərdə axtaracaqsan.  
-  </div>
-</div>
-
-<div class="poem-card" onclick="togglePoem(this)">
-  <div class="poem-title">Tül çəkib iştahıma</div>
-  <div class="poem-content">
-Var mənim heysiyyətim, vardır təmiz şəxsiyyətm,  
-Vermərəm bıca yerə bir canımı, bir anımı.  
-Uymaram dünyadəki neymətlərə, ziynətlərə.  
-Pak təmiz göz yaşı tək, pak saxlaram vicdanımı,  
-Olmaram qəddim düta, bir zalimə bir bizata  
-Parça-parça min yerə, dur etsələr bir canımı.  
-Tül çəkib iştahıma, əhd eyləsəm Allahıma,  
-(Hz)İbrahim tək eylərəm, öz övladım qurbanımı,  
-Ey Xudayi əhvi qıl, ya birdəfəlik məhvi qıl.  
-Azmışam az bilmişəm imanımımı, azanımı.  
-Bu halımnan ey Həbibim ölməyimdən qorxuram  
-Tozlu rəfdə toz basıb, səccadəmi, quránımı  
-  </div>
-</div>
-
-<div class="poem-card" onclick="togglePoem(this)">
-  <div class="poem-title">Ana təbiət....4 (Qış fəsli)</div>
-  <div class="poem-content">
-Səninlə sevinir ancaq uşaqlar,  
-Qırılır budaqlar, donur bulaqlar,  
-Kasıb mənzilində yanır ocaqlar,  
-Bu yanan ocaq yox, ürəyimizdir,  
-Bir aylıq tədarük, çörəyimizdir,  
-Arsız qonaqlar tək üç ay qalırsan,  
-Səfil küçələrində canlar alırsan,  
-Körpə beşiklerin, titrətmə yetər,  
-İsti ana qucağı ona bəs edər.  
-Hiddətim sənədir, nifrətim sənə,  
-Çevrildin bizimçün zalım düsmənə,  
-Soyuğun, qırovun, boranın, qarın,  
-Vadinin bürüyür hər bir diyarın.  
-Tar vurub doldurursan səngərləridə  
-Xidmətdə üşüdürsən əsgərləridə,  
-Nifrətim bu üzdən sənədir sənə,  
-Fitnəni iblislərmi öyrədir sənə!?  
-Şahların vicdanın sən dondurur san,  
-Vəzirin cibini sən doldurur san,  
-Şər atıb yalanlar sən uydurursan  
-Bi'zərin daxmasın sən soydurursan,  
-Sevən insanları ayırırsan...  Hə?!  
-Vəhdət ürəkləri sən qırırsan... Hə!?  
-Fəsillər içində ən nankorusan,  
-Sən, ana təbiətin ögey oğlusan.  
-Qüdrətim yettsəydi tutub əlimlə,  
-Dar ağacından asardım səni dilimlə.  
- - Elmar...  
-Səbəb var, saçların çox tez ağarmış!  
-Allah dağına görə qar yağdırarmış...!
-  </div>
-</div>
-
-<div class="poem-card" onclick="togglePoem(this)">
-  <div class="poem-title">Silə bilməzdim</div>
-  <div class="poem-content">
-Səni sevməkdən qeyri neylədim ?  
-Səndən ayrı qalsam ,,ölərəm" dedim?  
-Məni sevənlərə xatir, ölə bilmədim...,  
-Cəsarətsizəm mi? ölə bilməzdim?!  
-
-Sən axı sevməyi hardan bilərsən?  
-Ögey bir mənzildə yad əllərdəsən.  
-Əlimdə çatmazdı..., ele yerdəsən,  
-Gəlmək istəsəm də gələ bilməzdim.  
-
-Mənim də təqsirim bunda çoxdur-çox,  
-Bağrım qəm lövhesi, kirpiklərin ox.  
-Axan göz yaşımı silim eybi yox,  
-Adını qəlbimdən silə bilməzdim.  
-
-Cəsarət eyləyib ölə bilsəm də,  
-Gəlmək isdesəmdə, gələ bilsəm də,  
-Özüm-öz sonumu belə bilsəm də,  
-Bu işin sonunu bilə bilməzdim.
-  </div>
-</div>
-
-<div class="poem-card" onclick="togglePoem(this)">
-  <div class="poem-title">Yağış damlaları</div>
-  <div class="poem-content">
-Qəm yükünə, yüksək dağlar alçalar,  
-Qəm suya çevrilsə buludlar alar.  
-Qəmimizi bölsək belə sir qalar,  
-Sirdaşımız, yağış damlalarıyla.  
-
-Qara-qara günlərimiz ağlandı,  
-Gülünecek günümüzə ağlandı,  
-Sakkalımız göz yaşıyla islandı,  
-Üst-başımız, yağış damlalarıyla.  
-
-Xəyli xətalar oldu, duyğumuzda,  
-Reallaşmadı bircə arzumuzda,  
-Bu səbəbdən qarışdı ovcumuzda,  
-Göz yaşımız, yağış damlalırıyla.  
-
-Ölümümüzə doğma ürəklər yanar,  
-İlk iki gün üstumuzdə ağlanar  
-Gün nəqədər qurtsada islanar.  
-Baş daşımız, yağış damlalarıyla.
-  </div>
-</div>
-
-<div class="poem-card" onclick="togglePoem(this)">
-  <div class="poem-title">İlim-ilim itib ilim</div>
-  <div class="poem-content">
-İlim-ilim itib gedir ayım, ilim.  
-Kaş ki, zaman çərçivəsin sıxa bilim.  
-Tanrı xoşbəxtlik adlanan guşəndə var  
-Möhnət ver o pəncərədən baxa bilim.  
-
-Göz yaşımız ovcumuzda çöküb gedir,  
-Nəzər salan göz yaşını töküb gedir,  
-Bu qara gün qamətimi büküb gedir.  
-Mərhəmət et bir ağ günə çıxa bilim.
-  </div>
-</div>
-  <!-- Daha digər şeirləri eyni formada əlavə edə bilərsən -->
+<section>
+  <h2>İlim-ilim itib ilim</h2>
+  <p>İlim-ilim itib gedir ayım, ilim.</p>
+  <p>Kaş ki, zaman çərçivəsin sıxa bilim.</p>
+  <p>Tanrı xoşbəxtlik adlanan guşəndə var</p>
+  <p>Möhnət ver o pəncərədən baxa bilim.</p>
+  <p>Göz yaşımız ovcumuzda çöküb gedir,</p>
+  <p>Nəzər salan göz yaşını töküb gedir,</p>
+  <p>Bu qara gün qamətimi büküb gedir.</p>
+  <p>Mərhəmət et bir ağ günə çıxa bilim.</p>
+</section>
+  <!-- Digər şeirlər eyni formatda əlavə olunacaq -->
 
 </div>
 
