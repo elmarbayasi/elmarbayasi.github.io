@@ -170,6 +170,22 @@ pre {
     border-radius: 10px;
 }
 
+/* Stars */
+.stars {
+    font-size: 26px;
+    cursor: pointer;
+    letter-spacing: 5px;
+}
+
+.stars span {
+    transition: 0.3s;
+    color: #888;
+}
+
+.stars span.active {
+    color: gold;
+}
+
 /* Admin panel */
 #adminPanel {
     width: 90%;
@@ -205,15 +221,6 @@ pre {
     <pre>
 Mən Elmar Bəy Asi — sözlərin, qəlbin və düşüncənin səssiz melodiyasını araşdıran bir şair və düşünürəm.
 Yazdığım hər şeir yalnız emosiyalar deyil, həm də insan təfəkkürünün dərin qatlarına işıq salır.
-
-Hər kəlmə, hər sətir bir niyyətlə seçilir: ruhun titrəyən incə tellərinə toxunmaq, zamanın labirintində iz buraxmaq,
-və oxucuya yalnız oxumaq deyil, düşünmək fürsəti vermək.
-
-Yaradıcılığım intellektual duyğu ilə yoğrulub: hər hekayə bir fəlsəfi səyahət, hər metafora zəkânın işığında parlayan bir işarədir.
-Mənim məqsədim yalnız şeir yazmaq deyil — mən brendimi ruhlara və düşüncələrə əks etdirmək istəyirəm.
-
-Əgər siz də mənim dünyama daxil olsanız, şeirlərim sizə həm duyğu, həm də intellektual zövq verəcək.
-Hər sətir bir işıq, hər hekayə bir sirr, və hər sirr sizin öz daxili aləminizə açılan bir qapıdır.
     </pre>
 </div>
 
@@ -245,13 +252,15 @@ function renderPoems() {
             <h2>${p.title}</h2>
             <pre>${p.text}</pre>
             <div class="poem-actions">
-                <div class="stars" data-id="${index}">★ ★ ★</div>
+                <div class="stars" data-id="${index}">
+                    <span>★</span><span>★</span><span>★</span>
+                </div>
                 <button class="comment-btn">Şərhlər</button>
             </div>
             <div class="comments-box">
+                <div class="all-comments"></div>
                 <textarea placeholder="Şərhini yaz..."></textarea>
                 <button class="add-comment">Göndər</button>
-                <div class="all-comments"></div>
             </div>
         `;
         poemsContainer.appendChild(div);
@@ -272,20 +281,23 @@ adminAdd.onclick = () => {
     renderPoems();
 }
 
-// --- ŞƏRH EVENT ---
+// --- ŞƏRH & STARS ---
 function attachCommentEvents() {
+    // Şərhlər açıb-bağlanması
     document.querySelectorAll(".comment-btn").forEach(btn => {
         btn.onclick = () => {
-            let box = btn.parentElement.nextElementSibling;
+            const box = btn.parentElement.nextElementSibling;
             box.style.display = box.style.display === "block" ? "none" : "block";
         };
     });
+
+    // Şərh əlavə etmək
     document.querySelectorAll(".add-comment").forEach(btn => {
         btn.onclick = () => {
-            let box = btn.parentElement;
-            let text = box.querySelector("textarea").value;
-            if (text.trim() === "") return;
-            let div = document.createElement("div");
+            const box = btn.parentElement;
+            const text = box.querySelector("textarea").value;
+            if(text.trim() === "") return;
+            const div = document.createElement("div");
             div.style.padding = "8px";
             div.style.borderBottom = "1px solid #333";
             div.innerText = "Anonim: " + text;
@@ -293,17 +305,27 @@ function attachCommentEvents() {
             box.querySelector("textarea").value = "";
         };
     });
+
+    // Ulduzlar
+    document.querySelectorAll(".stars").forEach(starBox => {
+        const stars = starBox.querySelectorAll("span");
+        stars.forEach((star, idx) => {
+            star.onclick = () => {
+                stars.forEach((s, i) => s.classList.toggle("active", i <= idx));
+            };
+        });
+    });
 }
 
 // --- SEARCH ---
 document.getElementById("searchBox").addEventListener("keyup", function() {
-    let text = this.value.toLowerCase();
+    const text = this.value.toLowerCase();
     document.querySelectorAll(".poem").forEach(p => {
         p.style.display = p.innerText.toLowerCase().includes(text) ? "block" : "none";
     });
 });
 
-// Render initial
+// Initial render
 renderPoems();
 </script>
 </body>
