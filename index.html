@@ -48,15 +48,14 @@
 
 <script>
 const poems = [
-  { 
-    title:"GÖZ QIRPIMINDA", 
-    category:"Yeni", 
-    text:[
-      "Göz açıram səhər olur, göz yumuram axşam olur,",
+  {
+    title: "GÖZ QIRPIMINDA",
+    category: "Yeni",
+    text: [
       "Səhər kimsəni görmürəm, axşam iki üz görürəm,",
       "İkisidə mələk kimi ağ libasda, həzin-həzin, asta-asta,",
       "Mənə sarı gəlməkdədir, biri hüzün göz yaşında...",
-      "Biri isə gülməkdədir, biri bəlkə yüz yaşında,",
+      "Biri isə gülməkdədir,  biri bəlkə yüz yaşında,",
       "Biri on səkkiz yaşında, bu on səkkiz yaşı olan,",
       "Gözlərində yaşı olan, mənə necə tanış gəlir....",
       "San ki, iyirmi bir yaşımda, iz buraxıb yaddaşımda.",
@@ -65,7 +64,7 @@ const poems = [
       "Biri ölüm mələyiyiş, biri ölmüş mələk imiş....",
       "İllər öncə məzarlıqda dəfn etdiyim, öz sevgilim.",
       "Dilim dinmədi söz deyim, ayağ istədi yeriyim,",
-      "Axı... nəyi necə edim, bir addım ata bilmirəm.",
+      "Axı...² nəyi necə edim, bir addım ata bilmirəm.",
       "Niyyətim tək, məqsədim tək, onlara çata bilmirəm.",
       "Yox... yox... yanlış özümdədir, bu kor qalmış gözümdədir,",
       "Mən onlara çatmaq üçün, yuxuma, haram qatardım.",
@@ -74,10 +73,10 @@ const poems = [
       "Hər səhərin axşamı var, hər axşamın səhəri var..."
     ]
   },
-  { 
-    title:"QOCA VƏ KÖRPƏ", 
-    category:"Klassik", 
-    text:[
+  {
+    title: "QOCA VƏ KÖRPƏ",
+    category: "Klassik",
+    text: [
       "Gecənin bir aləmində, məscidin ön qapısında,",
       "Bir körpə naləsi insanları, haydan-küyə saldı.",
       "Biri baxdı köks ötürdü, biri göz yaşı tökürdü.",
@@ -89,30 +88,249 @@ const poems = [
       "Bu qadın həmin yaşlının, mərhum yoldaşından qalan,",
       "Sonuncu mirası idi, o da xəstə döşşəyində,",
       "San ki, şam tək əriyirdi... qoca göz yaşını sildi.",
-      "Qoynunda kı o, mələknən yatağın ayaq küncünə,",
+      "Qoynunda ki o, mələknən yatağın ayaq küncünə,",
       "Qısınıb güclə oturdu, qızının ovcunu sıxdı,",
       "Qırışan əlləri ilə... Qızı incə bir təbbəssüm,",
       "Edərək pıçıltı ilə 'Can Ata' söyləyə bildi.",
       "Qoca təəccüb ilə baxdı, axı... qız son altı ildi",
-      "Nə danışdı, nə də dindi, Qoca bir balaca sevindi"
+      "Nə danışdı, nə də dindi, Qoca bir balaca sevindi,",
+      "Bir balaca özünə deyindi, 'Bəlkə sən yanlış eşitdin'",
+      "Sual verməyədə utandı qızına 'nə sölədin..? nə....?'",
+      "Qızının əlindən öpüb, deyərək qalxdı 'Ya Allah....'",
+      "Artıq açılırdı sabah, körpə qoynunda yatırdı.",
+      "Öpüb apardı özüylə, qızının otuz il öncə,",
+      "Yatdığı taxta beşikdə, körpənin üsdünü örtdü...",
+      "Sobanın önündə dinməz qızı haqqında düşündü,",
+      "Bilmədi həqiqətən mi qızı..., onu səsləyirdi...?",
+      "Bu vədə qız yenə dindi 'Ata...', 'Ata...' deyirdi.",
+      "Görəsən nə istəyirdi, Qocanı sardı həyacan...",
+      "Qışqırdı 'Can Qızım can' titrəyən dizləri ilə",
+      "Yürüdü, otağa sarı, qızı yatan yatağa sarı....",
+      "Əyilib üzündən öpdü, yaş axan gözündən öpdü,",
+      "Qoca çarəsiz baxışla yatağın küncünə çökdü,",
+      "Hönkürüb göz yaşı tökdü, dünya son ümüd evindən,",
+      "Sonuncu kərpici sökdü, qoca gah bağrına vurdu,",
+      "Gah əlilə dizinə vurdu, bu zaman sərt bir şəkildə,",
+      "Qapı pəncərələr açıldı, şiddətlə soyuq bir külək,",
+      "Qırışan cöhrünə vurdu, yan otaqdan isə digər,",
+      "Körpənin naləsi san ki, qocanı yanına çağırdı.",
+      "O, səsdə həm qızı vardı, həm də ki yoldaşı vardı,",
+      "O, səsdə həm həyat vardı, həm də ki, ölümün öz adı",
+      "Qoca titrək addım attdı, beşiyin yanına çatdı,",
+      "Körpənin üzündə san ki, mələk təbəssümü vardı.",
+      "Qoca baxdı, gözləri doldu, dedi: 'Allah bu nə sirdir?'",
+      "'Görəsən bu körpə kimdir? Mənə ən son sınağındı !?'",
+      "Körpəni bağrına basıb dedi: 'Qızım getdi, sənmi gəldin?'",
+      "'Demək ömür qapanmırmış, ölən ümüdlər doğurmuş'",
+      "Körpə sakitləşdi, susdu, qoca dinməz, sobanın yanında otur.",
+      "Azan sədası duyuldu, qoca da namazını qıldı alnını səcdəyə qoydu,",
+      "Dedi: 'Razıyam İlahi məndən aldın, mənə verdin, gözümü mənaya çevirdin.'",
+      "Ay ötüb zaman keçirdi, körpə isə iməkləyirdi, öz dilində deyinirdi.",
+      "Bir yaşda körpə dil açdı, ilk kəlməsi 'Ata' oldu, qocanın gözləri doldu."
     ]
   },
-  { 
-    title:"AXTARACAQSAN", 
-    category:"Klassik", 
-    text:[
-      "İstərəm, bəyaz bir buluda dönüm,",
-      "Bulud tək səmada başına dönüm.",
-      "Gəlib yetişəcək elə bir dönəm,",
+  {
+    title: "OLAN OLDU BAĞIŞLA",
+    category: "Duygusal",
+    text: [
+      "Tanrıdan tək istəyim, sən idin ki, sənidə,",
+      "Tanrı öz əlləri ilə məndən aldı bağışla.",
+      "Görüşmədən sən demə, var qocalmağımızda,",
+      "İlahinin izni var, bu ayrılmağımızda...,",
+      "Kimsəsiz körpələr tək, ayrı qalmağımızda,",
+      "Günahım yox sən yenə, olan oldu... bağışla.",
+      "İşdir ölüm küləyi, açsa mənə pəncərə...,",
+      "Vidasız getmərəm mən, bu dünyadan heç yerə.",
+      "Soyuq məzarım üstə, məndən sənə xatirə,",
+      "Son ayrılıq məktubum, şeir qaldı... bağışla.",
+      "Saçlarının ətrini, day gətirən külək yox...",
+      "Sən geri qayıdanda, deməz idim gərək 'yox...'",
+      "Ürək deyir 'geri dön...' dilim deyir 'gərək yox...'",
+      "Nifrətim ilə ürək yox, gözüm doldu... bağışla."
+    ]
+  },
+  {
+    title: "BİL Kİ, EY SAQİ",
+    category: "Duygusal",
+    text: [
+      "Bil ki, ey saqi meyin düşkünləri sər-səmdilər,",
+      "Mey camında əks olan surət ilə həmdəmdilər.",
+      "Süz şərabın ətrini duysun bütün divanələr,",
+      "Lərzə salsın aləmi, cingildəyən peymanələr,",
+      "Sənətimiz meyxanalar, neylər bizə biganələr.",
+      "Meyli meyçün fe'l olanlar, biz ilə bahəmdilər.",
+      "Canıva qəsd etməyin, ünvana çatmaqdır kəsə,",
+      "Cananı, can bilməyin qoy ibrət olsun hər kəsə,",
+      "Vermə izni ol yarın, xətmi-dəhanın yel kəsə,",
+      "Var məsəl gül kasəsi, sübhi-səhər şəbnəm dilər."
+    ]
+  },
+  {
+    title: "DEBAT",
+    category: "Klassik",
+    text: [
+      "Aqillər: Dünya rahi-imtahandır Tanrını sevmək gərək",
+      "Cahillər: Tanrı dünyanı bizə sev söylədi biz neyləyək.",
+      "Aqillər: Sevgidir, isdəydi Rəbbani məhəbbətdən keçir.",
+      "Cahillər: Nəfsini sevimiş adamlar tüm həqiqətdən keçir",
+      "Aqillər: Düzdü dünya, dünyanı sərdik yerə hak söylədi.",
+      "Cahillər: Kosmosa fırlat raket sən isbat eylə böylədir.",
+      "Aqillər: Göz verib Allah sənə, göz ilə gəz düz dünyanı.",
+      "Cahillər: Əyri dünyamı sanırsan, düz olan öz dünyanı?!",
+      "Aqillər: Mərhəmət etmək gərək, hər məzluma hər bizərə,",
+      "Cahillər: Əl açar əl tutmaram ismarlaram Peyğəmbərə.",
+      "Aqillər: Aləmə bir daş düşər, başdan-başa çaş-baş düşər.",
+      "Cahillər: Baş dəyər daşdan-daşa başdan daşa daş-qaş düşər.",
+      "Aqillər: Məkri-şeytani əməllərdən uzaq qalmaqdayam",
+      "Cahillər: Nəyşeyi dəmsaz ilə hər şamu zövq almaqdayam.",
+      "Aqillər: Bir düşün aləmləri xəlq eyləyən Allahıda",
+      "Cahillər: Allahın kendi bize bəxş eyləyib iştahıda.",
+      "Aqillər: Yırtıcı İştahımı mən mənliyimdə gizlədim",
+      "Cahillər: Addım-addım nəfsimi bir addım öndə izlədim.",
+      "Aqillər: Təkcə qar yağdırmasıyla xeyli üzlər güldürür.",
+      "Cahillər: Buz beton küncündə evsiz xeyli insan öldürür.",
+      "Aqillər: Tanrıdır nemətləri adəmlərə ehsan edən,",
+      "Cahillər: Kəm düşən Nemət deyil insanları peşman edən!?"
+    ]
+  },
+  {
+    title: "AXDARACAQSAN",
+    category: "Yeni",
+    text: [
+      "İstərəm bəyaz bir buluda dönüm,",
+      "Bulud tək səmada başıva dönüm.",
+      "Gəlib yətişəcək elə bir dönüm.",
+      "Sen meni göylərdə axtaracaqsan",
+      "Ətəyindən yapışsa, hər əli yetən,",
+      "Yanında olduğumu hiss edəcəksən",
+      "Nəfəsimlə saçını dağıtdıqca mən",
+      "İncə əllərinlə darayacaqsan,",
+      "Sən məni göylərdə axdaracaqsan",
+      "Səmada ulduzlar sənə baxdıqca,",
+      "Qopub dan ulduzu yerə axdıqca",
+      "Yağışlar yağdıqca, şimşək çaxdıqca.",
+      "Diksinib pəncərədən boylanacaqsan,",
       "Sən məni göylərdə axtaracaqsan.",
-      "Ətəyindən yapışsa hər əli yetən,",
-      "Yanında olduğumu hiss edəcəksən.",
-      "Nəfəsimlə saçını dağıtdıqca mən,",
-      "İncə əllərinlə darayacaqsan.",
+      "Simsiyah dolmuş bir bulud olacam,",
+      "Bəlkə də arzuma onda çatacam,",
+      "Gözlərin parıldasa, məndə yağacam",
+      "Mənim göz yaşımla islanacaqsan!",
       "Sən məni göylərdə axtaracaqsan."
     ]
   }
-];
+{
+    title: "TÜL ÇƏKİB İŞTAHIMA",
+    category: "Duygusal",
+    text: [
+      "Var mənim heysiyyətim, vardır təmiz şəxsiyyətm,",
+      "Vermərəm bıca yerə bir canımı, bir anımı.",
+      "Uymaram dünyadəki neymətlərə, ziynətlərə.",
+      "Pak təmiz göz yaşı tək, pak saxlaram vicdanımı,",
+      "Olmaram qəddim düta, bir zalimə bir bizata",
+      "Parça-parça min yerə, dur etsələr bir canımı.",
+      "Tül çəkib iştahıma, əhd eyləsəm Allahıma,",
+      "(Hz)İbrahim tək eylərəm, öz övladım qurbanımı,",
+      "Ey Xudayi əhvi qıl, ya birdəfəlik məhvi qıl.",
+      "Azmışam az bilmişəm imanımımı, azanımı.",
+      "Bu halımnan ey Həbibim ölməyimdən qorxuram",
+      "Tozlu rəfdə toz basıb, səccadəmi, quránımı"
+    ]
+  },
+  {
+    title: "ANA TƏBİƏT....4 (Qış fəsli)",
+    category: "Klassik",
+    text: [
+      "Səninlə sevinir ancaq uşaqlar,",
+      "Qırılır budaqlar, donur bulaqlar,",
+      "Kasıb mənzilində yanır ocaqlar,",
+      "Bu yanan ocaq yox, ürəyimizdir,",
+      "Bir aylıq tədarük, çörəyimizdir,",
+      "Arsız qonaqlar tək üç ay qalırsan,",
+      "Səfil küçələrində canlar alırsan,",
+      "Körpə beşiklerin, titrətmə yetər,",
+      "İsti ana qucağı ona bəs edər.",
+      "Hiddətim sənədir, nifrətim sənə,",
+      "Çevrildin bizimçün zalım düşmənə,",
+      "Soyuğun, qırovun, boranın, qarın,",
+      "Vadinin bürüyür hər bir diyarın.",
+      "Tar vurub doldurursan səngərləridə",
+      "Xidmətdə üşüdürsən əsgərləridə,",
+      "Nifrətim bu üzdən sənədir sənə,",
+      "Fitnəni iblislərmi öyrədir sənə!?",
+      "Şahların vicdanın sən dondurur san,",
+      "Vəzirin cibini sən doldurur san,",
+      "Şər atıb yalanlar sən uydurursan",
+      "Bi'zərin daxmasın sən soydurursan,",
+      "Sevən insanları ayırırsan... Hə?!",
+      "Vəhdət ürəkləri sən qırırsan... Hə!?",
+      "Fəsillər içində ən nankorusan,",
+      "Sən, ana təbiətin ögey oğlusan.",
+      "Qüdrətim yettsəydi tutub əlimlə,",
+      "Dar ağacından asardım səni dilimlə.",
+      "- Elmar...",
+      "Səbəb var, saçların çox tez ağarmış!",
+      "Allah dağına görə qar yağdırarmış...!"
+    ]
+  },
+  {
+    title: "SİLƏ BİLMƏZDİM",
+    category: "Duygusal",
+    text: [
+      "Səni sevməkdən qeyri neylədim ?",
+      "Səndən ayrı qalsam ,,ölərəm\" dedim?",
+      "Məni sevənlərə xatir, ölə bilmədim...,",
+      "Cəsarətsizəm mi? ölə bilməzdim?!",
+      "Sən axı sevməyi hardan bilərsən?",
+      "Ögey bir mənzildə yad əllərdəsən.",
+      "Əlimdə çatmazdı..., ele yerdəsən,",
+      "Gəlmək istəsəm də gələ bilməzdim.",
+      "Mənim də təqsirim bunda çoxdur-çox,",
+      "Bağrım qəm lövhesi, kirpiklərin ox.",
+      "Axan göz yaşımı silim eybi yox,",
+      "Adını qəlbimdən silə bilməzdim.",
+      "Cəsarət eyləyib ölə bilsəm də,",
+      "Gəlmək isdesəmdə, gələ bilsəm də,",
+      "Özüm-öz sonumu belə bilsəm də,",
+      "Bu işin sonunu bilə bilməzdim."
+    ]
+  },
+  {
+    title: "YAĞIŞ DAMLALARI",
+    category: "Duygusal",
+    text: [
+      "Qəm yükünə, yüksək dağlar alçalar,",
+      "Qəm suya çevrilsə buludlar alar.",
+      "Qəmimizi bölsək belə sir qalar,",
+      "Sirdaşımız, yağış damlalarıyla.",
+      "Qara-qara günlərimiz ağlandı,",
+      "Gülünecek günümüzə ağlandı,",
+      "Sakkalımız göz yaşıyla islandı,",
+      "Üst-başımız, yağış damlalarıyla.",
+      "Xəyli xətalar oldu, duyğumuzda,",
+      "Reallaşmadı bircə arzumuzda,",
+      "Bu səbəbdən qarışdı ovcumuzda,",
+      "Göz yaşımız, yağış damlalırıyla.",
+      "Ölümümüzə doğma ürəklər yanar,",
+      "İlk iki gün üstumuzdə ağlanar",
+      "Gün nəqədər qurtsada islanar.",
+      "Baş daşımız, yağış damlalarıyla."
+    ]
+  },
+  {
+    title: "İLİM-İLİM İTİB İLİM",
+    category: "Duygusal",
+    text: [
+      "İlim-ilim itib gedir ayım, ilim.",
+      "Kaş ki, zaman çərçivəsin sıxa bilim.",
+      "Tanrı xoşbəxtlik adlanan guşəndə var",
+      "Möhnət ver o pəncərədən baxa bilim.",
+      "Göz yaşımız ovcumuzda çöküb gedir,",
+      "Nəzər salan göz yaşını töküb gedir,",
+      "Bu qara gün qamətimi büküb gedir.",
+      "Mərhəmət et bir ağ günə çıxa bilim."
+    ]
+  }// İstəsən, digər şeirləri də bu formada əlavə edə bilərik...
+    ];
 
 const container = document.getElementById('poemsContainer');
 
