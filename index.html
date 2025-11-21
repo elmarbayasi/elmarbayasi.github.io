@@ -425,4 +425,24 @@
     }
 
     const audio = new Audio("https://cdn.pixabay.com/download/audio/2021/12/13/audio_2b90c6069e.mp3?filename=sadness-122608.mp3");
-    const audioBtn = document.getElementB
+    const audioBtn = document.getElementById("audioControl");
+    let playing = false;
+    audioBtn.addEventListener("click", () => {
+      if (!playing) {
+        audio.play();
+        playing = true;
+        audioBtn.textContent = "⏸️ Dayandır";
+      } else {
+        audio.pause();
+        playing = false;
+        audioBtn.textContent = "🎵 Bütün Şeirləri Dinlə";
+      }
+    });
+
+    // Başlanğıcda hamısını göstə
+    displayPoems(poems);
+  </script>
+
+  <footer>© Elmar Bayasi — Şeirlər toplusu</footer>
+</body>
+</html>
