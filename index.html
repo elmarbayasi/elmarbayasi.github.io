@@ -7,7 +7,7 @@
 <style>
 body {
     margin: 0;
-    background: linear-gradient(to bottom, #0b0018, #1b0033); /* tünd, dağ tonları */
+    background: #000; /* qara fon */
     font-family: "Georgia", serif;
     color: #fff;
 }
@@ -16,7 +16,6 @@ body {
 header {
     text-align: center;
     padding: 50px 10px;
-    background: radial-gradient(circle, rgba(255,255,255,0.05), rgba(11,0,24,1));
 }
 
 header h1 {
@@ -24,38 +23,23 @@ header h1 {
     font-size: 72px;
     letter-spacing: 8px;
     font-weight: bold;
-    color: #e6caff; /* açıq bənövşəyi */
-    text-shadow: 0 0 15px #d18eff, 0 0 25px #aa00ff, 0 0 40px #6600cc;
+    color: #e6caff;
+    text-shadow: 0 0 10px #ffbbff, 0 0 20px #aa00ff, 0 0 30px #6600cc;
 }
 
-/* Bio / Haqqımda */
-.about-me {
-    width: 90%;
-    margin: 30px auto;
-    background: linear-gradient(145deg, #1b002e, #2c004c);
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 0 30px rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.05);
-}
-
-.about-me h2 {
-    font-size: 30px;
-    color: #d1aaff;
-    border-left: 6px solid #aa00ff;
-    padding-left: 15px;
-    text-shadow: 0 0 8px #ffbbff;
-    margin-top: 0;
-    font-weight: 600;
-    font-style: italic;
-}
-
-.about-me pre {
-    white-space: pre-wrap;
-    font-size: 17px;
-    line-height: 1.7;
-    color: #f0e6ff;
-    letter-spacing: 0.5px;
+/* LED Haqqımda / Ayaz */
+#bio {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    font-family: "Courier New", monospace;
+    color: #00ffff;
+    letter-spacing: 2px;
+    text-shadow:
+        0 0 2px #00ffff,
+        0 0 5px #00ffff,
+        0 0 10px #00ffff,
+        0 0 20px #00ffff;
 }
 
 /* Search */
@@ -170,12 +154,9 @@ pre {
 /* Subscribe block */
 #subscribeBlock {
     width: 90%;
-    margin: 30px auto;
-    background: #1a002a;
-    padding: 20px;
-    border-radius: 20px;
+    margin: 20px auto;
     text-align: center;
-    font-size: 16px;
+    color: #fff;
 }
 
 #subscribeBlock input {
@@ -183,7 +164,7 @@ pre {
     border-radius: 8px;
     border: none;
     width: 50%;
-    margin-right: 10px;
+    display: none; /* əvvəldən gizli */
 }
 
 #subscribeBlock button {
@@ -199,6 +180,7 @@ pre {
     display: block;
     margin-top: 10px;
     color: #ffbbff;
+    font-size: 14px;
 }
 </style>
 </head>
@@ -206,18 +188,8 @@ pre {
 
 <header>
     <h1>BAYASI 🎞️</h1>
+    <div id="bio">Ayaz</div>
 </header>
-
-<!-- Haqqımda bölməsi -->
-<div class="about-me">
-    <h2>Haqqımda</h2>
-    <pre>
-Mən Elmar Bəy Asi — sözlərin, qəlbin və düşüncənin səssiz melodiyasını araşdıran bir şair və düşünürəm.
-Yazdığım hər şeir yalnız emosiyalar deyil, həm də insan təfəkkürünün dərin qatlarına işıq salır.
-Hər sətir bir niyyətlə seçilir: ruhun titrəyən incə tellərinə toxunmaq, zamanın labirintində iz buraxmaq,
-və oxucuya yalnız oxumaq deyil, düşünmək fürsəti vermək.
-    </pre>
-</div>
 
 <input type="text" id="searchBox" placeholder="Şeir axtar...">
 <div id="poemsContainer"></div>
@@ -232,13 +204,13 @@ və oxucuya yalnız oxumaq deyil, düşünmək fürsəti vermək.
 
 <!-- Subscribe block -->
 <div id="subscribeBlock">
-    <input type="email" id="subscribeEmail" placeholder="Emailinizi daxil edin">
     <button class="subscribe-btn">Abunə ol</button>
-    <span class="sub-count">13 k abunə</span>
+    <input type="email" id="subscribeEmail" placeholder="Emailinizi daxil edin">
+    <span class="sub-count">347 abunə</span>
 </div>
 
 <script>
-// --- LOCAL STORAGE İLE ŞEİRLƏRİ SAXLA ---
+// --- Poem render ---
 const poemsContainer = document.getElementById("poemsContainer");
 const poemTitle = document.getElementById("poemTitle");
 const poemText = document.getElementById("poemText");
@@ -270,7 +242,6 @@ function renderPoems() {
     attachCommentEvents();
 }
 
-// Admin əlavə etmək
 adminAdd.onclick = () => {
     const title = poemTitle.value.trim();
     const text = poemText.value.trim();
@@ -283,7 +254,7 @@ adminAdd.onclick = () => {
     renderPoems();
 }
 
-// Şərh & ulduz
+// Şərh & stars
 function attachCommentEvents() {
     document.querySelectorAll(".comment-btn").forEach(btn => {
         btn.onclick = () => {
@@ -306,7 +277,6 @@ function attachCommentEvents() {
         };
     });
 
-    // Stars
     document.querySelectorAll(".stars").forEach(starBox => {
         const stars = starBox.querySelectorAll("span");
         stars.forEach((star, idx) => {
@@ -326,14 +296,11 @@ document.getElementById("searchBox").addEventListener("keyup", function() {
 });
 
 // Subscribe button
-document.querySelector(".subscribe-btn").onclick = () => {
-    const email = document.getElementById("subscribeEmail").value.trim();
-    if(!email) return alert("Email daxil edin!");
-    alert(`Təşəkkürlər! ${email} abunə oldu.`); // yalançı abunə
-    document.getElementById("subscribeEmail").value = "";
+const subscribeBtn = document.querySelector(".subscribe-btn");
+const subscribeInput = document.getElementById("subscribeEmail");
+subscribeBtn.onclick = () => {
+    subscribeInput.style.display = subscribeInput.style.display === "inline-block" ? "none" : "inline-block";
 };
-
-// Initial render
 renderPoems();
 </script>
 </body>
