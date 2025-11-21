@@ -10,7 +10,7 @@
     margin: 0;
     font-family: 'Montserrat', sans-serif;
     background-color: #0a0a0a;
-    color: #f0e6ff;
+    color: #e0d6ff;
     line-height: 1.7;
   }
 
@@ -23,8 +23,8 @@
     font-family: 'Cinzel', serif;
     font-size: 5em;
     font-weight: 900;
-    color: #ff00ff;
-    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff99ff, 0 0 30px #ff66ff;
+    color: #6a0dad;
+    text-shadow: 0 0 5px #fff, 0 0 15px #fff, 0 0 30px #b19cd9;
   }
 
   .search-container {
@@ -38,10 +38,11 @@
     padding: 10px 15px;
     font-size: 1.2em;
     border-radius: 10px;
-    border: 2px solid #ff99ff;
+    border: 2px solid #b19cd9;
     outline: none;
     background: #1a001a;
     color: #fff;
+    box-shadow: 0 0 10px #fff;
   }
 
   .poem-container {
@@ -51,12 +52,12 @@
   }
 
   .poem-card {
-    background: linear-gradient(145deg, #1a001a, #330033);
+    background: linear-gradient(145deg, #2a002a, #4b004b);
     border-radius: 15px;
     margin-bottom: 25px;
     padding: 20px;
-    border: 1px solid #ff66ff;
-    box-shadow: 0 0 15px #ff99ff;
+    border: 1px solid #b19cd9;
+    box-shadow: 0 0 15px #fff;
     position: relative;
     transition: transform 0.3s, box-shadow 0.3s;
     cursor: pointer;
@@ -64,7 +65,7 @@
 
   .poem-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 0 30px #ff66ff, 0 0 40px #ff33ff;
+    box-shadow: 0 0 25px #fff, 0 0 35px #b19cd9;
   }
 
   .poem-title {
@@ -72,54 +73,61 @@
     font-size: 2em;
     font-weight: 700;
     margin: 0;
-    color: #ff99ff;
-    text-shadow: 0 0 5px #ff99ff, 0 0 10px #ff66ff;
+    color: #b19cd9;
+    text-shadow: 0 0 3px #fff, 0 0 8px #fff;
   }
 
   .poem-content {
     margin-top: 15px;
     white-space: pre-line;
     font-size: 1.1em;
+    color: #f0e6ff;
+    text-shadow: 0 0 3px #fff;
     display: block;
   }
 
-  .bayasi-sticker {
-    font-family: 'Cinzel', serif;
-    font-size: 2em;
-    color: #ff00ff;
-    position: absolute;
-    bottom: 10px;
-    right: 15px;
-    text-shadow: 0 0 5px #ff00ff, 0 0 15px #ff66ff;
-  }
-
-  .star-btn {
+  .star-container {
     position: absolute;
     top: 15px;
     right: 15px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    font-family: 'Cinzel', serif;
+    color: #ffcc00;
+  }
+
+  .star-btn {
     background: transparent;
     border: none;
     font-size: 1.5em;
-    color: #ffcc00;
     cursor: pointer;
     transition: transform 0.2s;
+    color: #ffcc00;
   }
 
   .star-btn:hover {
     transform: scale(1.3);
   }
 
+  .bayasi-label {
+    font-size: 1.1em;
+    margin-left: 5px;
+    color: #fff;
+    text-shadow: 0 0 3px #fff, 0 0 6px #b19cd9;
+  }
+
   .comment-section {
     margin-top: 15px;
     padding-top: 10px;
-    border-top: 1px solid #ff66ff;
+    border-top: 1px solid #b19cd9;
   }
 
   .comment-section input {
     width: 70%;
     padding: 7px;
     border-radius: 8px;
-    border: 1px solid #ff99ff;
+    border: 1px solid #b19cd9;
     background: #1a001a;
     color: #fff;
     outline: none;
@@ -130,14 +138,15 @@
     margin-left: 5px;
     border-radius: 8px;
     border: none;
-    background: #ff66ff;
+    background: #b19cd9;
     color: #fff;
     cursor: pointer;
     transition: 0.2s;
   }
 
   .comment-section button:hover {
-    background: #ff33ff;
+    background: #fff;
+    color: #6a0dad;
   }
 
   .comments-list {
@@ -152,7 +161,9 @@
     margin-bottom: 5px;
     border-radius: 8px;
     font-size: 0.95em;
+    text-shadow: 0 0 2px #fff;
   }
+
 </style>
 </head>
 <body>
@@ -165,71 +176,76 @@
   <input type="text" id="search" placeholder="Şeirlərdə axtar...">
 </div>
 
-<div class="poem-container" id="poemContainer">
+<div class="poem-container" id="poemContainer"></div>
 
-  <!-- Şeir Card -->
-  <div class="poem-card">
-    <button class="star-btn" onclick="toggleStar(this)">★</button>
-    <div class="poem-title">Göz qırpımında</div>
-    <div class="poem-content">
-Səhər kimsəni görmürəm, axşam iki üz görürəm,
+<script>
+const poems = [
+  {
+    title: "Göz qırpımında",
+    content: `Səhər kimsəni görmürəm, axşam iki üz görürəm,
 İkisidə mələk kimi ağ libasda, həzin-həzin, asta-asta,
 Mənə sarı gəlməkdədir, biri hüzün göz yaşında...
-...
-Hər səhərin axşamı var, hər axşamın səhəri var....
+Hər səhərin axşamı var, hər axşamın səhəri var....`
+  },
+  {
+    title: "Qoca və körpə",
+    content: `Gecənin bir aləmində, məscidin ön qapısında,
+Bir körpə naləsi insanları, haydan-küyə saldı...`
+  },
+  // buraya digər şeirləri əlavə et
+];
+
+// Render şeirlər
+const container = document.getElementById('poemContainer');
+
+poems.forEach((poem, index) => {
+  const card = document.createElement('div');
+  card.className = 'poem-card';
+  card.innerHTML = `
+    <div class="poem-title">${poem.title}</div>
+    <div class="poem-content">${poem.content}</div>
+    <div class="star-container">
+      <button class="star-btn" onclick="toggleStar(this)">☆</button>
+      <button class="star-btn" onclick="toggleStar(this)">☆</button>
+      <button class="star-btn" onclick="toggleStar(this)">☆</button>
+      <span class="bayasi-label">BAYASI ✒️</span>
     </div>
     <div class="comment-section">
       <input type="text" placeholder="Şərh yaz..." class="comment-input">
       <button onclick="addComment(this)">Göndər</button>
       <ul class="comments-list"></ul>
     </div>
-    <div class="bayasi-sticker">BAYASI ✒️</div>
-  </div>
+  `;
+  container.appendChild(card);
+});
 
-  <!-- Digər şeir kartları eyni formatda əlavə olunacaq -->
-  
-</div>
-
-<script>
-  // Axtarış funksiyası
-  const searchInput = document.getElementById('search');
-  const poemContainer = document.getElementById('poemContainer');
-
-  searchInput.addEventListener('input', function() {
-    const filter = this.value.toLowerCase();
-    const cards = poemContainer.querySelectorAll('.poem-card');
-    cards.forEach(card => {
-      const title = card.querySelector('.poem-title').innerText.toLowerCase();
-      const content = card.querySelector('.poem-content').innerText.toLowerCase();
-      if(title.includes(filter) || content.includes(filter)) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
-    });
+// Search funksiyası
+document.getElementById('search').addEventListener('input', function() {
+  const filter = this.value.toLowerCase();
+  document.querySelectorAll('.poem-card').forEach(card => {
+    const title = card.querySelector('.poem-title').innerText.toLowerCase();
+    const content = card.querySelector('.poem-content').innerText.toLowerCase();
+    card.style.display = title.includes(filter) || content.includes(filter) ? 'block' : 'none';
   });
+});
 
-  // Ulduz bəyənmə funksiyası
-  function toggleStar(button) {
-    button.classList.toggle('active');
-    if(button.classList.contains('active')) {
-      button.innerText = '★';
-    } else {
-      button.innerText = '☆';
-    }
-  }
+// Ulduz toggle
+function toggleStar(button) {
+  button.classList.toggle('active');
+  button.innerText = button.classList.contains('active') ? '★' : '☆';
+}
 
-  // Şərh əlavə etmə funksiyası
-  function addComment(button) {
-    const commentInput = button.previousElementSibling;
-    const commentText = commentInput.value.trim();
-    if(commentText === '') return;
-    const commentList = button.nextElementSibling;
-    const li = document.createElement('li');
-    li.textContent = commentText;
-    commentList.appendChild(li);
-    commentInput.value = '';
-  }
+// Şərh əlavə etmə
+function addComment(button) {
+  const input = button.previousElementSibling;
+  const text = input.value.trim();
+  if(!text) return;
+  const list = button.nextElementSibling;
+  const li = document.createElement('li');
+  li.textContent = text;
+  list.appendChild(li);
+  input.value = '';
+}
 </script>
 
 </body>
