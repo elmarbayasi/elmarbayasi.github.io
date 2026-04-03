@@ -2,190 +2,99 @@
 <html lang="az">
 <head>
 <meta charset="UTF-8">
-<title>Ədəbiyyat & İncəsənət</title>
-
+<title>BAYASİ POTREY | TikTok Style</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 <style>
 body {
+  margin:0;
+  font-family: 'Merriweather', serif;
   background-color: #f5ecd9;
-  font-family: "Georgia", serif;
   color: #3e2f1c;
-  margin: 0;
   transition: 0.3s;
+  overflow-x: hidden;
 }
-
-.dark {
-  background-color: #1e1a16;
-  color: #e8dcc7;
-}
-
-.container {
-  max-width: 700px;
-  margin: 40px auto;
-  padding: 20px;
-}
-
-h1 {
-  text-align: center;
-}
-
-.post-box {
-  background: #fffaf0;
-  padding: 15px;
-  border: 1px solid #d6c3a3;
-  border-radius: 10px;
-}
-
-.dark .post-box {
-  background: #2b241d;
-}
-
-input, textarea {
-  width: 100%;
-  margin-top: 10px;
-  border: none;
-  background: transparent;
-  font-family: Georgia;
-  font-size: 15px;
-  outline: none;
-}
-
-button {
-  margin-top: 10px;
-  padding: 10px;
-  background: #8b6f47;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.post {
-  background: #fffaf0;
-  border-left: 5px solid #8b6f47;
-  margin-top: 15px;
-  padding: 12px;
-  border-radius: 6px;
-}
-
-.dark .post {
-  background: #2b241d;
-}
-
-.author {
-  font-weight: bold;
-}
-
-.poem {
-  white-space: pre-line;
-  font-style: italic;
-  margin-top: 5px;
-}
-
-.like {
-  margin-top: 10px;
-  cursor: pointer;
-}
-
-img {
-  max-width: 100%;
-  margin-top: 10px;
-  border-radius: 6px;
-}
-
-.toggle {
-  float: right;
-  cursor: pointer;
-}
+.dark { background-color: #1e1a16; color: #e8dcc7; }
+h1 { text-align:center; font-family: 'Libre Baskerville', serif; font-weight:700; margin:20px 0; }
+.toggle { float:right; cursor:pointer; font-size:24px; margin-top:-10px; }
+.container { max-width: 500px; margin: auto; }
+.post-box { background:#fffaf0; padding:20px; border-radius:12px; margin:15px 0; box-shadow: inset 0 3px 8px rgba(0,0,0,0.1); }
+.dark .post-box { background:#2b241d; box-shadow: inset 0 3px 8px rgba(0,0,0,0.3); }
+input,textarea { width:100%; border:none; background:transparent; font-family:'Merriweather', serif; margin-top:10px; outline:none; }
+textarea { height:100px; resize:none; }
+button { margin-top:10px; padding:10px 18px; background:#8b6f47; color:white; border:none; border-radius:6px; font-family:'Libre Baskerville', serif; font-weight:bold; cursor:pointer; }
+button:hover { background:#6e5637; }
+.feed { display:flex; flex-direction:column; scroll-snap-type:y mandatory; overflow-y:auto; height:70vh; }
+.post { scroll-snap-align:start; background:#fffaf0; border-left:7px solid #8b6f47; margin:15px 0; padding:20px; border-radius:12px; box-shadow:2px 4px 18px rgba(0,0,0,0.15); position:relative; }
+.dark .post { background:#2b241d; box-shadow:2px 4px 18px rgba(0,0,0,0.4); }
+.author { font-weight:bold; margin-bottom:8px; }
+.poem { white-space:pre-line; font-style:italic; line-height:1.8; text-indent:1.5em; font-size:16px; }
+.poem:first-letter { float:left; font-size:3.5em; line-height:1; margin-right:0.12em; font-family:'Libre Baskerville', serif; color:#8b6f47; }
+.like { margin-top:12px; cursor:pointer; font-size:17px; }
+img { max-width:100%; margin-top:12px; border-radius:8px; box-shadow:1px 2px 8px rgba(0,0,0,0.1); }
+.footer { text-align:center; margin-top:25px; font-size:14px; opacity:0.75; font-style:italic; }
 </style>
 </head>
-
 <body>
-
 <div class="container">
-  <h1>
-    ✒️ Ədəbiyyat & İncəsənət
-    <span class="toggle" onclick="toggleDark()">🌙</span>
-  </h1>
-
+  <h1>BAYASİ POTREY ✒️<span class="toggle" onclick="toggleDark()">🌙</span></h1>
   <div class="post-box">
     <input id="author" placeholder="Müəllif adı">
     <textarea id="content" placeholder="Şeir, fikir və ya yazını yaz..."></textarea>
     <input type="file" id="image">
     <button onclick="addPost()">Paylaş</button>
   </div>
-
-  <div id="posts"></div>
+  <div class="feed" id="posts"></div>
+  <div class="footer">Sözlər yaşayır...</div>
 </div>
-
 <script>
 let posts = JSON.parse(localStorage.getItem("posts")) || [];
 
-function renderPosts() {
-  const container = document.getElementById("posts");
-  container.innerHTML = "";
-
-  posts.forEach((p, index) => {
-    const div = document.createElement("div");
-    div.className = "post";
-
-    div.innerHTML = `
+function renderPosts(){
+  const container=document.getElementById("posts");
+  container.innerHTML="";
+  posts.forEach((p,index)=>{
+    const div=document.createElement("div");
+    div.className="post";
+    div.innerHTML=`
       <div class="author">✍️ ${p.author}</div>
       <div class="poem">${p.content}</div>
-      ${p.image ? `<img src="${p.image}">` : ""}
+      ${p.image?`<img src="${p.image}">`:''}
       <div class="like" onclick="likePost(${index})">❤️ ${p.likes}</div>
     `;
-
     container.appendChild(div);
   });
 }
 
-function addPost() {
-  const author = document.getElementById("author").value || "Anonim";
-  const content = document.getElementById("content").value;
-  const file = document.getElementById("image").files[0];
-
-  if (!content) return alert("Boş olmaz");
-
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      savePost(author, content, e.target.result);
-    };
+function addPost(){
+  const author=document.getElementById("author").value||"Anonim";
+  const content=document.getElementById("content").value.trim();
+  const file=document.getElementById("image").files[0];
+  if(!content){ alert("Boş paylaşım olmaz ✍️"); return; }
+  if(file){
+    const reader=new FileReader();
+    reader.onload=function(e){ savePost(author,content,e.target.result); };
     reader.readAsDataURL(file);
-  } else {
-    savePost(author, content, null);
-  }
+  } else { savePost(author,content,null); }
 }
 
-function savePost(author, content, image) {
-  posts.unshift({
-    author,
-    content,
-    image,
-    likes: 0
-  });
-
-  localStorage.setItem("posts", JSON.stringify(posts));
-
-  document.getElementById("author").value = "";
-  document.getElementById("content").value = "";
-  document.getElementById("image").value = "";
-
+function savePost(author,content,image){
+  posts.unshift({author,content,image,likes:0});
+  localStorage.setItem("posts",JSON.stringify(posts));
+  document.getElementById("author").value="";
+  document.getElementById("content").value="";
+  document.getElementById("image").value="";
   renderPosts();
 }
 
-function likePost(index) {
+function likePost(index){
   posts[index].likes++;
-  localStorage.setItem("posts", JSON.stringify(posts));
+  localStorage.setItem("posts",JSON.stringify(posts));
   renderPosts();
 }
 
-function toggleDark() {
-  document.body.classList.toggle("dark");
-}
+function toggleDark(){ document.body.classList.toggle("dark"); }
 
 renderPosts();
 </script>
-
 </body>
 </html>
