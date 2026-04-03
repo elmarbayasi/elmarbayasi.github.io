@@ -5,129 +5,188 @@
 <title>BAYASİ POTREY | TikTok Style Pro</title>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 <style>
-body {
-  margin:0;
-  font-family: 'Merriweather', serif;
-  background-color: #0d1b2a; /* tünd göy fon */
-  color: #e8dcc7;
-  transition: 0.3s;
-  overflow-x: hidden;
+/* Global Reset & Fonts */
+body, html {margin:0; padding:0; font-family: 'Merriweather', serif; background-color:#0d1b2a; color:#e8dcc7; transition:0.3s; overflow-x:hidden;}
+.dark { background-color:#1b263b; color:#f5ecd9; }
+
+/* Header */
+header { text-align:center; margin:20px 0; position:relative; }
+h1 {
+  font-family:'Libre Baskerville', serif; font-weight:700; font-size:2.5rem;
+  color:#f5ecd7;
+  text-shadow: 2px 2px 5px #000000aa, -2px -2px 5px #000000aa;
+  transform: perspective(400px) rotateX(10deg);
+  letter-spacing: 2px;
 }
-.dark { background-color: #1b263b; color: #f5ecd9; }
+.toggle, .settings, .subscribe-btn {
+  position:absolute; top:50%; transform:translateY(-50%);
+  cursor:pointer; font-size:1.5rem; font-weight:bold;
+}
+.toggle { right:50px; }
+.settings { right:120px; }
+.subscribe-btn { right:200px; color:#ffd700; }
 
-h1 { text-align:center; font-family: 'Libre Baskerville', serif; font-weight:700; margin:20px 0; }
-.toggle { float:right; cursor:pointer; font-size:24px; margin-top:-10px; }
+/* Container */
+.container { max-width:600px; margin:auto; padding:0 10px; }
 
-.container { max-width: 500px; margin: auto; }
+/* Post Box */
 .post-box { background:#1f2f44; padding:20px; border-radius:12px; margin:15px 0; box-shadow: inset 0 3px 8px rgba(0,0,0,0.2); }
-.dark .post-box { background:#2b3a55; box-shadow: inset 0 3px 8px rgba(0,0,0,0.3); }
-
-input,textarea { width:100%; border:none; background:transparent; font-family:'Merriweather', serif; margin-top:10px; outline:none; color:#e8dcc7;}
+.dark .post-box { background:#2b3a55; }
+input,textarea { width:100%; border:none; background:transparent; font-family:'Merriweather', serif; margin-top:10px; outline:none; color:#e8dcc7; }
 textarea { height:100px; resize:none; }
 button { margin-top:10px; padding:10px 18px; background:#8b6f47; color:white; border:none; border-radius:6px; font-family:'Libre Baskerville', serif; font-weight:bold; cursor:pointer; }
 button:hover { background:#6e5637; }
 
+/* Feed */
 .feed { display:flex; flex-direction:column; scroll-snap-type:y mandatory; overflow-y:auto; height:70vh; }
 
-.post { scroll-snap-align:start; background:#1f2f44; border-left:7px solid #8b6f47; margin:15px 0; padding:20px; border-radius:12px; box-shadow:2px 4px 18px rgba(0,0,0,0.3); position:relative; }
-.dark .post { background:#2b3a55; box-shadow:2px 4px 18px rgba(0,0,0,0.4); }
+/* Post */
+.post { scroll-snap-align:start; background:#1f2f44; border-left:7px solid #8b6f47; margin:15px 0; padding:20px; border-radius:12px; box-shadow:2px 4px 18px rgba(0,0,0,0.3); position:relative; opacity:0; transform:translateY(30px); transition:all 0.6s ease; }
+.post.show { opacity:1; transform:translateY(0); }
+.dark .post { background:#2b3a55; }
+.post:hover { transform:scale(1.02); box-shadow:4px 6px 25px rgba(0,0,0,0.5); }
 
+/* Post Elements */
 .author { font-weight:bold; margin-bottom:8px; }
 .poem { white-space:pre-line; font-style:italic; line-height:1.8; text-indent:1.5em; font-size:16px; }
 .poem:first-letter { float:left; font-size:3.5em; line-height:1; margin-right:0.12em; font-family:'Libre Baskerville', serif; color:#8b6f47; }
-
-.like { margin-top:12px; cursor:pointer; font-size:17px; display:inline-block; margin-right:10px; }
-.comment { margin-top:10px; font-size:14px; cursor:pointer; display:inline-block; margin-right:10px; color:#ccc; }
-.bookmark { margin-top:10px; font-size:14px; cursor:pointer; display:inline-block; color:#ccc; }
-
+.like, .comment, .bookmark { margin-top:12px; cursor:pointer; font-size:17px; display:inline-block; margin-right:10px; transition:0.2s; }
+.like:hover, .comment:hover, .bookmark:hover { transform:scale(1.2); }
 .comments-section { margin-top:10px; font-size:14px; display:none; }
 .comments-section div { margin-bottom:5px; color:#f0f0f0; }
 img { max-width:100%; margin-top:12px; border-radius:8px; box-shadow:1px 2px 8px rgba(0,0,0,0.3); }
 
-.footer { text-align:center; margin-top:25px; font-size:14px; opacity:0.75; font-style:italic; }
+/* Modal for Subscription */
+.modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:1000; }
+.modal-content { background:#1f2f44; padding:20px; border-radius:12px; max-width:400px; width:90%; text-align:center; }
+.modal-content h2 { margin-bottom:15px; color:#ffd700; }
+.modal-content button { background:#ffd700; color:#1f2f44; }
 
+/* Footer */
+.footer { text-align:center; margin-top:25px; font-size:14px; opacity:0.75; font-style:italic; }
 .hashtag { color:#8b6f47; cursor:pointer; }
+
+/* Responsive */
+@media(max-width:600px){
+  .toggle, .settings, .subscribe-btn { font-size:1.2rem; top:5px; right:auto; margin-left:5px; position:relative; transform:none;}
+  .post-box, .post { padding:15px; }
+}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>BAYASİ POTREY ✒️<span class="toggle" onclick="toggleDark()">🌙</span></h1>
+<header>
+  <h1>BAYASİ POTREY ✒️</h1>
+  <span class="toggle" onclick="toggleDark()">🌙</span>
+  <span class="settings" onclick="openSettings()">⚙️</span>
+  <span class="subscribe-btn" onclick="openSubscribe()">💰 Abunə ol</span>
+</header>
 
+<div class="container">
   <div class="post-box">
     <input id="author" placeholder="Müəllif adı">
     <textarea id="content" placeholder="Şeir, fikir və ya yazını yaz..."></textarea>
     <input type="file" id="image">
     <button onclick="addPost()">Paylaş</button>
   </div>
-
   <div class="feed" id="posts"></div>
   <div class="footer">Sözlər yaşayır...</div>
 </div>
 
+<!-- Subscription Modal -->
+<div class="modal" id="subscribeModal">
+  <div class="modal-content">
+    <h2>Abunəlik</h2>
+    <p>Pro versiyaya keçmək üçün abunə olun. Ödəniş sistemi demo səviyyəsindədir.</p>
+    <button onclick="closeSubscribe()">Bağla</button>
+  </div>
+</div>
+
 <script>
-// Local storage array
-let posts = JSON.parse(localStorage.getItem("posts")) || [];
+// Backend URL
+const API_URL = 'http://localhost:3000'; // server.js işləyirsə
 
 // Helper: parse hashtags
 function parseHashtags(text){
   return text.replace(/#(\w+)/g, `<span class="hashtag">#$1</span>`);
 }
 
-// Render all posts
-function renderPosts(){
+// Render posts from backend
+async function renderPosts(){
+  const res = await fetch(`${API_URL}/posts`);
+  const posts = await res.json();
   const container = document.getElementById("posts");
-  container.innerHTML = "";
+  container.innerHTML="";
   posts.forEach((p,index)=>{
     const div = document.createElement("div");
-    div.className = "post";
+    div.className="post";
     const parsedContent = parseHashtags(p.content);
-    div.innerHTML = `
+    div.innerHTML=`
       <div class="author">✍️ ${p.author}</div>
       <div class="poem">${parsedContent}</div>
       ${p.image?`<img src="${p.image}">`:''}
       <div>
-        <span class="like" onclick="likePost(${index})">❤️ ${p.likes}</span>
+        <span class="like" onclick="likePost('${p._id}')">❤️ ${p.likes}</span>
         <span class="comment" onclick="toggleComments(${index})">💬 ${p.comments.length}</span>
-        <span class="bookmark" onclick="bookmarkPost(${index})">⭐</span>
+        <span class="bookmark" onclick="bookmarkPost('${p._id}')">⭐</span>
       </div>
       <div class="comments-section" id="comments-${index}">
         ${p.comments.map(c=>`<div>✎ ${c}</div>`).join('')}
         <input type="text" id="comment-input-${index}" placeholder="Şərh yaz...">
-        <button onclick="addComment(${index})">Göndər</button>
+        <button onclick="addComment('${p._id}', ${index})">Göndər</button>
       </div>
     `;
     container.appendChild(div);
+    setTimeout(()=>div.classList.add("show"),100*index);
   });
 }
 
 // Add post
-function addPost(){
+async function addPost(){
   const author = document.getElementById("author").value || "Anonim";
   const content = document.getElementById("content").value.trim();
   const file = document.getElementById("image").files[0];
-  if(!content){ alert("Boş paylaşım olmaz ✍️"); return; }
+  let image = null;
   if(file){
     const reader = new FileReader();
-    reader.onload = function(e){ savePost(author,content,e.target.result); };
+    reader.onload = async function(e){
+      image = e.target.result;
+      await fetch(`${API_URL}/posts`,{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({author,content,image})
+      });
+      renderPosts();
+    }
     reader.readAsDataURL(file);
-  } else { savePost(author,content,null); }
+  } else {
+    await fetch(`${API_URL}/posts`,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({author,content,image})
+    });
+    renderPosts();
+  }
 }
 
-// Save post
-function savePost(author,content,image){
-  posts.unshift({author,content,image,likes:0,comments:[],bookmarked:false});
-  localStorage.setItem("posts",JSON.stringify(posts));
-  document.getElementById("author").value="";
-  document.getElementById("content").value="";
-  document.getElementById("image").value="";
+// Like post
+async function likePost(id){
+  await fetch(`${API_URL}/posts/${id}/like`,{method:'POST'});
   renderPosts();
 }
 
-// Like
-function likePost(index){
-  posts[index].likes++;
-  localStorage.setItem("posts",JSON.stringify(posts));
-  renderPosts();
+// Add comment
+async function addComment(id,index){
+  const input = document.getElementById(`comment-input-${index}`);
+  const val = input.value.trim();
+  if(val){
+    await fetch(`${API_URL}/posts/${id}/comment`,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({comment:val})
+    });
+    input.value="";
+    renderPosts();
+  }
 }
 
 // Toggle comment section
@@ -136,28 +195,20 @@ function toggleComments(index){
   sec.style.display = sec.style.display==="block"?"none":"block";
 }
 
-// Add comment
-function addComment(index){
-  const input = document.getElementById(`comment-input-${index}`);
-  const val = input.value.trim();
-  if(val){
-    posts[index].comments.push(val);
-    input.value="";
-    localStorage.setItem("posts",JSON.stringify(posts));
-    renderPosts();
-  }
-}
-
-// Bookmark
-function bookmarkPost(index){
-  posts[index].bookmarked = !posts[index].bookmarked;
-  localStorage.setItem("posts",JSON.stringify(posts));
-  renderPosts();
-}
+// Bookmark (demo)
+function bookmarkPost(id){ alert("Bookmark demo səviyyəsindədir."); }
 
 // Dark mode toggle
 function toggleDark(){ document.body.classList.toggle("dark"); }
 
+// Subscription modal
+function openSubscribe(){ document.getElementById("subscribeModal").style.display="flex"; }
+function closeSubscribe(){ document.getElementById("subscribeModal").style.display="none"; }
+
+// Settings demo
+function openSettings(){ alert("Ayarlar paneli demo səviyyəsindədir."); }
+
+// Init
 renderPosts();
 </script>
 </body>
